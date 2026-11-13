@@ -447,9 +447,17 @@ body {
   50% { transform: translate(30px, -20px) scale(1.12); opacity: 0.72; }
 }
 .aurora-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(72px);
+  pointer-events: none;
   animation: auroraFloat 11s ease-in-out infinite;
 }
 .aurora-orb-delayed {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(72px);
+  pointer-events: none;
   animation: auroraFloat 14s ease-in-out infinite reverse;
 }
 
