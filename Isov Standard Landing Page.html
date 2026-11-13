@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ISOV KOREA | Chương Trình Chuẩn Hóa Spa 5 Sao & Đại Sứ Thương Hiệu</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Google Fonts: MONTSERRAT Toàn bộ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Montserrat"', 'sans-serif'],
+            serif: ['"Montserrat"', 'sans-serif'],
+          },
+          colors: {
+            crimson: {
+              950: '#1c0205',
+              900: '#35050a',
+              800: '#590811',
+              700: '#7d0c18',
+              600: '#a31020',
+            },
+            gold: {
+              200: '#fef08a',
+              300: '#fde047',
+              400: '#facc15',
+              500: '#eab308',
+              600: '#ca8a04',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #1c0205;
+      color: #ffffff;
+      font-family: 'Montserrat', sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* Nền Đỏ Rượu Vang Hoàng Gia */
+    .bg-royal-crimson {
+      background: radial-gradient(circle at 50% 0%, #6e0a15 0%, #2a0408 55%, #140103 100%);
+    }
+
+    /* Chữ Vàng Ánh Kim Chuyển Động */
+    .text-gold-shimmer {
+      background: linear-gradient(
+        90deg,
+        #fde047 0%,
+        #ffffff 25%,
+        #eab308 50%,
+        #ffffff 75%,
+        #fde047 100%
+      );
+      background-size: 200% auto;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      animation: shimmer 4s linear infinite;
+    }
+
+    @keyframes shimmer {
+      to {
+        background-position: 200% center;
+      }
+    }
+
+    /* Thẻ Kính Đỏ Ruby (Glassmorphism) */
+    .ruby-card {
+      background: linear-gradient(145deg, rgba(89, 8, 17, 0.6) 0%, rgba(28, 2, 5, 0.88) 100%);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(250, 204, 21, 0.24);
+      box-shadow: 0 20px 45px -15px rgba(0, 0, 0, 0.75), inset 0 1px 1px rgba(254, 240, 138, 0.15);
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .ruby-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(253, 224, 71, 0.65);
+      box-shadow: 0 25px 50px -12px rgba(234, 179, 8, 0.22), inset 0 1px 2px rgba(254, 240, 138, 0.35);
+    }
+
+    /* Nút Vàng Sáng Nổi Bật */
+    .btn-gold-glow {
+      background: linear-gradient(135deg, #fde047 0%, #eab308 55%, #ca8a04 100%);
+      color: #1c0205;
+      box-shadow: 0 0 25px rgba(250, 204, 21, 0.45);
+      transition: all 0.3s ease;
+    }
+
+    .btn-gold-glow:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 38px rgba(253, 224, 71, 0.85);
+    }
+
+    /* Hiệu ứng cuộn trang */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: all 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Thanh trượt Custom */
+    input[type="range"] {
+      -webkit-appearance: none;
+      appearance: none;
+      background: rgba(255, 255, 255, 0.15);
+      height: 10px;
+      border-radius: 999px;
+      outline: none;
+    }
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #fde047;
+      border: 4px solid #590811;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(253, 224, 71, 0.95);
+      transition: transform 0.2s;
+    }
+    input[type="range"]::-webkit-slider-thumb:hover {
+      transform: scale(1.18);
+    }
+
+    #particle-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+  </style>
+</head>
+<body class="bg-royal-crimson font-sans antialiased selection:bg-gold-400 selection:text-crimson-950">
+
+  <!-- Canvas Hạt Vàng Bay Lơ Lửng -->
+  <canvas id="particle-canvas"></canvas>
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 left-0 right-0 z-50 border-b border-gold-400/20 bg-crimson-950/85 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-gold-300 via-gold-500 to-amber-700 p-[1px] shadow-lg shadow-gold-500/20">
+          <div class="w-full h-full bg-crimson-950 rounded-[11px] flex items-center justify-center">
+            <i data-lucide="crown" class="w-6 h-6 text-gold-300 group-hover:scale-110 transition"></i>
+          </div>
+        </div>
+        <div>
+          <span class="text-[10px] uppercase tracking-[0.25em] text-gold-300 font-bold block">L'AMOUR VIETNAM</span>
+          <span class="text-lg sm:text-xl font-black tracking-wide text-white">ISOV <span class="text-gold-300">STANDARD</span></span>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-7 text-xs font-bold uppercase tracking-wider text-white/80">
+        <a href="#hinh-anh" class="hover:text-gold-300 transition">Hình Ảnh Dự Án</a>
+        <a href="#quy-trinh" class="hover:text-gold-300 transition">Quy Trình 4 Bước</a>
+        <a href="#simulator" class="hover:text-gold-300 transition">9 Nấc Quyền Lợi</a>
+        <a href="#bang-toan-dien" class="hover:text-gold-300 transition">Bảng Tiêu Chuẩn</a>
+        <a href="#dang-ky" class="hover:text-gold-300 transition">Tạo Mẫu Đăng Ký</a>
+      </nav>
+
+      <a href="#dang-ky" class="btn-gold-glow px-5 py-2.5 rounded-full font-extrabold text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2">
+        <span>Đăng Ký Ngay</span>
+        <i data-lucide="copy-check" class="w-4 h-4"></i>
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION KÈM HÌNH ẢNH TRỰC QUAN -->
+  <section class="relative z-10 pt-32 pb-20 lg:pt-40 lg:pb-28 px-4 overflow-hidden">
+    <div class="absolute top-20 left-1/2 -translate-x-1/2 w-[750px] h-[350px] bg-gold-500/15 blur-[140px] rounded-full pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        <!-- Cột Trái: Text Hero -->
+        <div class="lg:col-span-7 text-center lg:text-left">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-crimson-800/80 border border-gold-400/40 text-gold-300 text-xs font-bold tracking-wider uppercase mb-6">
+            <i data-lucide="sparkles" class="w-4 h-4"></i>
+            <span>Chương Trình Vinh Danh & Nâng Hạng 2026 – 2027</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black leading-[1.15] tracking-tight mb-6 uppercase">
+            Chuẩn Hóa <span class="text-gold-shimmer">Spa 5 Sao Hàn Quốc</span> & Đại Sứ ISOV
+          </h1>
+
+          <p class="text-base sm:text-lg text-white/85 leading-relaxed mb-8 font-medium">
+            Hệ thống xét duyệt nâng hạng minh bạch từ <strong class="text-gold-300">Công ty L'amour</strong>: Chuẩn hóa không gian Spa, nâng tầm chuyên môn <strong class="text-gold-300">Cos Master</strong> và trao tặng hàng loạt đặc quyền danh giá hàng tháng cùng Đại sự kiện Vinh danh Tháng 07/2027.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10">
+            <a href="#dang-ky" onclick="switchFormTab('join')" class="btn-gold-glow w-full sm:w-auto px-7 py-4 rounded-full font-extrabold text-sm uppercase tracking-wider flex items-center justify-center gap-2.5">
+              <i data-lucide="user-plus" class="w-5 h-5"></i>
+              <span>1. Đăng Ký Tham Gia</span>
+            </a>
+            <a href="#dang-ky" onclick="switchFormTab('review')" class="w-full sm:w-auto px-7 py-4 rounded-full font-extrabold text-sm uppercase tracking-wider border-2 border-gold-300 bg-crimson-900/60 hover:bg-gold-300 hover:text-crimson-950 text-gold-300 transition flex items-center justify-center gap-2.5">
+              <i data-lucide="award" class="w-5 h-5"></i>
+              <span>2. Đăng Ký Xét Duyệt Sao</span>
+            </a>
+          </div>
+
+          <!-- 3 Chỉ số nhanh -->
+          <div class="grid grid-cols-3 gap-3 sm:gap-4 pt-4 border-t border-gold-400/20">
+            <div>
+              <div class="text-2xl sm:text-3xl font-black text-gold-300">09 Cấp Bậc</div>
+              <div class="text-xs text-white/75 font-medium">Từ 3 Triệu – 360 Triệu</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-black text-gold-300">Mùng 10</div>
+              <div class="text-xs text-white/75 font-medium">Trao quà nhận ngay hàng tháng</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-black text-gold-300">Tháng 07</div>
+              <div class="text-xs text-white/75 font-medium">Vinh danh tại Sự kiện Đại sứ</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cột Phải: Bộ Hình Ảnh Visual Showcase -->
+        <div class="lg:col-span-5">
+          <div class="grid grid-cols-2 gap-4 relative">
+            <!-- Ảnh 1: Không gian Spa 5 sao -->
+            <div class="ruby-card rounded-2xl overflow-hidden col-span-2 relative group">
+              <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=80" alt="Không gian Spa chuẩn 5 sao ISOV" class="w-full h-56 sm:h-64 object-cover group-hover:scale-105 transition duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-crimson-950 via-crimson-950/30 to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between">
+                <div>
+                  <span class="px-2.5 py-1 rounded bg-gold-400 text-crimson-950 text-[10px] font-black uppercase">ISOV 5-Star Standard</span>
+                  <h3 class="text-white font-bold text-sm sm:text-base mt-1">Chuẩn Hóa Không Gian & Thiết Bị Công Nghệ</h3>
+                </div>
+              </div>
+            </div>
+
+            <!-- Ảnh 2: Đào tạo lâm sàng -->
+            <div class="ruby-card rounded-2xl overflow-hidden relative group">
+              <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80" alt="Điều trị lâm sàng ISOV" class="w-full h-44 object-cover group-hover:scale-105 transition duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-crimson-950 via-transparent to-transparent"></div>
+              <div class="absolute bottom-3 left-3 right-3">
+                <div class="text-[11px] font-extrabold text-gold-300 uppercase">Cos Master ISOV</div>
+                <div class="text-xs font-bold text-white">Ứng Dụng Liệu Trình & Case Lâm Sàng</div>
+              </div>
+            </div>
+
+            <!-- Ảnh 3: Vinh danh sự kiện -->
+            <div class="ruby-card rounded-2xl overflow-hidden relative group">
+              <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80" alt="Vinh danh Đại sứ ISOV" class="w-full h-44 object-cover group-hover:scale-105 transition duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-crimson-950 via-transparent to-transparent"></div>
+              <div class="absolute bottom-3 left-3 right-3">
+                <div class="text-[11px] font-extrabold text-gold-300 uppercase">Gala Vinh Danh</div>
+                <div class="text-xs font-bold text-white">Yến Tiệc Đại Sứ & Du Học Hàn Quốc</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: HÌNH ẢNH TIÊU CHUẨN & ĐẶC QUYỀN THỰC TẾ -->
+  <section id="hinh-anh" class="relative z-10 py-16 px-4 border-t border-gold-400/15">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-12 reveal">
+        <span class="text-gold-300 text-xs font-bold uppercase tracking-[0.25em] block mb-2">HÌNH ẢNH MINH HỌA TIÊU CHUẨN</span>
+        <h2 class="text-2xl sm:text-4xl font-black uppercase">Những Giá Trị <span class="text-gold-300">Spa Nhận Được</span></h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 reveal">
+        <div class="ruby-card rounded-2xl overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80" alt="Cơ sở vật chất Spa" class="w-full h-48 object-cover" />
+          <div class="p-6">
+            <span class="text-xs font-extrabold text-gold-300 uppercase">01 • Bảng Hiệu & Nhận Diện</span>
+            <h3 class="text-lg font-bold text-white mt-1 mb-2">Chứng Nhận & Bảng Hiệu Spa Gắn Sao</h3>
+            <p class="text-xs sm:text-sm text-white/75 leading-relaxed">
+              Trang bị bộ nhận diện chính quy từ ISOV Hàn Quốc: Tranh tráng gương, Bảng hiệu Đại sứ, Bảng hiệu Spa 3–5 sao và Lễ trao chứng nhận tại cơ sở.
+            </p>
+          </div>
+        </div>
+
+        <div class="ruby-card rounded-2xl overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80" alt="Đào tạo chuyên gia lâm sàng" class="w-full h-48 object-cover" />
+          <div class="p-6">
+            <span class="text-xs font-extrabold text-gold-300 uppercase">02 • Đào Tạo Chuyên Sâu</span>
+            <h3 class="text-lg font-bold text-white mt-1 mb-2">Cos Master: Basic • Expert • Master</h3>
+            <p class="text-xs sm:text-sm text-white/75 leading-relaxed">
+              Làm chủ công nghệ Meso Peel CL4, HD Ethosome, T.E.G Some, Mesotherapy và nhận Giáo trình Setup Spa 5 Sao chuẩn Hàn Quốc.
+            </p>
+          </div>
+        </div>
+
+        <div class="ruby-card rounded-2xl overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1538485399081-7191377e8241?auto=format&fit=crop&w=800&q=80" alt="Du học thẩm mỹ Hàn Quốc" class="w-full h-48 object-cover" />
+          <div class="p-6">
+            <span class="text-xs font-extrabold text-gold-300 uppercase">03 • Vươn Tầm Quốc Tế</span>
+            <h3 class="text-lg font-bold text-white mt-1 mb-2">Thi Tay Nghề Quảng Châu & Du Học Hàn Quốc</h3>
+            <p class="text-xs sm:text-sm text-white/75 leading-relaxed">
+              Cơ hội trở thành thí sinh hoặc Ban giám khảo tại Quảng Châu (Trung Quốc) và nhận suất du học thẩm mỹ tại Hàn Quốc.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: QUY TRÌNH 4 BƯỚC THAM GIA (CẬP NHẬT ĐÚNG LUỒNG SALE & PHÒNG ĐÀO TẠO) -->
+  <section id="quy-trinh" class="relative z-10 py-20 px-4 bg-crimson-950/60 border-y border-gold-400/15">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+        <span class="text-gold-300 text-xs font-bold uppercase tracking-[0.25em] block mb-2">QUY TRÌNH ĐƠN GIẢN & NHANH CHÓNG</span>
+        <h2 class="text-2xl sm:text-4xl font-black uppercase mb-3">4 Bước Tham Gia & <span class="text-gold-300">Xét Duyệt Hạng Mức</span></h2>
+        <p class="text-white/80 text-sm sm:text-base">
+          Chỉ cần điền thông tin trên web, nhấn <strong class="text-gold-300">Copy nội dung</strong> và gửi kèm hình ảnh cho Sale phụ trách. Mọi dữ liệu doanh số, khóa học và Case lâm sàng sẽ được công ty đối chiếu trực tiếp.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="ruby-card rounded-2xl p-6 relative reveal">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-3xl font-black text-gold-300">BƯỚC 01</span>
+            <div class="w-11 h-11 rounded-xl bg-gold-400/15 border border-gold-300/30 flex items-center justify-center text-gold-300">
+              <i data-lucide="file-badge" class="w-6 h-6"></i>
+            </div>
+          </div>
+          <h3 class="text-lg font-extrabold text-white mb-2">Đăng Ký Tham Gia</h3>
+          <p class="text-xs sm:text-sm text-white/80 leading-relaxed mb-4">
+            Điền form <strong class="text-gold-300">Đăng ký tham gia</strong> bên dưới, bấm Copy văn bản và gửi kèm ảnh <strong class="text-white">Giấy phép kinh doanh Spa</strong> cho Sale phụ trách.
+          </p>
+          <a href="#dang-ky" onclick="switchFormTab('join')" class="text-xs font-extrabold text-gold-300 underline uppercase">Tạo mẫu đăng ký →</a>
+        </div>
+
+        <div class="ruby-card rounded-2xl p-6 relative reveal">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-3xl font-black text-gold-300">BƯỚC 02</span>
+            <div class="w-11 h-11 rounded-xl bg-gold-400/15 border border-gold-300/30 flex items-center justify-center text-gold-300">
+              <i data-lucide="clipboard-check" class="w-6 h-6"></i>
+            </div>
+          </div>
+          <h3 class="text-lg font-extrabold text-white mb-2">Đăng Ký Xét Duyệt</h3>
+          <p class="text-xs sm:text-sm text-white/80 leading-relaxed mb-4">
+            Điền form <strong class="text-gold-300">Xét duyệt</strong> (số nhân sự, số giường, diện tích, máy móc, sản phẩm, bằng cấp, liệu trình), bấm Copy và gửi kèm <strong class="text-white">Hình ảnh Spa</strong> cho Sale.
+          </p>
+          <a href="#dang-ky" onclick="switchFormTab('review')" class="text-xs font-extrabold text-gold-300 underline uppercase">Tạo mẫu xét duyệt →</a>
+        </div>
+
+        <div class="ruby-card rounded-2xl p-6 relative reveal">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-3xl font-black text-gold-300">BƯỚC 03</span>
+            <div class="w-11 h-11 rounded-xl bg-gold-400/15 border border-gold-300/30 flex items-center justify-center text-gold-300">
+              <i data-lucide="search-check" class="w-6 h-6"></i>
+            </div>
+          </div>
+          <h3 class="text-lg font-extrabold text-white mb-2">Công Ty Tra Cứu & Chấm Sao</h3>
+          <p class="text-xs sm:text-sm text-white/80 leading-relaxed">
+            Nhân sự và <strong class="text-white">Phòng Đào Tạo L'amour</strong> sẽ tự động tra cứu Doanh số (01/07/2026 – 30/06/2027), lịch sử học Cos Master và Case lâm sàng để đánh giá cấp bậc / số sao.
+          </p>
+        </div>
+
+        <div class="ruby-card rounded-2xl p-6 relative reveal">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-3xl font-black text-gold-300">BƯỚC 04</span>
+            <div class="w-11 h-11 rounded-xl bg-gold-400/15 border border-gold-300/30 flex items-center justify-center text-gold-300">
+              <i data-lucide="gift" class="w-6 h-6"></i>
+            </div>
+          </div>
+          <h3 class="text-lg font-extrabold text-white mb-2">Trao Quyền Lợi Kép</h3>
+          <p class="text-xs sm:text-sm text-white/80 leading-relaxed">
+            • <strong class="text-gold-300">Quyền lợi nhận ngay:</strong> Gửi tặng hàng tháng (chốt ngày 10) ngay khi đạt tiêu chí.<br>
+            • <strong class="text-gold-300">Quyền lợi sự kiện:</strong> Trao tại Đại sự kiện năm 2027.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: BỘ MÔ PHỎNG TƯƠNG TÁC 9 CẤP BẬC -->
+  <section id="simulator" class="relative z-10 py-20 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-10 reveal">
+        <span class="text-gold-300 text-xs font-bold uppercase tracking-[0.25em] block mb-2">TRA CỨU QUYỀN LỢI TƯƠNG TÁC</span>
+        <h2 class="text-2xl sm:text-4xl font-black uppercase mb-3">Khám Phá <span class="text-gold-shimmer">9 Nấc Thang Quyền Lợi</span></h2>
+        <p class="text-white/80 text-sm sm:text-base">
+          Bấm chọn từng cấp bậc hoặc kéo thanh trượt để xem điều kiện và quyền lợi chi tiết.
+        </p>
+      </div>
+
+      <div class="ruby-card rounded-3xl p-6 sm:p-10 border-2 border-gold-400/35 reveal">
+        <div id="tier-buttons" class="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-9 gap-2 mb-8"></div>
+
+        <div class="mb-10 px-2">
+          <div class="flex justify-between text-xs font-bold text-gold-300 uppercase tracking-wider mb-3">
+            <span>Khởi Đầu: 3 Triệu</span>
+            <span id="slider-current-label" class="text-xs sm:text-sm text-white bg-crimson-800 px-4 py-1 rounded-full border border-gold-300/40 font-extrabold">Cấp bậc 1 / 9</span>
+            <span>Đỉnh Cao: 360 Triệu</span>
+          </div>
+          <input id="tier-slider" type="range" min="0" max="8" value="0" step="1" class="w-full" />
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8 items-stretch">
+          <div class="lg:col-span-5 bg-crimson-950/85 rounded-2xl p-6 sm:p-7 border border-gold-400/25 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-4">
+                <span id="sim-badge" class="px-3 py-1 rounded-full text-xs font-extrabold uppercase bg-gold-400 text-crimson-950">CẤP BẬC 01</span>
+                <span id="sim-course-badge" class="px-3 py-1 rounded-full text-xs font-bold border border-gold-300/40 text-gold-300">COS MASTER: BASIC</span>
+              </div>
+
+              <h3 id="sim-title" class="text-xl sm:text-2xl font-black text-white mb-2">1. ĐẠI LÝ ISOV</h3>
+              <div class="flex items-baseline gap-2 mb-5 pb-5 border-b border-gold-400/15">
+                <span class="text-xs uppercase text-white/60 font-semibold">Doanh số:</span>
+                <span id="sim-revenue" class="text-2xl sm:text-3xl font-black text-gold-300">3 TRIỆU</span>
+                <span class="text-[11px] text-white/60">(Sau CK, chưa VAT)</span>
+              </div>
+
+              <div class="space-y-4 text-xs sm:text-sm">
+                <div>
+                  <div class="text-xs font-extrabold uppercase text-gold-300 mb-1">Chương trình Cos Master (Công ty đối chiếu):</div>
+                  <p id="sim-training" class="text-white/85 leading-relaxed bg-crimson-900/50 p-3 rounded-xl border border-white/10"></p>
+                </div>
+
+                <div>
+                  <div class="text-xs font-extrabold uppercase text-gold-300 mb-1">Điều kiện Hồ sơ Spa & Case lâm sàng:</div>
+                  <p id="sim-criteria" class="text-white/85 leading-relaxed bg-crimson-900/50 p-3 rounded-xl border border-white/10"></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 border-t border-gold-400/15 flex items-center justify-between text-xs text-gold-200 font-bold">
+              <span>Tích lũy: 01/07/2026 – 30/06/2027</span>
+              <a href="#dang-ky" onclick="switchFormTab('review')" class="underline hover:text-white">Tạo mẫu xét duyệt →</a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 grid sm:grid-cols-2 gap-6">
+            <div class="bg-gradient-to-b from-crimson-900/90 to-crimson-950/90 rounded-2xl p-6 border border-gold-400/30 flex flex-col justify-between">
+              <div>
+                <div class="w-11 h-11 rounded-xl bg-gold-400/20 border border-gold-300/40 flex items-center justify-center text-gold-300 mb-4">
+                  <i data-lucide="zap" class="w-6 h-6"></i>
+                </div>
+                <span class="text-[11px] font-extrabold uppercase tracking-wider text-gold-300 block mb-1">Chốt ngày 10 hàng tháng</span>
+                <h4 class="text-lg font-black text-white mb-4 uppercase">Quyền Lợi Nhận Ngay</h4>
+                <ul id="sim-immediate-benefits" class="space-y-2.5 text-xs sm:text-sm text-white/90"></ul>
+              </div>
+              <div class="mt-6 text-[11px] text-white/60 italic">
+                * Nhận hàng tháng ngay khi vừa đạt đủ tiêu chí.
+              </div>
+            </div>
+
+            <div class="bg-gradient-to-b from-amber-950/60 to-crimson-950/90 rounded-2xl p-6 border border-gold-300/50 flex flex-col justify-between relative overflow-hidden">
+              <div>
+                <div class="w-11 h-11 rounded-xl bg-gold-300 text-crimson-950 flex items-center justify-center mb-4 shadow-lg shadow-gold-400/30">
+                  <i data-lucide="trophy" class="w-6 h-6"></i>
+                </div>
+                <span class="text-[11px] font-extrabold uppercase tracking-wider text-gold-300 block mb-1">Sự kiện Tháng 07/2027</span>
+                <h4 class="text-lg font-black text-white mb-4 uppercase">Quyền Lợi Tại Sự Kiện</h4>
+                <ul id="sim-event-benefits" class="space-y-2.5 text-xs sm:text-sm text-white/90"></ul>
+              </div>
+              <div class="mt-6 text-[11px] text-gold-200/85 font-semibold">
+                ★ Trao tại Đại sự kiện Vinh danh Đại sứ & ISOV 5 Sao năm 2027.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: BẢNG TỔNG HỢP 9 CẤP BẬC -->
+  <section id="bang-toan-dien" class="relative z-10 py-16 px-4 border-t border-gold-400/15">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6 reveal">
+        <div>
+          <span class="text-gold-300 text-xs font-bold uppercase tracking-[0.25em] block mb-2">TOÀN BỘ 9 HẠNG MỨC</span>
+          <h2 class="text-2xl sm:text-4xl font-black uppercase">Bảng Tổng Hợp <span class="text-gold-300">Điều Kiện & Quyền Lợi</span></h2>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <button onclick="filterCards('ALL', this)" class="filter-btn px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-wider bg-gold-400 text-crimson-950 transition">Tất cả (9)</button>
+          <button onclick="filterCards('BASIC', this)" class="filter-btn px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-wider bg-crimson-900 border border-gold-400/30 text-gold-200 hover:bg-crimson-800 transition">Basic (2)</button>
+          <button onclick="filterCards('EXPERT', this)" class="filter-btn px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-wider bg-crimson-900 border border-gold-400/30 text-gold-200 hover:bg-crimson-800 transition">Expert (3)</button>
+          <button onclick="filterCards('MASTER', this)" class="filter-btn px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-wider bg-crimson-900 border border-gold-400/30 text-gold-200 hover:bg-crimson-800 transition">Master (4)</button>
+        </div>
+      </div>
+
+      <div id="all-tiers-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- SECTION QUAN TRỌNG NHẤT: CÔNG CỤ TẠO NỘI DUNG ĐĂNG KÝ & COPY GỬI SALE (KHÔNG DÙNG SERVER) -->
+  <section id="dang-ky" class="relative z-10 py-24 px-4 border-t border-gold-400/25 bg-crimson-950/95">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center max-w-3xl mx-auto mb-10 reveal">
+        <span class="text-gold-300 text-xs font-extrabold uppercase tracking-[0.25em] block mb-2">KHÔNG LO LỖI MẠNG • TẠO MẪU NHANH TRONG 30 GIÂY</span>
+        <h2 class="text-2xl sm:text-4xl font-black uppercase mb-3">Tạo Phiếu Đăng Ký & <span class="text-gold-shimmer">Copy Gửi Sale Phụ Trách</span></h2>
+        <p class="text-sm sm:text-base text-white/80">
+          Chọn đúng nhu cầu của bạn bên dưới, điền thông tin để hệ thống tự động soạn sẵn mẫu đăng ký chuẩn. Sau đó nhấn nút <strong class="text-gold-300">Copy Nội Dung</strong> và dán gửi kèm hình ảnh qua Zalo cho Sale phụ trách.
+        </p>
+      </div>
+
+      <!-- 2 Nút Chuyển Chế Độ (Tab) -->
+      <div class="flex flex-col sm:flex-row justify-center gap-4 mb-10 reveal">
+        <button id="tab-btn-join" onclick="switchFormTab('join')" class="px-6 py-4 rounded-2xl font-extrabold text-sm uppercase tracking-wider flex items-center justify-center gap-3 bg-gradient-to-r from-gold-300 to-gold-500 text-crimson-950 shadow-lg shadow-gold-400/30 transition">
+          <i data-lucide="user-check" class="w-5 h-5"></i>
+          <span>Mẫu 1: Đăng Ký Tham Gia Dự Án</span>
+        </button>
+        <button id="tab-btn-review" onclick="switchFormTab('review')" class="px-6 py-4 rounded-2xl font-extrabold text-sm uppercase tracking-wider flex items-center justify-center gap-3 bg-crimson-900/80 border border-gold-400/35 text-gold-200 hover:border-gold-300 transition">
+          <i data-lucide="medal" class="w-5 h-5"></i>
+          <span>Mẫu 2: Đăng Ký Xét Duyệt Cấp Bậc / Sao</span>
+        </button>
+      </div>
+
+      <!-- Khung Form & Bản Xem Trước Copy -->
+      <div class="grid lg:grid-cols-12 gap-8 items-start reveal">
+        
+        <!-- CỘT TRÁI: FORM ĐIỀN THÔNG TIN (7 CỘT) -->
+        <div class="lg:col-span-7 ruby-card rounded-3xl p-6 sm:p-8 border-2 border-gold-400/35">
+          
+          <!-- FORM 1: ĐĂNG KÝ THAM GIA -->
+          <div id="form-panel-join" class="space-y-5">
+            <div class="border-b border-gold-400/20 pb-4">
+              <span class="px-3 py-1 rounded-full bg-gold-400/20 text-gold-300 text-xs font-extrabold uppercase">Bước 1 • Dành cho Spa mới bắt đầu</span>
+              <h3 class="text-xl font-black text-white mt-2 uppercase">Thông Tin Đăng Ký Tham Gia</h3>
+              <p class="text-xs text-white/70 mt-1">Điền thông tin bên dưới, sau đó copy đoạn chữ bên phải và gửi kèm ảnh <strong>Giấy phép kinh doanh Spa</strong> cho Sale phụ trách.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold uppercase text-gold-300 mb-1.5">Tên Thương Hiệu Spa *</label>
+                <input id="join-spa-name" oninput="updateGeneratedText()" type="text" placeholder="VD: Aura Beauty & Clinic" class="w-full px-4 py-3 rounded-xl bg-crimson-950 border border-gold-400/30 text-white text-sm focus:outline-none focus:border-gold-300" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase text-gold-300 mb-1.5">Họ Tên Chủ Spa / Đại Diện *</label>
+                <input id="join-owner" oninput="updateGeneratedText()" type="text" placeholder="VD: Nguyễn Thị Minh Anh" class="w-full px-4 py-3 rounded-xl bg-crimson-950 border border-gold-400/30 text-white text-sm focus:outline-none focus:border-gold-300" />
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold uppercase text-gold-300 mb-1.5">Số Điện Thoại Zalo *</label>
+                <input id="join-phone" oninput="updateGeneratedText()" type="tel" placeholder="VD: 0909 123 456" class="w-full px-4 py-3 rounded-xl bg-crimson-950 border border-gold-400/30 text-white text-sm focus:outline-none focus:border-gold-300" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase text-gold-300 mb-1.5">Tên Sale Phụ Trách (Nếu nhớ)</label>
+                <input id="join-sale" oninput="updateGeneratedText()" type="text" placeholder="VD: Sale Thanh Thảo" class="w-full px-4 py-3 rounded-xl bg-crimson-950 border border-gold-400/30 text-white text-sm focus:outline-none focus:border-gold-300" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase text-gold-300 mb-1.5">Địa Chỉ Cơ Sở Spa *</label>
+              <input id="join-address" oninput="updateGeneratedText()" type="text" placeholder="Nhập số nhà, đường, quận/huyện, tỉnh/thành phố..." class="w-full px-4 py-3 rounded-xl bg-crimson-950 border border-gold-400/30 text-white text-sm focus:outline-none focus:border-gold-300" />
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase text-gold-300 mb-1.5">Cấp Bậc Mục Tiêu Dự Kiến Hướng Tới</label>
+              <select id="join-target" onchange="updateGeneratedText()" class="w-full px-4 py-3 rounded-xl bg-crimson-950 border border-gold-400/30 text-white text-sm focus:outline-none focus:border-gold-300">
+                <option value="1. Đại Lý ISOV (3 Triệu)">1. Đại Lý ISOV (3 Triệu)</option>
+                <option value="2. Spa Đạt Tiêu Chuẩn ISOV Hàn Quốc (10 Triệu)">2. Spa Đạt Tiêu Chuẩn ISOV Hàn Quốc (10 Triệu)</option>
+                <option value="3. Đại Sứ Loyalty (20 Triệu)">3. Đại Sứ Loyalty (20 Triệu)</option>
+                <option value="4. Đại Sứ Leader (50 Triệu)">4. Đại Sứ Leader (50 Triệu)</option>
+                <option value="5. Đại Sứ Clinical (100 Triệu)">5. Đại Sứ Clinical (100 Triệu)</option>
+                <option value="6. Trainer ISOV (150 Triệu)">6. Trainer ISOV (150 Triệu)</option>
+                <option value="7. Spa Đạt 3 Sao ISOV (180 Triệu)">7. Spa Đạt 3 Sao ISOV (180 Triệu)</option>
+                <option value="8. Spa Đạt 4 Sao ISOV (300 Triệu)">8. Spa Đạt 4 Sao ISOV (300 Triệu)</option>
+                <option value="9. Spa Đạt 5 Sao ISOV (360 Triệu)">9. Spa Đạt 5 Sao ISOV (360 Triệu)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- FORM 2: ĐĂNG KÝ XÉT DUYỆT -->
+          <div id="form-panel-review" class="space-y-4 hidden">
+            <div class="border-b border-gold-400/20 pb-4">
+              <span class="px-3 py-1 rounded-full bg-gold-400/20 text-gold-300 text-xs font-extrabold uppercase">Bước 2 • Kê khai năng lực cơ sở Spa</span>
+              <h3 class="text-xl font-black text-white mt-2 uppercase">Thông Tin Đăng Ký Xét Duyệt</h3>
+              <p class="text-xs text-white/70 mt-1">
+                Điền thông số thực tế của Spa bên dưới. Riêng <strong>Doanh số tích lũy, Khóa học Cos Master và Case lâm sàng</strong> sẽ do nhân sự công ty trực tiếp kiểm tra & đối chiếu trên hệ thống.
+              </p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold uppercase text-gold-300 mb-1">Tên Spa Đăng Ký Xét Duyệt *</label>
+                <input id="rev-spa-name" oninput="updateGeneratedText()" type="text" placeholder="VD: Aura Beauty & Clinic" class="w-full px-3.5 py-2.5 rounded-xl bg-crimson-950 border border-gold-400/30 text-white text-sm focus:outline-none focus:border-gold-300" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase text-gold-300 mb-1">Họ Tên Chủ Spa & SĐT *</label>
+                <input id="rev-owner" oninput="updateGeneratedText()" type="text" placeholder="VD: Chị Minh Anh - 0909123456" class="w-full px-3.5 py-2.5 rounded-xl bg-crimson-950 border border-gold-400/30 text-white text-sm focus:outline-none focus:border-gold-300" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase text-gold-300 mb-1">Hạng Mức Đề Nghị Xét Duyệt *</label>
+              <select id="rev-tier" onchange="updateGeneratedText()" class="w-full px-3.5 py-2.5 rounded-xl bg-crimson-950 border border-gold-400/30 text-white text-sm focus:outline-none focus:border-gold-300">
+                <option value="1. Đại Lý ISOV (3 Triệu)">1. Đại Lý ISOV (3 Triệu)</option>
+                <option value="2. Spa Đạt Tiêu Chuẩn ISOV Hàn Quốc (10 Triệu)">2. Spa Đạt Tiêu Chuẩn ISOV Hàn Quốc (10 Triệu)</option>
+                <option value="3. Đại Sứ Loyalty (20 Triệu)">3. Đại Sứ Loyalty (20 Triệu)</option>
+                <option value="4. Đại Sứ Leader (50 Triệu)">4. Đại Sứ Leader (50 Triệu)</option>
+                <option value="5. Đại Sứ Clinical (100 Triệu - Kèm Case Lâm Sàng)">5. Đại Sứ Clinical (100 Triệu - Kèm Case Lâm Sàng)</option>
+                <option value="6. Trainer ISOV (150 Triệu - Kèm Case Lâm Sàng)">6. Trainer ISOV (150 Triệu - Kèm Case Lâm Sàng)</option>
+                <option value="7. Spa Đạt 3 Sao ISOV (180 Triệu)">7. Spa Đạt 3 Sao ISOV (180 Triệu)</option>
+                <option value="8. Spa Đạt 4 Sao ISOV (300 Triệu)">8. Spa Đạt 4 Sao ISOV (300 Triệu)</option>
+                <option value="9. Spa Đạt 5 Sao ISOV (360 Triệu)">9. Spa Đạt 5 Sao ISOV (360 Triệu)</option>
+              </select>
+            </div>
+
+            <div class="grid grid-cols-3 gap-3">
+              <div>
+                <label class="block text-[11px] font-bold uppercase text-gold-300 mb-1">Diện Tích Spa (m²)</label>
+                <input id="rev-area" oninput="updateGeneratedText()" type="text" placeholder="VD: 65m2" class="w-full px-3 py-2.5 rounded-xl bg-crimson-950 border border-gold-400/30 text-white text-sm focus:outline-none focus:border-gold-300" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold uppercase text-gold-300 mb-1">Số Lượng Nhân Sự</label>
+                <input id="rev-staff" oninput="updateGeneratedText()" type="text" placeholder="VD: 5 nhân sự" class="w-full px-3 py-2.5 rounded-xl bg-crimson-950 border border-gold-400/30 text-white text-sm focus:outline-none focus:border-gold-300" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold uppercase text-gold-300 mb-1">Số Giường Spa</label>
+                <input id="rev-beds" oninput="updateGeneratedText()" type="text" placeholder="VD: 6 giường" class="w-full px-3 py-2.5 rounded-xl bg-crimson-950 border border-gold-400/30 text-white text-sm focus:outline-none focus:border-gold-300" />
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold uppercase text-gold-300 mb-1">Máy Móc Công Nghệ Đang Có</label>
+                <input id="rev-machines" oninput="updateGeneratedText()" type="text" placeholder="VD: 6 máy (Laser, Điện di, Ánh sáng...)" class="w-full px-3.5 py-2.5 rounded-xl bg-crimson-950 border border-gold-400/30 text-white text-sm focus:outline-none focus:border-gold-300" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase text-gold-300 mb-1">Số Bằng Cấp Chuyên Môn Chủ Spa</label>
+                <input id="rev-certs" oninput="updateGeneratedText()" type="text" placeholder="VD: 3 bằng cấp / chứng chỉ" class="w-full px-3.5 py-2.5 rounded-xl bg-crimson-950 border border-gold-400/30 text-white text-sm focus:outline-none focus:border-gold-300" />
+              </div>
+            </div>
+
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold uppercase text-gold-300 mb-1">Sản Phẩm ISOV Đang Ứng Dụng</label>
+                <input id="rev-products" oninput="updateGeneratedText()" type="text" placeholder="VD: Meso Peel CL4, EXO PN, Sorex..." class="w-full px-3.5 py-2.5 rounded-xl bg-crimson-950 border border-gold-400/30 text-white text-sm focus:outline-none focus:border-gold-300" />
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase text-gold-300 mb-1">Số Liệu Trình ISOV Đang Có (Trên 17)</label>
+                <input id="rev-protocols" oninput="updateGeneratedText()" type="text" placeholder="VD: 8/17 liệu trình ISOV" class="w-full px-3.5 py-2.5 rounded-xl bg-crimson-950 border border-gold-400/30 text-white text-sm focus:outline-none focus:border-gold-300" />
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold uppercase text-gold-300 mb-1">Ghi Chú Thêm (Case lâm sàng / Link ảnh nếu có)</label>
+              <input id="rev-note" oninput="updateGeneratedText()" type="text" placeholder="VD: Đã gửi kèm 10 ảnh không gian Spa & 2 Case lâm sàng..." class="w-full px-3.5 py-2.5 rounded-xl bg-crimson-950 border border-gold-400/30 text-white text-sm focus:outline-none focus:border-gold-300" />
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CỘT PHẢI: KHUNG VĂN BẢN TỰ ĐỘNG & NÚT COPY GỬI SALE (5 CỘT) -->
+        <div class="lg:col-span-5 ruby-card rounded-3xl p-6 sm:p-8 border-2 border-gold-300/60 bg-crimson-950/90 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs font-extrabold uppercase tracking-wider text-gold-300 flex items-center gap-1.5">
+                <i data-lucide="file-text" class="w-4 h-4"></i>
+                <span>Bản Tin Nhắn Tự Động Soạn Sẵn</span>
+              </span>
+              <span id="preview-mode-badge" class="px-2.5 py-0.5 rounded bg-gold-400 text-crimson-950 text-[10px] font-black uppercase">Đăng ký tham gia</span>
+            </div>
+
+            <textarea id="generated-message" readonly rows="13" class="w-full p-4 rounded-2xl bg-crimson-900/60 border border-gold-400/30 text-white text-xs sm:text-sm font-medium leading-relaxed focus:outline-none resize-none"></textarea>
+
+            <!-- Checklist nhắc khách chuẩn bị hình ảnh -->
+            <div id="attachment-checklist" class="mt-4 p-4 rounded-2xl bg-crimson-900/40 border border-dashed border-gold-300/40 text-xs space-y-1.5">
+              <div class="font-extrabold text-gold-300 uppercase mb-1 flex items-center gap-1.5">
+                <i data-lucide="image-plus" class="w-4 h-4"></i>
+                <span>Hình ảnh cần gửi kèm cho Sale:</span>
+              </div>
+              <div id="checklist-items" class="text-white/85 space-y-1">
+                <!-- Cập nhật động theo Tab -->
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <button onclick="copyGeneratedText()" class="btn-gold-glow w-full py-4 rounded-2xl font-black text-sm sm:text-base uppercase tracking-wider flex items-center justify-center gap-2.5">
+              <i data-lucide="copy" class="w-5 h-5"></i>
+              <span id="copy-btn-text">Copy Nội Dung Gửi Cho Sale</span>
+            </button>
+
+            <div id="copy-toast" class="hidden mt-3 p-3 rounded-xl bg-emerald-900/90 border border-emerald-400 text-center text-xs font-bold text-white">
+              ✓ Đã sao chép thành công! Hãy mở Zalo của Sale phụ trách, dán (Paste) nội dung này và gửi kèm hình ảnh nhé.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: LƯU Ý & QUY ĐỊNH -->
+  <section class="relative z-10 py-16 px-4 border-t border-gold-400/15">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 reveal">
+        <div class="ruby-card p-5 rounded-2xl">
+          <div class="text-gold-300 font-extrabold text-xs uppercase mb-1">1. Doanh số cộng dồn</div>
+          <p class="text-xs text-white/80 leading-relaxed">Tính từ 01/07/2026 đến 30/06/2027 cho mỹ phẩm Công ty L'amour phân phối (sau chiết khấu, chưa VAT).</p>
+        </div>
+        <div class="ruby-card p-5 rounded-2xl">
+          <div class="text-gold-300 font-extrabold text-xs uppercase mb-1">2. Quyền lợi nhận ngay</div>
+          <p class="text-xs text-white/80 leading-relaxed">Mùng 10 hàng tháng cập nhật doanh số và tiến hành gửi tặng ngay các quyền lợi đạt chuẩn.</p>
+        </div>
+        <div class="ruby-card p-5 rounded-2xl">
+          <div class="text-gold-300 font-extrabold text-xs uppercase mb-1">3. Quyền lợi sự kiện</div>
+          <p class="text-xs text-white/80 leading-relaxed">Vinh danh sân khấu, trao bảng hiệu & dự Yến tiệc tại Sự kiện Đại sứ vào Tháng 07/2027.</p>
+        </div>
+        <div class="ruby-card p-5 rounded-2xl">
+          <div class="text-gold-300 font-extrabold text-xs uppercase mb-1">4. Chuyển đổi vượt 360 triệu</div>
+          <p class="text-xs text-white/80 leading-relaxed">Đạt 360 triệu được chuyển đổi doanh số vượt thêm để đăng ký Đại sứ / ISOV Standard cho nhân viên hoặc học viên.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="relative z-10 py-10 px-4 border-t border-gold-400/15 bg-crimson-950 text-center text-xs text-white/60">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-white font-extrabold text-sm uppercase tracking-wider">
+        CÔNG TY TNHH TM DV L'AMOUR – PHÂN PHỐI ĐỘC QUYỀN ISOV HÀN QUỐC
+      </div>
+      <div>
+        Chu kỳ xét duyệt: 01/07/2026 – 30/06/2027 • Sự kiện Vinh danh: Tháng 07/2027
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    const tiersData = [
+      {
+        id: 1,
+        shortName: "1. Đại Lý",
+        name: "1. ĐẠI LÝ ISOV",
+        revenue: "3 TRIỆU",
+        courseLevel: "BASIC",
+        training: "Kiến thức thương hiệu ISOV và danh mục sản phẩm.",
+        criteria: "Có Giấy phép kinh doanh Spa. Không yêu cầu gửi Case lâm sàng.",
+        immediate: [
+          "1. Chứng nhận Đại lý",
+          "2. Liệu trình ISOV",
+          "3. Sổ tay ISOV"
+        ],
+        event: [
+          "Mời tham gia miễn phí Sự kiện Đại sứ ISOV"
+        ]
+      },
+      {
+        id: 2,
+        shortName: "2. Chuẩn ISOV",
+        name: "2. SPA ĐẠT TIÊU CHUẨN ISOV HÀN QUỐC",
+        revenue: "10 TRIỆU",
+        courseLevel: "BASIC",
+        training: "Kiến thức thương hiệu ISOV và danh mục sản phẩm.",
+        criteria: "• Cơ sở vật chất: Diện tích >30m², ≥2 nhân sự, ≥2 giường Spa, ≥4 thiết bị chăm sóc da.<br>• Chuyên môn: Ứng dụng 5/17 liệu trình ISOV, có case điều trị thành công, Chủ Spa có ≥2 bằng cấp chuyên môn.",
+        immediate: [
+          "1. Chứng nhận ISOV Standard",
+          "2. Tranh tráng gương logo ISOV"
+        ],
+        event: [
+          "Mời tham gia miễn phí Sự kiện Đại sứ ISOV"
+        ]
+      },
+      {
+        id: 3,
+        shortName: "3. Loyalty",
+        name: "3. ĐẠI SỨ LOYALTY",
+        revenue: "20 TRIỆU",
+        courseLevel: "EXPERT",
+        training: "Liệu trình Peel thảo dược Hàn Quốc Meso Peel CL4, Công nghệ HD Ethosome, Giải pháp điều trị cho da mụn, lão hóa, sắc tố, nhạy cảm, Ứng dụng ánh sáng và công nghệ T.E.G Some.",
+        criteria: "Hoàn thành khóa đào tạo Cos Master cấp độ EXPERT.",
+        immediate: [
+          "1. Áo choàng ISOV"
+        ],
+        event: [
+          "1. Chứng nhận Đại sứ ISOV Loyalty",
+          "2. Băng đeo Đại sứ Loyalty",
+          "3. Bảng tên đeo áo Đại sứ ISOV Loyalty"
+        ]
+      },
+      {
+        id: 4,
+        shortName: "4. Leader",
+        name: "4. ĐẠI SỨ LEADER",
+        revenue: "50 TRIỆU",
+        courseLevel: "EXPERT",
+        training: "Liệu trình Peel thảo dược Hàn Quốc Meso Peel CL4, Công nghệ HD Ethosome, Giải pháp điều trị cho da mụn, lão hóa, sắc tố, nhạy cảm, Ứng dụng ánh sáng và công nghệ T.E.G Some.",
+        criteria: "Hoàn thành khóa đào tạo Cos Master cấp độ EXPERT.",
+        immediate: [
+          "1. Áo thun ISOV"
+        ],
+        event: [
+          "1. Chứng nhận Đại sứ ISOV Leader",
+          "2. Băng đeo Đại sứ ISOV Leader",
+          "3. Bảng tên đeo áo Đại sứ ISOV Leader",
+          "4. Bảng hiệu Đại sứ ISOV Leader"
+        ]
+      },
+      {
+        id: 5,
+        shortName: "5. Clinical",
+        name: "5. ĐẠI SỨ CLINICAL",
+        revenue: "100 TRIỆU",
+        courseLevel: "EXPERT",
+        training: "Liệu trình Peel thảo dược Hàn Quốc Meso Peel CL4, Công nghệ HD Ethosome, Giải pháp điều trị cho da mụn, lão hóa, sắc tố, nhạy cảm, Ứng dụng ánh sáng và công nghệ T.E.G Some.",
+        criteria: "★ BẮT BUỘC: Có Case lâm sàng thực tế ở Spa gửi về Công ty.",
+        immediate: [
+          "1. Áo Blouse ISOV",
+          "2. ½ suất thí sinh thi tay nghề tại Quảng Châu - Trung Quốc",
+          "3. Tham gia chia sẻ Case lâm sàng tại lớp Zoom"
+        ],
+        event: [
+          "1. Chứng nhận Đại sứ ISOV Clinical",
+          "2. Băng đeo Đại sứ ISOV Clinical",
+          "3. Bảng tên đeo áo Đại sứ ISOV Clinical",
+          "4. Bảng hiệu Đại sứ ISOV Clinical",
+          "5. Thuyết trình Case lâm sàng tại sự kiện",
+          "6. Được tặng 01 vé tham dự Yến tiệc Đại sứ"
+        ]
+      },
+      {
+        id: 6,
+        shortName: "6. Trainer",
+        name: "6. TRAINER ISOV",
+        revenue: "150 TRIỆU",
+        courseLevel: "MASTER",
+        training: "Kỹ thuật lăn kim MTS, Ứng dụng Mesotherapy, Kỹ thuật Massage đá thạch kinh lạc, Nghệ thuật Setup không gian Spa, Phương pháp tư vấn cá nhân hóa khách hàng, chiến lược tạo sự khác biệt cho dịch vụ VIP.",
+        criteria: "★ BẮT BUỘC: Có Case lâm sàng thực tế ở Spa & Hoàn thành khóa MASTER.",
+        immediate: [
+          "1. Giáo trình đào tạo ISOV Hàn Quốc",
+          "2. ½ suất Ban giám khảo thi tay nghề Quảng Châu - Trung Quốc",
+          "3. Tham gia dạy sản phẩm và liệu trình của nhãn hàng ISOV"
+        ],
+        event: [
+          "1. Chứng nhận ISOV Trainer",
+          "2. Bảng tên đeo áo",
+          "3. Bảng để bàn làm việc",
+          "4. Được tặng 01 vé tham dự Yến tiệc Đại sứ"
+        ]
+      },
+      {
+        id: 7,
+        shortName: "7. Spa 3 Sao",
+        name: "7. SPA ĐẠT 3 SAO ISOV",
+        revenue: "180 TRIỆU",
+        courseLevel: "MASTER",
+        training: "Kỹ thuật lăn kim MTS, Ứng dụng Mesotherapy, Kỹ thuật Massage đá thạch kinh lạc, Nghệ thuật Setup không gian Spa, Phương pháp tư vấn cá nhân hóa khách hàng, chiến lược tạo sự khác biệt cho dịch vụ VIP.",
+        criteria: "• Có Case lâm sàng gửi về Công ty.<br>• Cơ sở vật chất: Diện tích 50m²–59m²; từ 3–4 nhân sự; từ 4–5 giường Spa; tối thiểu 5 thiết bị chăm sóc da.<br>• Chuyên môn: Ứng dụng 8/17 liệu trình ISOV; có case thành công; Chủ Spa có ≥2 bằng cấp chuyên môn.",
+        immediate: [
+          "1. Giáo trình Setup Spa 5 sao ISOV Hàn Quốc",
+          "2. Tranh tráng gương hệ thống phân phối ISOV toàn cầu",
+          "3. ½ suất du học thẩm mỹ Hàn Quốc"
+        ],
+        event: [
+          "1. Chứng nhận Spa đạt 3 sao ISOV",
+          "2. Bảng hiệu Spa đạt 3 sao ISOV",
+          "3. Được tặng 01 vé tham dự Yến tiệc Đại sứ"
+        ]
+      },
+      {
+        id: 8,
+        shortName: "8. Spa 4 Sao",
+        name: "8. SPA ĐẠT 4 SAO ISOV",
+        revenue: "300 TRIỆU",
+        courseLevel: "MASTER",
+        training: "Kỹ thuật lăn kim MTS, Ứng dụng Mesotherapy, Kỹ thuật Massage đá thạch kinh lạc, Nghệ thuật Setup không gian Spa, Phương pháp tư vấn cá nhân hóa khách hàng, chiến lược tạo sự khác biệt cho dịch vụ VIP.",
+        criteria: "• Có Case lâm sàng gửi về Công ty.<br>• Cơ sở vật chất: Diện tích 60m²–79m²; từ 5–6 nhân sự; từ 6–7 giường Spa; tối thiểu 6 thiết bị chăm sóc da.<br>• Chuyên môn: Ứng dụng 10/17 liệu trình ISOV; có case thành công; Chủ Spa có ≥3 bằng cấp chuyên môn.",
+        immediate: [
+          "1. Tổ chức Event cho Spa",
+          "2. Đạt 01 suất Giám khảo chuyến thi tay nghề tại Quảng Châu - Trung Quốc"
+        ],
+        event: [
+          "1. Chứng nhận Spa đạt 4 sao ISOV",
+          "2. Bảng hiệu Spa đạt 4 sao ISOV",
+          "3. Được tặng 01 vé tham dự Yến tiệc Đại sứ"
+        ]
+      },
+      {
+        id: 9,
+        shortName: "9. Spa 5 Sao",
+        name: "9. SPA ĐẠT 5 SAO ISOV",
+        revenue: "360 TRIỆU",
+        courseLevel: "MASTER",
+        training: "Kỹ thuật lăn kim MTS, Ứng dụng Mesotherapy, Kỹ thuật Massage đá thạch kinh lạc, Nghệ thuật Setup không gian Spa, Phương pháp tư vấn cá nhân hóa khách hàng, chiến lược tạo sự khác biệt cho dịch vụ VIP.",
+        criteria: "• Có Case lâm sàng gửi về Công ty.<br>• Cơ sở vật chất: Diện tích >80m²; từ 7 nhân sự trở lên; từ 8 giường Spa trở lên; tối thiểu 7 thiết bị chăm sóc da.<br>• Chuyên môn: Ứng dụng 10/17 liệu trình ISOV; có case thành công; Chủ Spa có ≥3 bằng cấp chuyên môn.",
+        immediate: [
+          "1. Tặng 100 áo mưa thiết kế logo Spa",
+          "2. Đạt 01 suất du học thẩm mỹ tại Hàn Quốc",
+          "3. Lễ trao chứng nhận Spa 5 sao tại cơ sở"
+        ],
+        event: [
+          "1. Chứng nhận Spa đạt 5 sao ISOV",
+          "2. Bảng hiệu Spa đạt 5 sao ISOV",
+          "3. CEO được mời trao chứng nhận Đại sứ ISOV Leader và Loyalty",
+          "4. Được tặng 01 vé tham dự Yến tiệc Đại sứ"
+        ]
+      }
+    ];
+
+    const tierButtonsContainer = document.getElementById('tier-buttons');
+    const slider = document.getElementById('tier-slider');
+
+    function renderTierButtons(activeIndex) {
+      tierButtonsContainer.innerHTML = tiersData.map((t, idx) => `
+        <button onclick="selectTier(${idx})" class="px-2 py-2.5 rounded-xl text-xs font-extrabold transition border ${
+          idx === activeIndex
+            ? 'bg-gradient-to-r from-gold-300 to-gold-500 text-crimson-950 border-gold-200 shadow-lg shadow-gold-400/30 scale-105'
+            : 'bg-crimson-950/70 text-white/75 border-gold-400/20 hover:border-gold-300/60 hover:text-white'
+        }">
+          <div class="truncate">${t.shortName}</div>
+          <div class="text-[10px] opacity-80">${t.revenue}</div>
+        </button>
+      `).join('');
+    }
+
+    function selectTier(index) {
+      slider.value = index;
+      renderTierButtons(index);
+      const item = tiersData[index];
+
+      document.getElementById('slider-current-label').textContent = `${item.name} (${item.revenue})`;
+      document.getElementById('sim-badge').textContent = `CẤP BẬC 0${item.id}`;
+      document.getElementById('sim-course-badge').textContent = `COS MASTER: ${item.courseLevel}`;
+      document.getElementById('sim-title').textContent = item.name;
+      document.getElementById('sim-revenue').textContent = item.revenue;
+      document.getElementById('sim-training').innerHTML = item.training;
+      document.getElementById('sim-criteria').innerHTML = item.criteria;
+
+      document.getElementById('sim-immediate-benefits').innerHTML = item.immediate.map(b => `
+        <li class="flex items-start gap-2.5 bg-crimson-950/60 p-3 rounded-xl border border-gold-400/15">
+          <span class="text-gold-300 font-bold">✦</span>
+          <span>${b}</span>
+        </li>
+      `).join('');
+
+      document.getElementById('sim-event-benefits').innerHTML = item.event.map(b => `
+        <li class="flex items-start gap-2.5 bg-crimson-950/60 p-3 rounded-xl border border-gold-300/25">
+          <span class="text-gold-300 font-bold">★</span>
+          <span>${b}</span>
+        </li>
+      `).join('');
+    }
+
+    slider.addEventListener('input', (e) => {
+      selectTier(parseInt(e.target.value, 10));
+    });
+
+    const gridContainer = document.getElementById('all-tiers-grid');
+    function renderAllCards(filter = 'ALL') {
+      const filtered = filter === 'ALL' ? tiersData : tiersData.filter(t => t.courseLevel === filter);
+      gridContainer.innerHTML = filtered.map(t => `
+        <div class="ruby-card rounded-2xl p-6 flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="px-3 py-1 rounded-md text-xs font-extrabold bg-gold-400/20 text-gold-300 border border-gold-300/30">
+                ${t.revenue}
+              </span>
+              <span class="text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 rounded bg-crimson-950 text-white/80 border border-white/10">
+                Cos Master: ${t.courseLevel}
+              </span>
+            </div>
+            <h3 class="text-lg font-black text-white mb-3">${t.name}</h3>
+            <p class="text-xs text-white/75 mb-4 leading-relaxed">${t.criteria}</p>
+
+            <div class="space-y-3 border-t border-gold-400/15 pt-4 text-xs">
+              <div>
+                <div class="font-extrabold text-gold-300 uppercase mb-1">Quyền lợi nhận ngay (Mùng 10):</div>
+                <ul class="space-y-1 text-white/85">
+                  ${t.immediate.map(i => `<li>• ${i}</li>`).join('')}
+                </ul>
+              </div>
+              <div>
+                <div class="font-extrabold text-gold-300 uppercase mb-1">Quyền lợi tại Sự kiện (2027):</div>
+                <ul class="space-y-1 text-white/85">
+                  ${t.event.map(e => `<li>★ ${e}</li>`).join('')}
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <button onclick="document.getElementById('dang-ky').scrollIntoView({behavior:'smooth'}); switchFormTab('review');" class="mt-6 w-full py-2.5 rounded-xl border border-gold-400/30 hover:bg-gold-400 hover:text-crimson-950 text-gold-300 text-xs font-extrabold uppercase tracking-wider transition">
+            Chọn xét duyệt cấp bậc này
+          </button>
+        </div>
+      `).join('');
+    }
+
+    function filterCards(level, btnEl) {
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('bg-gold-400', 'text-crimson-950');
+        btn.classList.add('bg-crimson-900', 'text-gold-200');
+      });
+      btnEl.classList.remove('bg-crimson-900', 'text-gold-200');
+      btnEl.classList.add('bg-gold-400', 'text-crimson-950');
+      renderAllCards(level);
+    }
+
+    // LOGIC TẠO MẪU TIN NHẮN & COPY CHO SALE (2 CHẾ ĐỘ)
+    let currentFormMode = 'join';
+
+    function switchFormTab(mode) {
+      currentFormMode = mode;
+      const btnJoin = document.getElementById('tab-btn-join');
+      const btnReview = document.getElementById('tab-btn-review');
+      const panelJoin = document.getElementById('form-panel-join');
+      const panelReview = document.getElementById('form-panel-review');
+      const badge = document.getElementById('preview-mode-badge');
+
+      if (mode === 'join') {
+        panelJoin.classList.remove('hidden');
+        panelReview.classList.add('hidden');
+        badge.textContent = 'Mẫu 1: Đăng ký tham gia';
+        btnJoin.className = 'px-6 py-4 rounded-2xl font-extrabold text-sm uppercase tracking-wider flex items-center justify-center gap-3 bg-gradient-to-r from-gold-300 to-gold-500 text-crimson-950 shadow-lg shadow-gold-400/30 transition';
+        btnReview.className = 'px-6 py-4 rounded-2xl font-extrabold text-sm uppercase tracking-wider flex items-center justify-center gap-3 bg-crimson-900/80 border border-gold-400/35 text-gold-200 hover:border-gold-300 transition';
+      } else {
+        panelJoin.classList.add('hidden');
+        panelReview.classList.remove('hidden');
+        badge.textContent = 'Mẫu 2: Đăng ký xét duyệt';
+        btnReview.className = 'px-6 py-4 rounded-2xl font-extrabold text-sm uppercase tracking-wider flex items-center justify-center gap-3 bg-gradient-to-r from-gold-300 to-gold-500 text-crimson-950 shadow-lg shadow-gold-400/30 transition';
+        btnJoin.className = 'px-6 py-4 rounded-2xl font-extrabold text-sm uppercase tracking-wider flex items-center justify-center gap-3 bg-crimson-900/80 border border-gold-400/35 text-gold-200 hover:border-gold-300 transition';
+      }
+      updateGeneratedText();
+    }
+
+    function updateGeneratedText() {
+      const textarea = document.getElementById('generated-message');
+      const checklist = document.getElementById('checklist-items');
+
+      if (currentFormMode === 'join') {
+        const spa = document.getElementById('join-spa-name').value || '[Chưa nhập tên Spa]';
+        const owner = document.getElementById('join-owner').value || '[Chưa nhập tên Chủ Spa]';
+        const phone = document.getElementById('join-phone').value || '[Chưa nhập SĐT]';
+        const sale = document.getElementById('join-sale').value || '[Sale phụ trách]';
+        const addr = document.getElementById('join-address').value || '[Chưa nhập địa chỉ]';
+        const target = document.getElementById('join-target').value;
+
+        textarea.value =
+`[ĐĂNG KÝ THAM GIA DỰ ÁN CHUẨN HÓA SPA & ĐẠI SỨ ISOV HÀN QUỐC]
+-----------------------------------------
+• Tên Spa: ${spa}
+• Chủ Spa / Đại diện: ${owner}
+• Số điện thoại Zalo: ${phone}
+• Địa chỉ Spa: ${addr}
+• Cấp bậc mục tiêu: ${target}
+• Sale phụ trách: ${sale}
+-----------------------------------------
+📎 Hồ sơ đính kèm: Hình chụp Giấy phép kinh doanh Spa.
+Nhờ Sale cập nhật hồ sơ đăng ký tham gia chương trình giúp Spa nhé!`;
+
+        checklist.innerHTML = `
+          <div>✅ 01 Hình chụp rõ nét <strong>Giấy phép kinh doanh Spa</strong>.</div>
+          <div>✅ Gửi trực tiếp đoạn tin nhắn đã Copy kèm hình qua Zalo của Sale phụ trách.</div>
+        `;
+      } else {
+        const spa = document.getElementById('rev-spa-name').value || '[Chưa nhập tên Spa]';
+        const owner = document.getElementById('rev-owner').value || '[Chưa nhập tên & SĐT]';
+        const tier = document.getElementById('rev-tier').value;
+        const area = document.getElementById('rev-area').value || '[Chưa nhập]';
+        const staff = document.getElementById('rev-staff').value || '[Chưa nhập]';
+        const beds = document.getElementById('rev-beds').value || '[Chưa nhập]';
+        const machines = document.getElementById('rev-machines').value || '[Chưa nhập]';
+        const certs = document.getElementById('rev-certs').value || '[Chưa nhập]';
+        const products = document.getElementById('rev-products').value || '[Chưa nhập]';
+        const protocols = document.getElementById('rev-protocols').value || '[Chưa nhập]';
+        const note = document.getElementById('rev-note').value || 'Không có';
+
+        textarea.value =
+`[ĐĂNG KÝ XÉT DUYỆT HẠNG MỨC SPA & ĐẠI SỨ ISOV HÀN QUỐC]
+-----------------------------------------
+• Tên Spa: ${spa}
+• Chủ Spa & Liên hệ: ${owner}
+• Đề nghị xét duyệt cấp bậc: ${tier}
+
+[THÔNG SỐ CƠ SỞ VẬT CHẤT & CHUYÊN MÔN]
+1. Kích thước / Diện tích Spa: ${area}
+2. Số lượng nhân sự: ${staff}
+3. Số lượng giường Spa: ${beds}
+4. Máy móc công nghệ: ${machines}
+5. Sản phẩm ISOV đang ứng dụng: ${products}
+6. Liệu trình ISOV đang có: ${protocols}
+7. Bằng cấp chuyên môn của Chủ Spa: ${certs}
+8. Ghi chú thêm: ${note}
+-----------------------------------------
+📌 Phần Doanh số (01/07/2026 - 30/06/2027), lịch sử khóa đào tạo Cos Master và Case lâm sàng (nếu đăng ký từ mức Đại sứ Clinical trở lên) nhờ Sale và Phòng Đào Tạo công ty tra cứu & xét duyệt giúp Spa!`;
+
+        checklist.innerHTML = `
+          <div>✅ Hình ảnh thực tế không gian Spa, phòng điều trị, giường & máy móc công nghệ.</div>
+          <div>✅ Hình chụp các bằng cấp / chứng chỉ chuyên môn của Chủ Spa.</div>
+          <div>✅ Hình ảnh Case lâm sàng thực tế tại Spa (Bắt buộc nếu đăng ký từ mức <strong>Đại sứ Clinical 100 Triệu</strong> trở lên).</div>
+        `;
+      }
+    }
+
+    function copyGeneratedText() {
+      const textarea = document.getElementById('generated-message');
+      textarea.select();
+      textarea.setSelectionRange(0, 99999);
+      navigator.clipboard.writeText(textarea.value);
+
+      const toast = document.getElementById('copy-toast');
+      const btnText = document.getElementById('copy-btn-text');
+      toast.classList.remove('hidden');
+      btnText.textContent = 'ĐÃ COPY! HÃY DÁN GỬI ZALO CHO SALE';
+
+      setTimeout(() => {
+        btnText.textContent = 'Copy Nội Dung Gửi Cho Sale';
+      }, 3500);
+    }
+
+    // Khởi chạy lần đầu
+    selectTier(0);
+    renderAllCards('ALL');
+    updateGeneratedText();
+    lucide.createIcons();
+
+    // Scroll Reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Hiệu ứng hạt Vàng Kim
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    for (let i = 0; i < 40; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 2 + 0.6,
+        dx: (Math.random() - 0.5) * 0.35,
+        dy: -Math.random() * 0.45 - 0.15,
+        alpha: Math.random() * 0.65 + 0.2
+      });
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(253, 224, 71, ${p.alpha})`;
+        ctx.fill();
+
+        p.x += p.dx;
+        p.y += p.dy;
+
+        if (p.y < 0) p.y = canvas.height;
+        if (p.x < 0) p.x = canvas.width;
+        if (p.x > canvas.width) p.x = 0;
+      });
+      requestAnimationFrame(animateParticles);
+    }
+    animateParticles();
+  </script>
+</body>
+</html>

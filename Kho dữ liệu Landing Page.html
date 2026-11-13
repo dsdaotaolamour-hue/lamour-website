@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Siêu Dự Án Kho Dữ Liệu Online - Lamour Spa Knowledge Ecosystem</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+          },
+          colors: {
+            drive: {
+              blue: '#1A73E8',
+              green: '#0F9D58',
+              deepGreen: '#065F46',
+              darkerGreen: '#043F2E',
+              yellow: '#F4B400',
+              red: '#EA4335',
+            }
+          },
+          animation: {
+            'float-slow': 'float 6s ease-in-out infinite',
+            'float-delayed': 'float 6s ease-in-out 2s infinite',
+            'float-fast': 'float 5s ease-in-out 1s infinite',
+            'marquee': 'marquee 28s linear infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' },
+            },
+            marquee: {
+              '0%': { transform: 'translateX(0%)' },
+              '100%': { transform: 'translateX(-50%)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body {
+      background-color: #FFFFFF;
+      color: #0F172A;
+      overflow-x: hidden;
+    }
+
+    /* Nền Hero trắng sáng kết hợp dải sáng Google Drive & Xanh lá đậm */
+    .hero-light-mesh {
+      background-color: #FFFFFF;
+      background-image: 
+        radial-gradient(at 88% 15%, rgba(15, 157, 88, 0.14) 0px, transparent 45%),
+        radial-gradient(at 92% 78%, rgba(244, 180, 0, 0.14) 0px, transparent 40%),
+        radial-gradient(at 12% 20%, rgba(26, 115, 232, 0.10) 0px, transparent 45%);
+    }
+
+    /* Khối Xanh Lá Đậm chủ đạo */
+    .deep-emerald-gradient {
+      background: linear-gradient(125deg, #043F2E 0%, #065F46 48%, #0B7A53 100%);
+    }
+
+    /* Hiệu ứng Reveal khi cuộn */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: all 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Spotlight nhẹ trên nền trắng */
+    .card-hover-lift {
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+    }
+    .card-hover-lift:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px -15px rgba(6, 95, 70, 0.16);
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-emerald-700 selection:text-white">
+
+  <!-- TOP ANNOUNCEMENT BAR (ĐẨY TẦM VÓC DỰ ÁN) -->
+  <div class="bg-[#043F2E] text-white text-[11px] sm:text-xs py-2 px-4 text-center font-semibold tracking-wide border-b border-emerald-700/50">
+    <span class="inline-flex items-center gap-2">
+      <span class="px-2 py-0.5 rounded bg-amber-400 text-slate-950 font-extrabold uppercase text-[10px]">Dự án trọng điểm</span>
+      <span>Hệ sinh thái Tri thức Số hóa 100% trên Google Drive dành riêng cho Đối tác Lamour</span>
+    </span>
+  </div>
+
+  <!-- HEADER NỀN TRẮNG THANH LỊCH -->
+  <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-18 flex items-center justify-between">
+      <!-- Logo Lamour x Google Drive Style -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-center shadow-sm group-hover:scale-105 transition">
+          <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none">
+            <path d="M9 3H15L21 13.5H15L9 3Z" fill="#065F46"/>
+            <path d="M3 13.5L9 3L12 8.25L6 18.75L3 13.5Z" fill="#F4B400"/>
+            <path d="M6 18.75H18L21 13.5H9L6 18.75Z" fill="#1A73E8"/>
+            <path d="M15 13.5H21L18 18.75H12L15 13.5Z" fill="#EA4335"/>
+          </svg>
+        </div>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="font-black tracking-tight text-slate-900 text-base sm:text-lg leading-none">LAMOUR</span>
+            <span class="text-[10px] font-extrabold px-1.5 py-0.5 rounded bg-emerald-100 text-[#065F46]">CLOUD</span>
+          </div>
+          <span class="text-[10px] font-semibold tracking-widest text-slate-500 uppercase block mt-0.5">Knowledge Ecosystem</span>
+        </div>
+      </a>
+
+      <!-- Navigation -->
+      <nav class="hidden lg:flex items-center gap-7 text-xs font-bold uppercase tracking-wider text-slate-600">
+        <a href="#tam-voc" class="hover:text-[#065F46] transition">Tầm vóc dự án</a>
+        <a href="#kho-tai-nguyen" class="hover:text-[#065F46] transition">4 Trụ cột tri thức</a>
+        <a href="#hieu-qua" class="hover:text-[#065F46] transition">Đo lường hiệu quả</a>
+        <a href="#kich-hoat" class="hover:text-[#065F46] transition">Nhận quyền truy cập</a>
+      </nav>
+
+      <!-- Actions -->
+      <div class="flex items-center gap-3">
+        <a href="#kich-hoat" class="hidden sm:inline-flex items-center gap-1.5 bg-[#065F46] hover:bg-[#043F2E] text-white text-xs font-bold px-4 py-2.5 rounded-xl shadow-md shadow-emerald-900/15 transition">
+          <i data-lucide="key-round" class="w-4 h-4 text-amber-300"></i>
+          <span>MỞ KHÓA KHO DỮ LIỆU</span>
+        </a>
+        <button onclick="openAdminModal()" class="text-xs font-bold px-3.5 py-2.5 rounded-xl border border-slate-300 text-slate-700 hover:bg-slate-100 transition flex items-center gap-1.5">
+          <i data-lucide="shield" class="w-4 h-4 text-[#065F46]"></i>
+          <span class="hidden md:inline">ADMIN</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION: NỀN TRẮNG CAO CẤP + ĐẨY CAO TRÀO TẦM VÓC -->
+  <section class="hero-light-mesh relative overflow-hidden border-b border-slate-200/80">
+    <!-- Lưới chấm kỹ thuật nhẹ -->
+    <div class="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-35 pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 lg:py-24 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Cột trái: Tuyên ngôn dự án -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-[#065F46] shadow-sm">
+            <span class="flex h-2.5 w-2.5 relative">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-500 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#065F46]"></span>
+            </span>
+            <span>DỰ ÁN CHUYỂN ĐỔI SỐ TRI THỨC NGÀNH SPA QUY MÔ LỚN</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-[56px] font-black tracking-tight text-slate-900 leading-[1.1]">
+            KHO DỮ LIỆU <br/>
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#043F2E] via-[#0F9D58] to-[#1A73E8]">
+              ONLINE LAMOUR
+            </span>
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-600 font-medium leading-relaxed max-w-2xl">
+            Không chỉ là một thư mục lưu trữ — đây là <strong class="text-slate-900 font-bold">"Bộ Não Chuyên Môn Số Hóa"</strong> được đội ngũ R&D và Đào tạo Lamour kiến tạo trên nền tảng Google Drive, giúp hàng trăm chủ Spa làm chủ phác đồ chuẩn y khoa, rút ngắn 80% thời gian đào tạo và bứt phá doanh thu bền vững.
+          </p>
+
+          <!-- Thanh tìm kiếm thông minh ngay trên Hero -->
+          <div class="max-w-xl pt-1">
+            <div class="relative flex items-center bg-white rounded-2xl border-2 border-emerald-700/20 focus-within:border-[#065F46] shadow-xl shadow-emerald-950/5 p-1.5 transition">
+              <div class="pl-3 pr-2 text-[#065F46]">
+                <i data-lucide="search" class="w-5 h-5"></i>
+              </div>
+              <input 
+                type="text" 
+                id="heroSearchInput"
+                oninput="handleQuickSearch(this.value)"
+                placeholder="Tra cứu nhanh: Phác đồ nám, Meso, Exosome, Mô hình 100tr..." 
+                class="w-full py-2.5 px-2 text-sm text-slate-800 placeholder-slate-400 focus:outline-none font-medium"
+              />
+              <a href="#kho-tai-nguyen" class="bg-[#065F46] hover:bg-[#043F2E] text-white text-xs font-extrabold px-5 py-3 rounded-xl transition shrink-0 uppercase tracking-wider">
+                Khám phá ngay
+              </a>
+            </div>
+            <!-- Hộp gợi ý tìm kiếm tức thì -->
+            <div id="searchResultsBox" class="hidden mt-2 bg-white border border-slate-200 rounded-2xl p-3 shadow-2xl space-y-1.5"></div>
+          </div>
+
+          <!-- 3 Chỉ số khẳng định quy mô dự án -->
+          <div class="grid grid-cols-3 gap-4 pt-4 max-w-xl border-t border-slate-200/80">
+            <div>
+              <div class="text-2xl sm:text-3xl font-black text-[#065F46]">500+</div>
+              <div class="text-xs font-semibold text-slate-500 mt-0.5">Tài liệu & Phác đồ chuẩn</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-black text-[#1A73E8]">4 Trụ cột</div>
+              <div class="text-xs font-semibold text-slate-500 mt-0.5">Phân tầng khoa học</div>
+            </div>
+            <div>
+              <div class="text-2xl sm:text-3xl font-black text-[#0F9D58]">24/7</div>
+              <div class="text-xs font-semibold text-slate-500 mt-0.5">Đồng bộ R&D tức thì</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cột phải: Bảng điều khiển mô phỏng Google Drive sống động trên nền trắng -->
+        <div class="lg:col-span-5">
+          <div class="relative mx-auto max-w-md">
+            <!-- Bóng đổ màu thương hiệu -->
+            <div class="absolute -inset-3 bg-gradient-to-tr from-emerald-500/20 via-blue-500/15 to-amber-400/20 rounded-3xl blur-2xl"></div>
+
+            <div class="relative bg-white rounded-3xl p-6 shadow-[0_20px_50px_rgba(6,95,70,0.14)] border border-slate-200/90 animate-float-slow">
+              <!-- Thanh tiêu đề cửa sổ Drive -->
+              <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-[#EA4335]"></span>
+                  <span class="w-3 h-3 rounded-full bg-[#F4B400]"></span>
+                  <span class="w-3 h-3 rounded-full bg-[#0F9D58]"></span>
+                  <span class="ml-1.5 text-xs font-extrabold text-slate-700">Lamour_Master_Drive</span>
+                </div>
+                <span class="px-2.5 py-1 rounded-full bg-emerald-50 text-[#065F46] text-[10px] font-extrabold border border-emerald-200 flex items-center gap-1">
+                  <i data-lucide="cloud-check" class="w-3.5 h-3.5"></i> Đã xác thực
+                </span>
+              </div>
+
+              <!-- 4 Thư mục tương tác nhanh -->
+              <div class="mt-4 space-y-2.5">
+                <div onclick="openFolderModal('san-pham')" class="cursor-pointer flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-blue-50/80 border border-slate-200/70 hover:border-blue-300 transition group">
+                  <div class="flex items-center gap-3.5">
+                    <div class="w-10 h-10 rounded-xl bg-blue-100 text-[#1A73E8] flex items-center justify-center shrink-0">
+                      <i data-lucide="folder" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <div>
+                      <p class="text-xs sm:text-sm font-extrabold text-slate-800 group-hover:text-[#1A73E8]">01. Kiến thức Sản phẩm ISOV</p>
+                      <p class="text-[11px] text-slate-500 font-medium">Catalogue, hoạt chất & Slide đào tạo</p>
+                    </div>
+                  </div>
+                  <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-[#1A73E8] transition"></i>
+                </div>
+
+                <div onclick="openFolderModal('lieu-trinh')" class="cursor-pointer flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-emerald-50/80 border border-slate-200/70 hover:border-emerald-300 transition group">
+                  <div class="flex items-center gap-3.5">
+                    <div class="w-10 h-10 rounded-xl bg-emerald-100 text-[#065F46] flex items-center justify-center shrink-0">
+                      <i data-lucide="folder" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <div>
+                      <p class="text-xs sm:text-sm font-extrabold text-slate-800 group-hover:text-[#065F46]">02. Liệu trình thực chiến Spa</p>
+                      <p class="text-[11px] text-slate-500 font-medium">Phác đồ Nám, Meso, Peel & Phục hồi</p>
+                    </div>
+                  </div>
+                  <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-[#065F46] transition"></i>
+                </div>
+
+                <div onclick="openFolderModal('khoa-hoc')" class="cursor-pointer flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-amber-50/80 border border-slate-200/70 hover:border-amber-300 transition group">
+                  <div class="flex items-center gap-3.5">
+                    <div class="w-10 h-10 rounded-xl bg-amber-100 text-[#D99B00] flex items-center justify-center shrink-0">
+                      <i data-lucide="folder" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <div>
+                      <p class="text-xs sm:text-sm font-extrabold text-slate-800 group-hover:text-amber-700">03. Khóa học Chuyên môn Da liễu</p>
+                      <p class="text-[11px] text-slate-500 font-medium">Giáo trình chuẩn y khoa & Video soi da</p>
+                    </div>
+                  </div>
+                  <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-amber-600 transition"></i>
+                </div>
+
+                <div onclick="openFolderModal('doanh-thu')" class="cursor-pointer flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-red-50/80 border border-slate-200/70 hover:border-red-300 transition group">
+                  <div class="flex items-center gap-3.5">
+                    <div class="w-10 h-10 rounded-xl bg-red-100 text-[#EA4335] flex items-center justify-center shrink-0">
+                      <i data-lucide="folder" class="w-5 h-5 fill-current"></i>
+                    </div>
+                    <div>
+                      <p class="text-xs sm:text-sm font-extrabold text-slate-800 group-hover:text-[#EA4335]">04. Mô hình Doanh thu 100tr/tháng</p>
+                      <p class="text-[11px] text-slate-500 font-medium">Kịch bản chốt sale, menu & Marketing</p>
+                    </div>
+                  </div>
+                  <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400 group-hover:text-[#EA4335] transition"></i>
+                </div>
+              </div>
+
+              <!-- Footer của Card -->
+              <div class="mt-4 pt-3.5 border-t border-slate-100 flex items-center justify-between text-[11px] font-bold">
+                <span class="text-[#065F46] flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-[#0F9D58] animate-pulse"></span>
+                  Bấm vào từng thư mục để xem thử
+                </span>
+                <span class="text-slate-400">Google Drive™</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DẢI CHỮ CHẠY KHẲNG ĐỊNH GIÁ TRỊ (TICKER) -->
+  <div class="bg-slate-50 border-b border-slate-200 py-3.5 overflow-hidden">
+    <div class="flex whitespace-nowrap animate-marquee gap-10 text-xs font-extrabold uppercase tracking-wider text-slate-600">
+      <span class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#065F46]"></i> Chuẩn hóa phác đồ điều trị y khoa</span>
+      <span class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#1A73E8]"></i> Đồng bộ tức thì trên iPad & Smartphone</span>
+      <span class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#F4B400]"></i> Đào tạo kỹ thuật viên mới nhanh gấp 3 lần</span>
+      <span class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#EA4335]"></i> Lộ trình tăng trưởng doanh thu 100 triệu/tháng</span>
+      <!-- Lặp lại để chạy vô tận -->
+      <span class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#065F46]"></i> Chuẩn hóa phác đồ điều trị y khoa</span>
+      <span class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#1A73E8]"></i> Đồng bộ tức thì trên iPad & Smartphone</span>
+      <span class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#F4B400]"></i> Đào tạo kỹ thuật viên mới nhanh gấp 3 lần</span>
+      <span class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-[#EA4335]"></i> Lộ trình tăng trưởng doanh thu 100 triệu/tháng</span>
+    </div>
+  </div>
+
+  <!-- SECTION 2: ĐẨY CAO TRÀO - TẠI SAO DỰ ÁN NÀY THAY ĐỔI CUỘC CHƠI CHO CHỦ SPA? -->
+  <section id="tam-voc" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 reveal">
+    <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+      <span class="text-xs font-extrabold uppercase tracking-widest text-[#065F46] bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-200">
+        Bước ngoặt vận hành Spa hiện đại
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-black text-slate-900 leading-tight">
+        Chấm dứt cảnh "Bơi trong đống tài liệu rời rạc"
+      </h2>
+      <p class="text-sm sm:text-base text-slate-600 font-medium">
+        85% chủ Spa mất hàng giờ mỗi tuần chỉ để tìm lại một bảng thành phần, hỏi lại quy trình mix hoạt chất hoặc đào tạo lại từ đầu mỗi khi có nhân sự mới. Dự án <strong class="text-slate-900">Kho Dữ Liệu Online Lamour</strong> được xây dựng để giải quyết triệt để bài toán đó.
+      </p>
+    </div>
+
+    <!-- So sánh Trước & Sau khi có Kho Dữ Liệu -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-12">
+      <!-- Cột Trái: Cách làm cũ -->
+      <div class="rounded-3xl p-7 sm:p-8 bg-slate-50 border border-slate-200 space-y-5">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center">
+            <i data-lucide="alert-triangle" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="font-extrabold text-lg text-slate-800">Vận hành theo cách truyền thống</h3>
+            <p class="text-xs text-slate-500 font-medium">Phân mảnh, phụ thuộc vào trí nhớ cá nhân</p>
+          </div>
+        </div>
+        <ul class="space-y-3.5 text-sm text-slate-600">
+          <li class="flex items-start gap-3">
+            <i data-lucide="x-circle" class="w-5 h-5 text-rose-500 shrink-0 mt-0.5"></i>
+            <span>Tài liệu trôi nổi trên nhiều nhóm chat Zalo, Messenger, lúc cần tư vấn khách lại không tìm thấy.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i data-lucide="x-circle" class="w-5 h-5 text-rose-500 shrink-0 mt-0.5"></i>
+            <span>Mỗi kỹ thuật viên hiểu và thực hiện phác đồ một kiểu, thiếu tính đồng nhất y khoa.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i data-lucide="x-circle" class="w-5 h-5 text-rose-500 shrink-0 mt-0.5"></i>
+            <span>Chủ Spa kiệt sức vì phải trực tiếp cầm tay chỉ việc lặp đi lặp lại cho từng nhân sự mới.</span>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Cột Phải: Sức mạnh Kho Dữ Liệu Lamour (Xanh lá đậm nổi bật) -->
+      <div class="deep-emerald-gradient rounded-3xl p-7 sm:p-8 text-white shadow-2xl shadow-emerald-950/20 space-y-5 relative overflow-hidden">
+        <div class="absolute -right-12 -bottom-12 w-56 h-56 bg-white/10 rounded-full blur-2xl pointer-events-none"></div>
+        <div class="flex items-center gap-3 relative z-10">
+          <div class="w-10 h-10 rounded-xl bg-white/15 text-amber-300 flex items-center justify-center backdrop-blur-sm">
+            <i data-lucide="crown" class="w-5 h-5"></i>
+          </div>
+          <div>
+            <h3 class="font-extrabold text-lg text-white">Sức mạnh Kho Dữ Liệu Online Lamour</h3>
+            <p class="text-xs text-emerald-200 font-medium">Tập trung, chuẩn hóa & nâng cấp liên tục</p>
+          </div>
+        </div>
+        <ul class="space-y-3.5 text-sm text-emerald-50 relative z-10">
+          <li class="flex items-start gap-3">
+            <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-300 shrink-0 mt-0.5"></i>
+            <span><strong>Tra cứu 3 giây ngay tại giường trị liệu:</strong> Mở iPad hoặc điện thoại là có ngay phác đồ chuẩn từng mililit.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-300 shrink-0 mt-0.5"></i>
+            <span><strong>Hệ thống hóa từ A-Z:</strong> Đóng gói trọn vẹn từ kiến thức hoạt chất, bệnh lý da đến kịch bản chốt sale 100 triệu/tháng.</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <i data-lucide="check-circle-2" class="w-5 h-5 text-amber-300 shrink-0 mt-0.5"></i>
+            <span><strong>Tự động cập nhật từ phòng R&D:</strong> Mọi công trình nghiên cứu mới của Lamour tự động đồng bộ vào kho của bạn mà không cần xin lại link.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Banner Sứ Mệnh Chồng Lớp 3D (Giữ tinh thần thiết kế gốc trên nền trắng & xanh lá đậm) -->
+    <div class="deep-emerald-gradient rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xl relative overflow-hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+        <!-- Cụm 3 lớp lơ lửng -->
+        <div class="lg:col-span-4 flex justify-center items-center py-6">
+          <div class="relative w-44 h-44 flex items-center justify-center">
+            <div class="absolute w-32 h-32 rounded-2xl bg-blue-400/35 border border-white/40 backdrop-blur-md rotate-45 translate-y-8 shadow-xl animate-float-delayed"></div>
+            <div class="absolute w-32 h-32 rounded-2xl bg-emerald-300/45 border border-white/60 backdrop-blur-md rotate-45 translate-y-0 shadow-xl animate-float-fast"></div>
+            <div class="absolute w-32 h-32 rounded-2xl bg-white/90 border border-white backdrop-blur-md rotate-45 -translate-y-8 shadow-2xl animate-float-slow flex items-center justify-center">
+              <i data-lucide="layers" class="w-10 h-10 text-[#065F46] -rotate-45"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-8 space-y-5">
+          <div class="bg-white text-slate-900 rounded-2xl p-6 sm:p-8 shadow-lg">
+            <p class="text-base sm:text-xl font-extrabold leading-relaxed text-slate-800">
+              “Chúng tôi không chỉ trao cho bạn sản phẩm — Lamour trao cho bạn cả một hệ thống tri thức chuẩn y khoa và mô hình kinh doanh đã được kiểm chứng thực tế, giúp Spa của bạn vận hành tự động và tăng trưởng vượt bậc.”
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
+            <div class="bg-white text-[#043F2E] font-extrabold text-xs sm:text-sm py-3.5 px-4 rounded-xl text-center shadow-md flex items-center justify-center gap-2">
+              <i data-lucide="zap" class="w-4 h-4 text-[#0F9D58]"></i>
+              <span>Kiến thức thực chiến</span>
+            </div>
+            <div class="bg-white text-[#043F2E] font-extrabold text-xs sm:text-sm py-3.5 px-4 rounded-xl text-center shadow-md flex items-center justify-center gap-2">
+              <i data-lucide="file-check-2" class="w-4 h-4 text-[#1A73E8]"></i>
+              <span>Tài liệu chuẩn y khoa</span>
+            </div>
+            <div class="bg-white text-[#043F2E] font-extrabold text-xs sm:text-sm py-3.5 px-4 rounded-xl text-center shadow-md flex items-center justify-center gap-2">
+              <i data-lucide="refresh-cw" class="w-4 h-4 text-[#F4B400]"></i>
+              <span>Cập nhật liên tục 24/7</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: 4 TRỤ CỘT TRI THỨC (4 MÀU GOOGLE DRIVE TRÊN NỀN TRẮNG) -->
+  <section id="kho-tai-nguyen" class="bg-slate-50/90 border-y border-slate-200/80 py-16 sm:py-20 reveal">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+        <div>
+          <span class="text-xs font-extrabold uppercase tracking-widest text-[#065F46]">Cấu trúc kho dữ liệu Google Drive</span>
+          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-1">4 Trụ Cột Tri Thức Cốt Lõi</h2>
+          <p class="text-sm text-slate-600 mt-2 max-w-2xl font-medium">
+            Bấm vào từng phân khu bên dưới để xem trước danh mục tài liệu chi tiết và trải nghiệm cấu trúc thư mục trực quan.
+          </p>
+        </div>
+        <a href="#kich-hoat" class="inline-flex items-center gap-2 bg-white hover:bg-emerald-50 text-[#065F46] border border-emerald-300 font-extrabold text-xs px-4 py-3 rounded-xl shadow-sm transition shrink-0">
+          <span>Yêu cầu cấp quyền toàn bộ 4 kho</span>
+          <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Trụ cột 1: Xanh dương Drive -->
+        <div onclick="openFolderModal('san-pham')" class="card-hover-lift cursor-pointer bg-white rounded-3xl p-6 border border-slate-200 border-t-4 border-t-[#1A73E8] flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-12 h-12 rounded-2xl bg-blue-50 text-[#1A73E8] flex items-center justify-center group-hover:scale-110 transition">
+                <i data-lucide="flask-conical" class="w-6 h-6"></i>
+              </div>
+              <span class="text-[11px] font-extrabold px-2.5 py-1 rounded-full bg-blue-50 text-[#1A73E8]">KHO 01 • 48+ FILES</span>
+            </div>
+            <h3 class="text-lg font-extrabold text-slate-900 mb-2.5 group-hover:text-[#1A73E8] transition">
+              Kiến thức Sản phẩm công ty
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+              Toàn bộ hồ sơ khoa học thương hiệu <strong>ISOV</strong> và dược mỹ phẩm Hàn Quốc: bảng thành phần, cơ chế thẩm thấu, chỉ định & chống chỉ định.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-extrabold text-[#1A73E8]">
+            <span>Xem trước thư mục</span>
+            <i data-lucide="folder-open" class="w-4 h-4"></i>
+          </div>
+        </div>
+
+        <!-- Trụ cột 2: Xanh lá đậm Drive -->
+        <div onclick="openFolderModal('lieu-trinh')" class="card-hover-lift cursor-pointer bg-white rounded-3xl p-6 border border-slate-200 border-t-4 border-t-[#065F46] flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-12 h-12 rounded-2xl bg-emerald-50 text-[#065F46] flex items-center justify-center group-hover:scale-110 transition">
+                <i data-lucide="sparkles" class="w-6 h-6"></i>
+              </div>
+              <span class="text-[11px] font-extrabold px-2.5 py-1 rounded-full bg-emerald-50 text-[#065F46]">KHO 02 • 36+ PHÁC ĐỒ</span>
+            </div>
+            <h3 class="text-lg font-extrabold text-slate-900 mb-2.5 group-hover:text-[#065F46] transition">
+              Kiến thức Liệu trình cho Spa
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+              Cập nhật chi tiết từng bước thực hành lâm sàng tại Spa từ cơ bản đến chuyên sâu: Mesotherapy, Peel da sinh học, điều trị nám & phục hồi.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-extrabold text-[#065F46]">
+            <span>Xem trước thư mục</span>
+            <i data-lucide="folder-open" class="w-4 h-4"></i>
+          </div>
+        </div>
+
+        <!-- Trụ cột 3: Vàng Drive -->
+        <div onclick="openFolderModal('khoa-hoc')" class="card-hover-lift cursor-pointer bg-white rounded-3xl p-6 border border-slate-200 border-t-4 border-t-[#F4B400] flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-12 h-12 rounded-2xl bg-amber-50 text-[#D99B00] flex items-center justify-center group-hover:scale-110 transition">
+                <i data-lucide="graduation-cap" class="w-6 h-6"></i>
+              </div>
+              <span class="text-[11px] font-extrabold px-2.5 py-1 rounded-full bg-amber-50 text-amber-800">KHO 03 • 24+ BÀI GIẢNG</span>
+            </div>
+            <h3 class="text-lg font-extrabold text-slate-900 mb-2.5 group-hover:text-amber-600 transition">
+              Khóa học Chuyên môn Da liễu
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+              Giáo trình da liễu tổng quan, phân loại tuýp da Fitzpatrick, chẩn đoán bệnh lý sắc tố, mụn, lão hóa và xử lý phản ứng sau trị liệu.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-extrabold text-amber-700">
+            <span>Xem trước thư mục</span>
+            <i data-lucide="folder-open" class="w-4 h-4"></i>
+          </div>
+        </div>
+
+        <!-- Trụ cột 4: Đỏ Drive -->
+        <div onclick="openFolderModal('doanh-thu')" class="card-hover-lift cursor-pointer bg-white rounded-3xl p-6 border border-slate-200 border-t-4 border-t-[#EA4335] flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-12 h-12 rounded-2xl bg-red-50 text-[#EA4335] flex items-center justify-center group-hover:scale-110 transition">
+                <i data-lucide="trending-up" class="w-6 h-6"></i>
+              </div>
+              <span class="text-[11px] font-extrabold px-2.5 py-1 rounded-full bg-red-50 text-[#EA4335]">KHO 04 • BÍ QUYẾT TĂNG TRƯỞNG</span>
+            </div>
+            <h3 class="text-lg font-extrabold text-slate-900 mb-2.5 group-hover:text-[#EA4335] transition">
+              Mô hình Doanh thu 100 triệu/tháng
+            </h3>
+            <p class="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+              Bộ công cụ thực chiến giúp chủ Spa đóng gói menu dịch vụ lợi nhuận cao, kịch bản chốt liệu trình và kho tư liệu Marketing hút khách.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between text-xs font-extrabold text-[#EA4335]">
+            <span>Xem trước thư mục</span>
+            <i data-lucide="folder-open" class="w-4 h-4"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: 4 CHỈ SỐ TÁC ĐỘNG & BỘ TÍNH TOÁN HIỆU QUẢ CHO SPA -->
+  <section id="hieu-qua" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 reveal">
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <span class="text-xs font-extrabold uppercase tracking-widest text-[#065F46]">Hiệu quả đo lường thực tế</span>
+      <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-1">Con Số Biết Nói Từ Hệ Thống Lamour</h2>
+    </div>
+
+    <!-- 4 Khối Bento Grid sáng sạch -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+      <div class="rounded-3xl p-7 bg-white border border-slate-200 shadow-sm flex flex-col sm:flex-row gap-6 items-start sm:items-center">
+        <div class="w-16 h-16 rounded-2xl bg-emerald-50 border border-emerald-200 text-[#065F46] flex items-center justify-center shrink-0">
+          <i data-lucide="folder-tree" class="w-8 h-8"></i>
+        </div>
+        <div>
+          <div class="text-3xl sm:text-4xl font-black text-[#065F46] counter" data-target="-80" data-suffix="%">0%</div>
+          <h3 class="text-lg font-extrabold text-slate-900 mt-1">Thời gian tìm kiếm tài liệu</h3>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+            Cấu trúc thư mục phân tầng khoa học theo từng dòng sản phẩm và từng phác đồ điều trị chuẩn.
+          </p>
+        </div>
+      </div>
+
+      <div class="rounded-3xl p-7 bg-white border border-slate-200 shadow-sm flex flex-col sm:flex-row gap-6 items-start sm:items-center">
+        <div class="w-16 h-16 rounded-2xl bg-blue-50 border border-blue-200 text-[#1A73E8] flex items-center justify-center shrink-0">
+          <i data-lucide="smartphone-charging" class="w-8 h-8"></i>
+        </div>
+        <div>
+          <div class="text-3xl sm:text-4xl font-black text-[#1A73E8] counter" data-target="100" data-suffix="%">0%</div>
+          <h3 class="text-lg font-extrabold text-slate-900 mt-1">Đồng bộ tức thì đa thiết bị</h3>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+            Xem trực tiếp phác đồ sắc nét trên iPad, điện thoại hoặc máy tính ngay tại giường trị liệu.
+          </p>
+        </div>
+      </div>
+
+      <div class="rounded-3xl p-7 bg-white border border-slate-200 shadow-sm flex flex-col sm:flex-row gap-6 items-start sm:items-center">
+        <div class="w-16 h-16 rounded-2xl bg-amber-50 border border-amber-200 text-amber-600 flex items-center justify-center shrink-0">
+          <i data-lucide="users-round" class="w-8 h-8"></i>
+        </div>
+        <div>
+          <div class="text-3xl sm:text-4xl font-black text-amber-600 counter" data-prefix="+" data-target="3" data-suffix="X">0X</div>
+          <h3 class="text-lg font-extrabold text-slate-900 mt-1">Tốc độ hòa nhập của kỹ thuật viên</h3>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+            Chuẩn hóa đào tạo nội bộ giúp nhân sự mới tự học và nắm vững kiến thức nền tảng theo lộ trình.
+          </p>
+        </div>
+      </div>
+
+      <div class="rounded-3xl p-7 bg-white border border-slate-200 shadow-sm flex flex-col sm:flex-row gap-6 items-start sm:items-center">
+        <div class="w-16 h-16 rounded-2xl bg-emerald-50 border border-emerald-200 text-[#0F9D58] flex items-center justify-center shrink-0">
+          <i data-lucide="cloud-upload" class="w-8 h-8"></i>
+        </div>
+        <div>
+          <div class="text-3xl sm:text-4xl font-black text-[#0F9D58]">24/7</div>
+          <h3 class="text-lg font-extrabold text-slate-900 mt-1">Cập nhật phác đồ tự động</h3>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">
+            Mọi nghiên cứu mới từ R&D Lamour tự động hiển thị trên Drive của bạn mà không cần xin lại link.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- TÍNH NĂNG BỔ SUNG THÚ VỊ: BỘ TÍNH TOÁN THỜI GIAN TIẾT KIỆM CHO CHỦ SPA -->
+    <div class="bg-emerald-50/70 border border-emerald-200 rounded-3xl p-6 sm:p-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-6 space-y-4">
+          <span class="inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-[#065F46]">
+            <i data-lucide="calculator" class="w-4 h-4"></i> Công cụ ước tính thực tế
+          </span>
+          <h3 class="text-2xl sm:text-3xl font-black text-slate-900">
+            Spa của bạn tiết kiệm được bao nhiêu giờ mỗi tháng?
+          </h3>
+          <p class="text-sm text-slate-600 font-medium">
+            Kéo thanh trượt chọn quy mô đội ngũ kỹ thuật viên & tư vấn viên tại Spa của bạn để xem mức tối ưu hóa vận hành:
+          </p>
+          <div class="pt-2 space-y-2">
+            <div class="flex justify-between text-sm font-extrabold text-slate-800">
+              <span>Quy mô nhân sự Spa:</span>
+              <span id="staffCountLabel" class="text-[#065F46] text-lg">5 nhân sự</span>
+            </div>
+            <input 
+              type="range" 
+              id="staffSlider" 
+              min="1" 
+              max="30" 
+              value="5" 
+              oninput="updateRoiCalculator(this.value)"
+              class="w-full h-2.5 bg-emerald-200 rounded-lg appearance-none cursor-pointer accent-[#065F46]"
+            />
+            <div class="flex justify-between text-[11px] font-semibold text-slate-500">
+              <span>1 người (Chủ làm trực tiếp)</span>
+              <span>15 nhân sự</span>
+              <span>30+ nhân sự (Chuỗi Spa)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="bg-white rounded-2xl p-6 border border-emerald-100 shadow-sm">
+            <div class="text-xs font-bold text-slate-500 uppercase">Thời gian tiết kiệm / tháng</div>
+            <div id="savedHoursResult" class="text-3xl sm:text-4xl font-black text-[#065F46] mt-2">35 giờ</div>
+            <p class="text-xs text-slate-500 mt-1.5">Dành trọn cho việc chăm sóc khách VIP & phát triển doanh số.</p>
+          </div>
+          <div class="bg-white rounded-2xl p-6 border border-emerald-100 shadow-sm">
+            <div class="text-xs font-bold text-slate-500 uppercase">Mức độ đồng bộ phác đồ</div>
+            <div class="text-3xl sm:text-4xl font-black text-[#1A73E8] mt-2">100%</div>
+            <p class="text-xs text-slate-500 mt-1.5">Toàn bộ <span id="staffMirror">5</span> nhân sự dùng chung 1 nguồn chuẩn y khoa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: KÍCH HOẠT QUYỀN TRUY CẬP NHANH (COPY-TO-CLIPBOARD GỬI ZALO SALES) -->
+  <section id="kich-hoat" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 reveal">
+    <div class="deep-emerald-gradient rounded-3xl p-7 sm:p-12 text-white shadow-2xl relative overflow-hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center relative z-10">
+        
+        <div class="lg:col-span-6 space-y-5">
+          <span class="inline-block px-3 py-1 rounded-full bg-white/15 text-amber-300 text-xs font-extrabold uppercase tracking-wider">
+            Đặc quyền dành cho Đối tác Lamour
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-black leading-tight">
+            Sẵn sàng đưa toàn bộ Kho Dữ Liệu về Spa của bạn?
+          </h2>
+          <p class="text-sm sm:text-base text-emerald-100 leading-relaxed">
+            Để bảo mật quyền lợi độc quyền cho hệ thống đại lý, kho dữ liệu được cấp quyền trực tiếp qua Email Google Drive. Điền thông tin bên cạnh để tạo tin nhắn đăng ký chuẩn và gửi ngay cho chuyên viên Lamour qua Zalo.
+          </p>
+          <div class="space-y-2.5 text-xs sm:text-sm text-emerald-50 pt-2">
+            <div class="flex items-center gap-2.5">
+              <span class="w-6 h-6 rounded-full bg-amber-400 text-slate-950 font-black flex items-center justify-center text-xs">1</span>
+              <span>Điền tên Spa & Gmail nhận quyền truy cập Drive</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <span class="w-6 h-6 rounded-full bg-amber-400 text-slate-950 font-black flex items-center justify-center text-xs">2</span>
+              <span>Bấm nút <strong>"Sao chép & Mở Zalo"</strong> để gửi cho chuyên viên</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <span class="w-6 h-6 rounded-full bg-amber-400 text-slate-950 font-black flex items-center justify-center text-xs">3</span>
+              <span>Nhận thông báo mở khóa toàn bộ 4 kho dữ liệu trong 5 phút</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form tạo nội dung copy nhanh -->
+        <div class="lg:col-span-6">
+          <div class="bg-white text-slate-900 rounded-2xl p-6 sm:p-8 shadow-xl space-y-4">
+            <h3 class="font-extrabold text-lg text-slate-900">Đăng ký cấp quyền Google Drive</h3>
+            <div class="space-y-3">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">Tên Spa / Thẩm mỹ viện *</label>
+                <input type="text" id="spaNameInput" placeholder="VD: Lamour Beauty Clinic" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-[#065F46]" />
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">Số điện thoại Zalo *</label>
+                  <input type="tel" id="spaPhoneInput" placeholder="090x xxx xxx" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-[#065F46]" />
+                </div>
+                <div>
+                  <label class="block text-xs font-bold text-slate-700 mb-1">Gmail nhận quyền Drive *</label>
+                  <input type="email" id="spaEmailInput" placeholder="tenban@gmail.com" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-[#065F46]" />
+                </div>
+              </div>
+            </div>
+
+            <button onclick="copyRegistrationAndNotify()" class="w-full py-3.5 px-5 rounded-xl bg-[#065F46] hover:bg-[#043F2E] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-lg transition flex items-center justify-center gap-2">
+              <i data-lucide="copy-check" class="w-4 h-4 text-amber-300"></i>
+              <span>Sao chép thông tin đăng ký gửi Zalo</span>
+            </button>
+
+            <div id="copyFeedback" class="hidden p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-[#065F46] font-semibold">
+              ✅ Đã sao chép nội dung đăng ký vào bộ nhớ tạm! Bạn chỉ cần dán (Paste) vào Zalo chuyên viên Lamour để được kích hoạt ngay.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER XANH LÁ ĐẬM ĐỒNG BỘ THƯƠNG HIỆU -->
+  <footer class="bg-[#043F2E] text-white border-t border-emerald-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+        
+        <div class="md:col-span-5 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-11 h-11 rounded-xl bg-white/15 flex items-center justify-center">
+              <i data-lucide="library" class="w-6 h-6 text-white"></i>
+            </div>
+            <div>
+              <h4 class="font-black text-base tracking-wide uppercase leading-tight">THƯ VIỆN SÁCH & KHO DỮ LIỆU</h4>
+              <span class="text-xs font-bold text-emerald-300 tracking-wider uppercase">NGÀNH SPA • LAMOUR</span>
+            </div>
+          </div>
+          <div class="space-y-2 text-xs sm:text-sm text-emerald-100/90 pt-1">
+            <p class="flex items-start gap-2.5">
+              <i data-lucide="map-pin" class="w-4 h-4 text-amber-300 shrink-0 mt-0.5"></i>
+              <span>115/20/38 đường số 38, phường An Nhơn, TP. HCM</span>
+            </p>
+            <p class="flex items-center gap-2.5">
+              <i data-lucide="phone" class="w-4 h-4 text-amber-300 shrink-0"></i>
+              <span>(+84) 090 896 896</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="md:col-span-4 space-y-3">
+          <h5 class="font-bold text-sm uppercase tracking-wider text-white">Hệ sinh thái Lamour</h5>
+          <ul class="space-y-2 text-xs sm:text-sm text-emerald-100/90">
+            <li><a href="#" class="hover:text-white transition">Thư viện sách ngành Spa</a></li>
+            <li><a href="#" class="hover:text-white transition">Nội quy / Quy trình mượn sách</a></li>
+            <li><a href="#kho-tai-nguyen" class="hover:text-white transition">Kho Dữ Liệu Online Google Drive</a></li>
+            <li><a href="#" class="hover:text-white transition">Dự án Spa Chuẩn Hàn ISOV</a></li>
+          </ul>
+        </div>
+
+        <div class="md:col-span-3 space-y-3">
+          <h5 class="font-bold text-sm uppercase tracking-wider text-white">Kết nối Zalo ngay</h5>
+          <div class="bg-white rounded-2xl p-4 text-slate-900 shadow-lg inline-flex flex-col items-center">
+            <div class="w-28 h-28 bg-slate-50 rounded-xl p-2 flex items-center justify-center border border-slate-200">
+              <svg class="w-full h-full text-slate-900" viewBox="0 0 100 100" fill="currentColor">
+                <rect x="10" y="10" width="25" height="25" rx="3" fill="none" stroke="currentColor" stroke-width="6"/>
+                <rect x="17" y="17" width="11" height="11"/>
+                <rect x="65" y="10" width="25" height="25" rx="3" fill="none" stroke="currentColor" stroke-width="6"/>
+                <rect x="72" y="17" width="11" height="11"/>
+                <rect x="10" y="65" width="25" height="25" rx="3" fill="none" stroke="currentColor" stroke-width="6"/>
+                <rect x="17" y="72" width="11" height="11"/>
+                <rect x="45" y="15" width="8" height="8"/>
+                <rect x="45" y="30" width="8" height="15"/>
+                <rect x="15" y="45" width="15" height="8"/>
+                <rect x="42" y="55" width="16" height="16" rx="2" fill="#065F46"/>
+                <rect x="68" y="48" width="10" height="10"/>
+                <rect x="65" y="68" width="22" height="8"/>
+                <rect x="45" y="80" width="12" height="10"/>
+              </svg>
+            </div>
+            <span class="mt-2 text-[11px] font-extrabold text-[#043F2E]">Quét mã nhận hỗ trợ trực tiếp</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL XEM TRƯỚC THƯ MỤC -->
+  <div id="folderModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/70 backdrop-blur-sm p-4">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-xl w-full overflow-hidden shadow-2xl">
+      <div id="modalHeader" class="p-6 text-white flex items-center justify-between bg-[#065F46]">
+        <div class="flex items-center gap-3">
+          <i data-lucide="folder-open" class="w-6 h-6"></i>
+          <div>
+            <h3 id="modalTitle" class="font-extrabold text-base sm:text-lg">Tên thư mục</h3>
+            <p id="modalSubtitle" class="text-xs text-white/85">Google Drive • Lamour Master Repository</p>
+          </div>
+        </div>
+        <button onclick="closeFolderModal()" class="p-1.5 rounded-xl bg-white/15 hover:bg-white/25 transition">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+
+      <div class="p-6 space-y-4">
+        <p id="modalDesc" class="text-sm text-slate-600 leading-relaxed"></p>
+        
+        <div class="space-y-2">
+          <div class="text-xs font-extrabold uppercase tracking-wider text-slate-400">Danh mục tài liệu nổi bật bên trong:</div>
+          <div id="modalFileList" class="space-y-2"></div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-100 flex flex-col sm:flex-row gap-3 justify-end">
+          <button onclick="closeFolderModal()" class="px-4 py-2.5 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100 transition">
+            Đóng xem trước
+          </button>
+          <a id="modalDriveLink" href="https://drive.google.com" target="_blank" rel="noopener" class="px-5 py-2.5 rounded-xl text-xs font-extrabold text-white bg-[#065F46] hover:bg-[#043F2E] transition flex items-center justify-center gap-2 shadow-md">
+            <span>Mở trực tiếp trên Google Drive</span>
+            <i data-lucide="external-link" class="w-4 h-4"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL ADMIN -->
+  <div id="adminModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/70 backdrop-blur-sm p-4">
+    <div class="bg-white border border-slate-200 text-slate-900 rounded-3xl max-w-md w-full p-6 shadow-2xl space-y-5">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-2.5">
+          <div class="w-9 h-9 rounded-xl bg-emerald-50 text-[#065F46] flex items-center justify-center">
+            <i data-lucide="lock" class="w-5 h-5"></i>
+          </div>
+          <h3 class="font-extrabold text-base">Quản Trị Kho Dữ Liệu</h3>
+        </div>
+        <button onclick="closeAdminModal()" class="text-slate-400 hover:text-slate-700">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+      </div>
+      <p class="text-xs text-slate-500 leading-relaxed">
+        Dành cho bộ phận Đào tạo & R&D Lamour cập nhật đường dẫn thư mục và phân quyền truy cập cho đối tác.
+      </p>
+      <form onsubmit="event.preventDefault(); alert('Đã xác thực tài khoản quản trị!'); closeAdminModal();" class="space-y-3">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Email quản trị (@lamour.vn)</label>
+          <input type="email" required placeholder="admin@lamour.vn" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-[#065F46]" />
+        </div>
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Mật khẩu</label>
+          <input type="password" required placeholder="••••••••" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:border-[#065F46]" />
+        </div>
+        <button type="submit" class="w-full py-3 rounded-xl bg-[#065F46] hover:bg-[#043F2E] text-white font-extrabold text-xs uppercase tracking-wider transition shadow-md">
+          Đăng nhập hệ thống
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    const folderData = {
+      'san-pham': {
+        title: '01. Kiến thức Sản phẩm công ty',
+        subtitle: 'Thương hiệu ISOV & Dược mỹ phẩm Hàn Quốc',
+        color: '#1A73E8',
+        desc: 'Tổng hợp đầy đủ Catalogue, bảng phân tích hoạt chất (PDRN, Exosome, Astaxanthin, Azulene...), hướng dẫn phối hợp sản phẩm tại Spa và Homecare.',
+        driveUrl: 'https://drive.google.com',
+        files: [
+          { name: 'Cẩm nang hoạt chất & Sản phẩm ISOV 2026.pdf', type: 'PDF • 18.4 MB' },
+          { name: 'Slide đào tạo Derma Matrix EXO-PN Skin Booster.pptx', type: 'SLIDE • 42.1 MB' },
+          { name: 'Bảng tra cứu pH & Độ tương thích hoạt chất.xlsx', type: 'SHEET • 1.2 MB' }
+        ]
+      },
+      'lieu-trinh': {
+        title: '02. Kiến thức Liệu trình cho Spa',
+        subtitle: 'Quy trình chuẩn hóa từ cơ bản đến chuyên sâu',
+        color: '#065F46',
+        desc: 'Phác đồ điều trị nám đa tầng cá nhân hóa, trẻ hóa Mesotherapy, phục hồi da nhiễm Corticoid và quy trình chăm sóc chuẩn y khoa từng bước.',
+        driveUrl: 'https://drive.google.com',
+        files: [
+          { name: 'Phác đồ Điều trị Nám đa tầng cá nhân hóa ISOV.pdf', type: 'PDF • 24.0 MB' },
+          { name: 'Quy trình 12 bước Mesotherapy vô khuẩn tại Spa.pdf', type: 'PDF • 9.8 MB' },
+          { name: 'Thư viện hình ảnh Before - After ca lâm sàng.folder', type: 'FOLDER • 120 ảnh' }
+        ]
+      },
+      'khoa-hoc': {
+        title: '03. Khóa học Chuyên môn Da liễu',
+        subtitle: 'Nền tảng giải phẫu da & Bệnh lý học thẩm mỹ',
+        color: '#D99B00',
+        desc: 'Hệ thống bài giảng đào tạo nội bộ giúp chủ Spa và kỹ thuật viên nắm vững cấu trúc hàng rào bảo vệ da, phân loại Fitzpatrick và xử lý biến chứng.',
+        driveUrl: 'https://drive.google.com',
+        files: [
+          { name: 'Giáo trình Da liễu Thẩm mỹ ứng dụng (Bản dịch chuẩn).pdf', type: 'PDF • 35.6 MB' },
+          { name: 'Bộ câu hỏi trắc nghiệm đánh giá năng lực KTV.docx', type: 'DOC • 3.4 MB' },
+          { name: 'Video phân tích soi da & Chẩn đoán lâm sàng.mp4', type: 'VIDEO • HD' }
+        ]
+      },
+      'doanh-thu': {
+        title: '04. Mô hình tạo doanh thu 100 triệu / tháng',
+        subtitle: 'Giải pháp vận hành, Marketing & Chốt sale thực chiến',
+        color: '#EA4335',
+        desc: 'Bộ công cụ đóng gói sẵn giúp chủ Spa thiết kế menu dịch vụ, kịch bản tư vấn tăng tỷ lệ chốt liệu trình và kế hoạch truyền thông thu hút khách hàng.',
+        driveUrl: 'https://drive.google.com',
+        files: [
+          { name: 'Bản đồ lộ trình đạt mốc 100tr/tháng cho Spa vừa & nhỏ.pdf', type: 'PDF • 14.2 MB' },
+          { name: 'Kịch bản tư vấn & Xử lý từ chối khách hàng nám.docx', type: 'DOC • 2.1 MB' },
+          { name: 'Bộ mẫu bài viết & Media Marketing ISOV có sẵn.folder', type: 'FOLDER • 85 files' }
+        ]
+      }
+    };
+
+    function openFolderModal(key) {
+      const data = folderData[key];
+      if (!data) return;
+
+      document.getElementById('modalHeader').style.backgroundColor = data.color;
+      document.getElementById('modalTitle').textContent = data.title;
+      document.getElementById('modalSubtitle').textContent = data.subtitle;
+      document.getElementById('modalDesc').textContent = data.desc;
+      document.getElementById('modalDriveLink').href = data.driveUrl;
+
+      const fileListEl = document.getElementById('modalFileList');
+      fileListEl.innerHTML = data.files.map(f => `
+        <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs">
+          <span class="font-bold text-slate-800 truncate pr-3">${f.name}</span>
+          <span class="text-[10px] font-extrabold px-2 py-0.5 rounded bg-slate-200 text-slate-700 shrink-0">${f.type}</span>
+        </div>
+      `).join('');
+
+      const modal = document.getElementById('folderModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeFolderModal() {
+      const modal = document.getElementById('folderModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function openAdminModal() {
+      const modal = document.getElementById('adminModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+    function closeAdminModal() {
+      const modal = document.getElementById('adminModal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    // Tìm kiếm nhanh
+    function handleQuickSearch(query) {
+      const box = document.getElementById('searchResultsBox');
+      const q = query.trim().toLowerCase();
+      if (!q) {
+        box.classList.add('hidden');
+        return;
+      }
+
+      const matches = [];
+      Object.entries(folderData).forEach(([key, folder]) => {
+        if (folder.title.toLowerCase().includes(q) || folder.desc.toLowerCase().includes(q)) {
+          matches.push({ key, label: folder.title, sub: 'Thư mục chính' });
+        }
+        folder.files.forEach(file => {
+          if (file.name.toLowerCase().includes(q)) {
+            matches.push({ key, label: file.name, sub: folder.title });
+          }
+        });
+      });
+
+      box.classList.remove('hidden');
+      if (matches.length === 0) {
+        box.innerHTML = `<div class="text-xs text-slate-500 px-2 py-1">Chưa thấy tài liệu khớp với "${query}". Gợi ý: ISOV, Nám, Meso, Exosome, 100tr...</div>`;
+      } else {
+        box.innerHTML = matches.slice(0, 4).map(m => `
+          <div onclick="openFolderModal('${m.key}')" class="cursor-pointer flex items-center justify-between p-2.5 rounded-xl hover:bg-emerald-50 transition">
+            <div>
+              <p class="text-xs font-extrabold text-slate-800">${m.label}</p>
+              <p class="text-[10px] font-semibold text-[#065F46]">${m.sub}</p>
+            </div>
+            <span class="text-[11px] font-bold text-[#065F46] underline">Xem</span>
+          </div>
+        `).join('');
+      }
+    }
+
+    // Bộ tính toán ROI theo số lượng nhân sự
+    function updateRoiCalculator(val) {
+      const count = parseInt(val, 10);
+      document.getElementById('staffCountLabel').textContent = `${count} nhân sự`;
+      document.getElementById('staffMirror').textContent = count;
+      document.getElementById('savedHoursResult').textContent = `${count * 7} giờ`;
+    }
+
+    // Copy thông tin đăng ký gửi Zalo
+    function copyRegistrationAndNotify() {
+      const name = document.getElementById('spaNameInput').value.trim();
+      const phone = document.getElementById('spaPhoneInput').value.trim();
+      const email = document.getElementById('spaEmailInput').value.trim();
+
+      if (!name || !phone || !email) {
+        alert('Vui lòng điền đầy đủ Tên Spa, Số điện thoại Zalo và Gmail nhận quyền Drive nhé!');
+        return;
+      }
+
+      const textToCopy = `[ĐĂNG KÝ MỞ KHÓA KHO DỮ LIỆU LAMOUR]\n- Tên Spa: ${name}\n- SĐT Zalo: ${phone}\n- Gmail cấp quyền Drive: ${email}\nNhờ bộ phận Đào tạo Lamour kích hoạt giúp mình quyền truy cập 4 kho dữ liệu nhé!`;
+
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        const fb = document.getElementById('copyFeedback');
+        fb.classList.remove('hidden');
+      });
+    }
+
+    // Hiệu ứng cuộn & chạy số tự động
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          entry.target.querySelectorAll('.counter').forEach(counter => {
+            if (counter.dataset.animated) return;
+            counter.dataset.animated = 'true';
+            const target = parseInt(counter.dataset.target, 10);
+            const prefix = counter.dataset.prefix || '';
+            const suffix = counter.dataset.suffix || '';
+            const duration = 1400;
+            const startTime = performance.now();
+
+            function update(now) {
+              const progress = Math.min((now - startTime) / duration, 1);
+              const ease = 1 - Math.pow(1 - progress, 3);
+              const current = Math.round(target * ease);
+              counter.textContent = `${prefix}${current}${suffix}`;
+              if (progress < 1) requestAnimationFrame(update);
+            }
+            requestAnimationFrame(update);
+          });
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

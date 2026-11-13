@@ -1,0 +1,7 @@
+﻿THƯ MỤC CHỨA ẢNH TIN TỨC / ĐÀO TẠO / SỰ KIỆN
+=============================================
+Khi App nội bộ xuất bài viết tin tức:
+1. Nén ảnh bài viết (.webp hoặc .jpg, rộng ~1000-1200px) và lưu vào thư mục:
+   New Landing Page/assets/news/
+2. Trong file assets/news-data.js, trường "image" trỏ tới đường dẫn tương đối:
+   "assets/news/ten-anh-bai-viet.webp"

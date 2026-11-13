@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Công ty TNHH TM DV Lamour | Hệ Sinh Thái Tri Thức &amp; Chuẩn Hóa Ngành Spa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,500&display=swap" rel="stylesheet" />
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body class="bg-white text-slate-900 antialiased">
+
+  <!-- UNIFIED HEADER WITH 7 TABS IN EXACT ORDER -->
+  <header id="main-header" class="lamour-header">
+    <div class="lamour-header-inner">
+      <!-- Dynamic Logo Host (changes to ISOV logo when on ISOV Standard tab) -->
+      <a href="#cong-ty" onclick="event.preventDefault(); switchTab('cong-ty');" id="header-logo-host" class="flex items-center gap-2.5 shrink-0" style="text-decoration:none;"></a>
+
+      <!-- 7 Direct Navigation Tabs -->
+      <nav class="lamour-nav-desktop">
+        <button type="button" data-tab-btn="cong-ty" onclick="switchTab('cong-ty')" class="lamour-tab">Công ty Lamour</button>
+        <button type="button" data-tab-btn="san-pham" onclick="switchTab('san-pham')" class="lamour-tab">Sản phẩm</button>
+        <button type="button" data-tab-btn="thu-vien" onclick="switchTab('thu-vien')" class="lamour-tab is-active">Thư viện sách</button>
+        <button type="button" data-tab-btn="kho-sach" onclick="switchTab('kho-sach')" class="lamour-tab">Kho sách</button>
+        <button type="button" data-tab-btn="isov-standard" onclick="switchTab('isov-standard')" class="lamour-tab">ISOV Standard</button>
+        <button type="button" data-tab-btn="kho-du-lieu" onclick="switchTab('kho-du-lieu')" class="lamour-tab">Kho dữ liệu</button>
+        <button type="button" data-tab-btn="tin-tuc" onclick="switchTab('tin-tuc')" class="lamour-tab">Tin tức</button>
+      </nav>
+
+      <div class="flex items-center gap-2.5 shrink-0">
+        <a href="https://zalo.me/0868858975" target="_blank" rel="noopener noreferrer" class="lamour-cta-pill">
+          KẾT NỐI ZALO OA
+        </a>
+        <button id="mobile-menu-btn" type="button" aria-label="Mở menu" class="lamour-mobile-toggle p-2 rounded-xl border border-slate-300/60">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu-drawer" class="hidden border-t border-slate-200/30 px-4 py-3 space-y-1.5 text-xs font-bold uppercase">
+      <button type="button" onclick="switchTab('cong-ty')" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-emerald-500/10">Công ty Lamour</button>
+      <button type="button" onclick="switchTab('san-pham')" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-emerald-500/10">Sản phẩm</button>
+      <button type="button" onclick="switchTab('thu-vien')" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-emerald-500/10">Thư viện sách</button>
+      <button type="button" onclick="switchTab('kho-sach')" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-emerald-500/10">Kho sách</button>
+      <button type="button" onclick="switchTab('isov-standard')" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-emerald-500/10">ISOV Standard</button>
+      <button type="button" onclick="switchTab('kho-du-lieu')" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-emerald-500/10">Kho dữ liệu</button>
+      <button type="button" onclick="switchTab('tin-tuc')" class="block w-full text-left px-3 py-2 rounded-lg hover:bg-emerald-500/10">Tin tức</button>
+    </div>
+  </header>
+
+  <!-- ========================================================= -->
+  <!-- TAB 1: CÔNG TY LAMOUR (SKIN COACH L'AMOUR)                -->
+  <!-- ========================================================= -->
+  <section id="tab-cong-ty" class="tab-panel bg-[#f8faf9] text-slate-900">
+    <!-- 1. HERO BANNER: AMBIENT VIDEO + EDITORIAL LUXURY -->
+    <div class="relative overflow-hidden bg-[#031d12] text-white min-h-[620px] flex items-center">
+      <!-- Ambient Background Video -->
+      <video autoplay muted loop playsinline
+        poster="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1600&q=80"
+        class="absolute inset-0 w-full h-full object-cover opacity-35 scale-105 pointer-events-none">
+        <source src="https://assets.mixkit.co/videos/preview/mixkit-woman-getting-a-facial-treatment-at-a-spa-42595-large.mp4" type="video/mp4" />
+      </video>
+
+      <!-- Deep Emerald & Obsidian Atmospheric Scrim + Aurora Orbs -->
+      <div class="absolute inset-0 bg-gradient-to-br from-[#02160d]/95 via-[#063621]/82 to-[#041f14]/92 pointer-events-none"></div>
+      <div class="aurora-orb -top-24 -left-24 w-[420px] h-[420px] bg-emerald-400/20"></div>
+      <div class="aurora-orb-delayed -bottom-32 right-10 w-[460px] h-[460px] bg-amber-300/15"></div>
+
+      <!-- Subtle architectural grid lines -->
+      <div class="absolute inset-0 opacity-[0.06] pointer-events-none"
+        style="background-image: linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px); background-size: 64px 64px;"></div>
+
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 relative z-10 w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <!-- Left Column: Brand Monogram, Headline, CTAs & 5 Channels -->
+          <div class="lg:col-span-7 space-y-7 reveal">
+            <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/10 border border-amber-200/30 backdrop-blur-md">
+              <svg class="w-5 h-5 text-[#f5d08a] shrink-0" viewBox="0 0 48 48" fill="none">
+                <circle cx="24" cy="11" r="5.5" stroke="currentColor" stroke-width="2.4"/>
+                <circle cx="36" cy="20" r="5.5" stroke="currentColor" stroke-width="2.4"/>
+                <circle cx="31" cy="34" r="5.5" stroke="currentColor" stroke-width="2.4"/>
+                <circle cx="17" cy="34" r="5.5" stroke="currentColor" stroke-width="2.4"/>
+                <circle cx="12" cy="20" r="5.5" stroke="currentColor" stroke-width="2.4"/>
+              </svg>
+              <span class="text-[11px] font-bold uppercase tracking-[0.24em] text-[#f5d08a]">Skin Coach L'amour • Công ty TNHH TM DV Lamour</span>
+            </div>
+
+            <div class="space-y-4">
+              <h1 class="text-4xl sm:text-5xl lg:text-[58px] font-black leading-[1.06] tracking-tight">
+                Skin Coach
+                <span class="block sm:inline luxury-shimmer">L'amour</span>
+              </h1>
+              <p class="max-w-2xl text-sm sm:text-base font-medium text-emerald-100/90 leading-relaxed border-l-2 border-[#f5d08a]/70 pl-4">
+                Giải pháp toàn diện giúp chủ Spa trở thành <strong class="text-white font-bold">Chuyên gia khai vấn sức khoẻ làn da chuẩn quốc tế</strong> — kết hợp đào tạo thực chiến, dược mỹ phẩm chuẩn Hàn &amp; công nghệ vận hành bền vững.
+              </p>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3.5 pt-1">
+              <button type="button" onclick="switchTab('san-pham')"
+                class="group px-7 py-3.5 rounded-full bg-gradient-to-r from-[#f5d08a] to-[#eab308] text-[#052315] font-extrabold text-xs sm:text-sm shadow-2xl shadow-amber-500/20 hover:brightness-110 transition cursor-pointer border-0 flex items-center gap-2">
+                <span>Khám phá Sản phẩm ISOV</span>
+                <svg class="w-4 h-4 group-hover:translate-x-1 transition" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+              </button>
+              <button type="button" onclick="switchTab('isov-standard')"
+                class="px-6 py-3.5 rounded-full border border-white/30 bg-white/5 backdrop-blur-md text-white font-bold text-xs sm:text-sm hover:bg-white/15 hover:border-amber-200/50 transition cursor-pointer">
+                Dự án ISOV Standard
+              </button>
+              <button type="button" onclick="openVideoModal('Skin Coach L\'amour — Giới thiệu hệ sinh thái')"
+                class="px-5 py-3.5 rounded-full border border-white/20 bg-black/25 text-emerald-100 font-semibold text-xs sm:text-sm hover:bg-white/15 hover:text-white transition cursor-pointer flex items-center gap-2">
+                <svg class="w-4 h-4 text-[#f5d08a]" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                <span>Xem Video</span>
+              </button>
+            </div>
+
+            <!-- 5 Official Channels / QR Shortcuts -->
+            <div class="pt-3">
+              <div class="text-[10px] font-bold uppercase tracking-[0.22em] text-emerald-200/75 mb-3">Kết nối hệ sinh thái chính thức</div>
+              <div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+                <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer"
+                  class="group rounded-2xl bg-white/[0.07] hover:bg-white/[0.15] border border-white/15 hover:border-[#f5d08a]/50 p-3 transition backdrop-blur-md">
+                  <div class="flex items-center justify-between">
+                    <span class="text-[10px] font-extrabold tracking-wider text-[#f5d08a]">TIKTOK</span>
+                    <svg class="w-3.5 h-3.5 text-white/60 group-hover:text-[#f5d08a] transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/></svg>
+                  </div>
+                  <div class="text-[11px] text-white/90 font-semibold mt-1 leading-tight">Skin Coach L'amour</div>
+                </a>
+                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"
+                  class="group rounded-2xl bg-white/[0.07] hover:bg-white/[0.15] border border-white/15 hover:border-[#f5d08a]/50 p-3 transition backdrop-blur-md">
+                  <div class="flex items-center justify-between">
+                    <span class="text-[10px] font-extrabold tracking-wider text-[#f5d08a]">FANPAGE</span>
+                    <svg class="w-3.5 h-3.5 text-white/60 group-hover:text-[#f5d08a] transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/></svg>
+                  </div>
+                  <div class="text-[11px] text-white/90 font-semibold mt-1 leading-tight">Skin Coach L'amour</div>
+                </a>
+                <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"
+                  class="group rounded-2xl bg-white/[0.07] hover:bg-white/[0.15] border border-white/15 hover:border-[#f5d08a]/50 p-3 transition backdrop-blur-md">
+                  <div class="flex items-center justify-between">
+                    <span class="text-[10px] font-extrabold tracking-wider text-[#f5d08a]">FACEBOOK</span>
+                    <svg class="w-3.5 h-3.5 text-white/60 group-hover:text-[#f5d08a] transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/></svg>
+                  </div>
+                  <div class="text-[11px] text-white/90 font-semibold mt-1 leading-tight">Coach Spa Thảo L'amour</div>
+                </a>
+                <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer"
+                  class="group rounded-2xl bg-white/[0.07] hover:bg-white/[0.15] border border-white/15 hover:border-[#f5d08a]/50 p-3 transition backdrop-blur-md">
+                  <div class="flex items-center justify-between">
+                    <span class="text-[10px] font-extrabold tracking-wider text-[#f5d08a]">TIKTOK CEO</span>
+                    <svg class="w-3.5 h-3.5 text-white/60 group-hover:text-[#f5d08a] transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/></svg>
+                  </div>
+                  <div class="text-[11px] text-white/90 font-semibold mt-1 leading-tight">Coach Spa Thảo L'amour</div>
+                </a>
+                <a href="https://zalo.me/0868858975" target="_blank" rel="noopener noreferrer"
+                  class="col-span-2 sm:col-span-1 group rounded-2xl bg-white/[0.07] hover:bg-white/[0.15] border border-white/15 hover:border-[#f5d08a]/50 p-3 transition backdrop-blur-md">
+                  <div class="flex items-center justify-between">
+                    <span class="text-[10px] font-extrabold tracking-wider text-[#f5d08a]">WEB / ZALO</span>
+                    <svg class="w-3.5 h-3.5 text-white/60 group-hover:text-[#f5d08a] transition" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 19.5l15-15m0 0H8.25m11.25 0v11.25"/></svg>
+                  </div>
+                  <div class="text-[11px] text-white/90 font-semibold mt-1 leading-tight">Skin Coach L'amour</div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Founder Portrait Card -->
+          <div class="lg:col-span-5 reveal">
+            <div class="relative rounded-[32px] p-1 bg-gradient-to-br from-[#f5d08a]/50 via-white/15 to-emerald-400/20 shadow-2xl">
+              <div class="rounded-[29px] bg-[#042316]/90 backdrop-blur-xl p-6 sm:p-7 space-y-5">
+                <div class="relative aspect-[4/4.3] rounded-2xl overflow-hidden bg-emerald-950/60 border border-white/10">
+                  <img src="assets/company/ceo-thao-lamour.png" alt="Coach Spa Thảo L'amour"
+                    onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')"
+                    class="w-full h-full object-cover object-top" />
+                  <div class="hidden w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-b from-emerald-900/40 to-emerald-950/90">
+                    <svg class="w-16 h-16 text-[#f5d08a]/80 mb-3" fill="none" stroke="currentColor" stroke-width="1.3" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/>
+                    </svg>
+                    <div class="text-lg font-black text-white">Coach Spa Thảo L'amour</div>
+                    <div class="text-xs text-emerald-200/80 mt-1">Chép ảnh chân dung vào <code class="text-[#f5d08a]">assets/company/ceo-thao-lamour.png</code></div>
+                  </div>
+                  <div class="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#031d12] via-[#031d12]/60 to-transparent pointer-events-none"></div>
+                  <div class="absolute bottom-3 left-4 right-4 flex items-end justify-between">
+                    <div>
+                      <div class="text-[10px] font-bold uppercase tracking-[0.2em] text-[#f5d08a]">Founder &amp; CEO</div>
+                      <div class="text-xl font-black text-white">Coach Spa Thảo L'amour</div>
+                    </div>
+                  </div>
+                </div>
+
+                <ul class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs text-emerald-100/90">
+                  <li class="flex items-center gap-2 bg-white/[0.05] rounded-xl px-3 py-2 border border-white/10">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#f5d08a] shrink-0"></span>
+                    <span>Founder &amp; CEO L'amour</span>
+                  </li>
+                  <li class="flex items-center gap-2 bg-white/[0.05] rounded-xl px-3 py-2 border border-white/10">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#f5d08a] shrink-0"></span>
+                    <span>Cố vấn quốc tế ngành làm đẹp</span>
+                  </li>
+                  <li class="flex items-center gap-2 bg-white/[0.05] rounded-xl px-3 py-2 border border-white/10">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#f5d08a] shrink-0"></span>
+                    <span>Coach quốc tế tiêu chuẩn ICF</span>
+                  </li>
+                  <li class="flex items-center gap-2 bg-white/[0.05] rounded-xl px-3 py-2 border border-white/10">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#f5d08a] shrink-0"></span>
+                    <span>Tác giả sách chuyên ngành Spa</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. TẦM NHÌN – SỨ MỆNH – 5 GIÁ TRỊ CỐT LÕI (EDITORIAL SPLIT) -->
+    <div class="py-16 sm:py-20 bg-white border-b border-slate-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 reveal">
+        <div class="max-w-3xl space-y-2">
+          <div class="text-xs font-extrabold uppercase tracking-[0.22em] text-[#0a6836]">Triết lý phát triển</div>
+          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">Tầm Nhìn, Sứ Mệnh &amp; Giá Trị Cốt Lõi</h2>
+          <p class="text-sm sm:text-base text-slate-600">Định chuẩn chuyên môn khai vấn làn da tại Việt Nam theo tiêu chuẩn quốc tế.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <!-- Left: Vision & Mission -->
+          <div class="lg:col-span-5 space-y-5">
+            <div class="luxury-glass-card rounded-3xl p-7 bg-gradient-to-br from-[#064b26] to-[#0a6836] text-white shadow-xl">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-xl bg-white/15 flex items-center justify-center text-[#f5d08a]">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                </div>
+                <h3 class="text-lg font-black uppercase tracking-wider text-[#f5d08a]">Tầm Nhìn</h3>
+              </div>
+              <ul class="space-y-3 text-sm text-emerald-50 leading-relaxed">
+                <li class="flex gap-2.5"><span class="text-[#f5d08a] font-bold">01</span><span>Trở thành chương trình đào tạo Skin Coach dẫn đầu Việt Nam.</span></li>
+                <li class="flex gap-2.5"><span class="text-[#f5d08a] font-bold">02</span><span>Nơi kiến tạo những chuyên gia khai vấn sức khoẻ làn da chuẩn quốc tế.</span></li>
+                <li class="flex gap-2.5"><span class="text-[#f5d08a] font-bold">03</span><span>Góp phần nâng tầm chất lượng ngành spa và chăm sóc sắc đẹp tại Việt Nam.</span></li>
+              </ul>
+            </div>
+
+            <div class="luxury-glass-card rounded-3xl p-7 bg-[#f5f8f6] border border-emerald-900/10">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded-xl bg-[#0a6836]/10 flex items-center justify-center text-[#0a6836]">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/></svg>
+                </div>
+                <h3 class="text-lg font-black uppercase tracking-wider text-[#064b26]">Sứ Mệnh</h3>
+              </div>
+              <ul class="space-y-3 text-sm text-slate-700 leading-relaxed">
+                <li class="flex gap-2.5"><span class="text-[#0a6836] font-extrabold">•</span><span>Đào tạo các chuyên gia Skin Coach có tư duy tổng thể, hiểu sâu về sức khoẻ làn da và kỹ năng khai vấn chuyên nghiệp.</span></li>
+                <li class="flex gap-2.5"><span class="text-[#0a6836] font-extrabold">•</span><span>Ứng dụng mỹ phẩm và công nghệ làm đẹp đạt hiệu quả điều trị da.</span></li>
+                <li class="flex gap-2.5"><span class="text-[#0a6836] font-extrabold">•</span><span>Đồng hành cùng học viên phát triển và xây dựng thương hiệu cá nhân trong ngành làm đẹp.</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Right: 5 Core Values numbered 01-05 -->
+          <div class="lg:col-span-7 space-y-3">
+            <div class="flex items-center justify-between px-1 pb-2">
+              <h3 class="text-base font-black uppercase tracking-wider text-slate-900">5 Giá Trị Cốt Lõi</h3>
+              <span class="text-xs font-semibold text-slate-400">01 — 05</span>
+            </div>
+
+            <div class="luxury-glass-card rounded-2xl border border-slate-200/80 bg-white p-5 flex gap-4 items-start">
+              <span class="text-2xl font-black text-[#0a6836]/25 font-mono leading-none pt-0.5">01</span>
+              <div>
+                <h4 class="font-extrabold text-slate-900">Toàn diện &amp; Chuyên sâu</h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">Kết hợp đào tạo, sản phẩm và dịch vụ hỗ trợ để xây dựng một hệ sinh thái hoàn chỉnh cho học viên phát triển thành Skin Coach chuẩn quốc tế.</p>
+              </div>
+            </div>
+
+            <div class="luxury-glass-card rounded-2xl border border-slate-200/80 bg-white p-5 flex gap-4 items-start">
+              <span class="text-2xl font-black text-[#0a6836]/25 font-mono leading-none pt-0.5">02</span>
+              <div>
+                <h4 class="font-extrabold text-slate-900">Thực tế &amp; Ứng dụng cao</h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">Mỗi kiến thức, kỹ năng, sản phẩm đều được kiểm nghiệm từ thực tế ngành spa – giúp học viên tự tin hành nghề ngay sau khi tốt nghiệp.</p>
+              </div>
+            </div>
+
+            <div class="luxury-glass-card rounded-2xl border border-slate-200/80 bg-white p-5 flex gap-4 items-start">
+              <span class="text-2xl font-black text-[#0a6836]/25 font-mono leading-none pt-0.5">03</span>
+              <div>
+                <h4 class="font-extrabold text-slate-900">An toàn &amp; Khoa học</h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">Lựa chọn các sản phẩm mỹ phẩm và thực phẩm chức năng có nền tảng khoa học, rõ ràng về hiệu quả, nhằm đảm bảo sức khỏe và sắc đẹp bền vững.</p>
+              </div>
+            </div>
+
+            <div class="luxury-glass-card rounded-2xl border border-slate-200/80 bg-white p-5 flex gap-4 items-start">
+              <span class="text-2xl font-black text-[#0a6836]/25 font-mono leading-none pt-0.5">04</span>
+              <div>
+                <h4 class="font-extrabold text-slate-900">Uy tín &amp; Định chuẩn</h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">Cung cấp chứng nhận nghề nghiệp có giá trị, nâng tầm vị thế nghề Skin Coach, góp phần chuyên nghiệp hóa ngành làm đẹp tại Việt Nam.</p>
+              </div>
+            </div>
+
+            <div class="luxury-glass-card rounded-2xl border border-slate-200/80 bg-white p-5 flex gap-4 items-start">
+              <span class="text-2xl font-black text-[#0a6836]/25 font-mono leading-none pt-0.5">05</span>
+              <div>
+                <h4 class="font-extrabold text-slate-900">Đồng hành &amp; Nâng tầm</h4>
+                <p class="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed">Không chỉ đào tạo, mà còn hỗ trợ phát triển nghề nghiệp lâu dài: từ kỹ năng mềm, marketing cá nhân đến mở spa riêng.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. GALA VINH DANH & GIỚI THIỆU L'AMOUR -->
+    <div class="py-16 sm:py-20 bg-[#f5f8f6]">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7 relative group rounded-[30px] overflow-hidden shadow-2xl border border-slate-200 bg-slate-900">
+            <img src="assets/company/gala-lamour.jpg" alt="Gala Vinh Danh CEO Spa Xuất Sắc L'amour"
+              onerror="this.src='https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80'"
+              class="w-full aspect-[16/10] object-cover group-hover:scale-[1.03] transition duration-700" />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent"></div>
+            <button type="button" onclick="openVideoModal('Gala Vinh Danh CEO Spa Xuất Sắc L\'amour')"
+              class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-white/95 text-[#064b26] shadow-2xl flex items-center justify-center hover:scale-110 transition cursor-pointer border-0"
+              aria-label="Xem video Gala Vinh Danh">
+              <svg class="w-7 h-7 ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </button>
+            <div class="absolute bottom-5 left-6 right-6 text-white">
+              <div class="text-[11px] font-bold uppercase tracking-[0.2em] text-[#f5d08a]">Sự kiện thường niên</div>
+              <div class="text-lg sm:text-xl font-black mt-0.5">Gala Vinh Danh CEO Spa Xuất Sắc — Thành Công Bền Vững</div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 lg:-ml-12 relative z-10">
+            <div class="rounded-[28px] bg-[#064b26] text-white p-8 sm:p-10 shadow-2xl border border-emerald-400/20 space-y-5">
+              <div class="inline-block px-3 py-1 rounded-full bg-white/10 text-[11px] font-bold uppercase tracking-[0.2em] text-[#f5d08a]">Công ty TNHH TM DV Lamour</div>
+              <h2 class="text-2xl sm:text-3xl font-black tracking-tight">L'amour</h2>
+              <p class="text-sm sm:text-[15px] text-emerald-50/90 leading-relaxed">
+                L'amour là đơn vị chuyên phân phối dược mỹ phẩm điều trị da cho spa và thẩm mỹ viện. Với sản phẩm chính hãng, giải pháp chuyên sâu và dịch vụ chuyển giao bài bản, L'amour đồng hành cùng các spa nâng cao hiệu quả điều trị, tối ưu lợi nhuận và phát triển bền vững.
+              </p>
+              <div class="pt-2 flex flex-wrap gap-3">
+                <button type="button" onclick="switchTab('san-pham')"
+                  class="px-6 py-3 rounded-full bg-[#f5d08a] text-[#052315] font-extrabold text-xs uppercase tracking-wider hover:brightness-110 transition cursor-pointer border-0">
+                  Xem chi tiết tại đây →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. WHY CHOOSE US & ANIMATED STAT BAR -->
+    <div class="relative overflow-hidden bg-gradient-to-br from-[#032415] via-[#064b26] to-[#0a6836] text-white py-16 sm:py-20">
+      <div class="aurora-orb top-0 right-0 w-96 h-96 bg-emerald-300/15"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10 reveal">
+        <div class="text-center max-w-2xl mx-auto space-y-2">
+          <div class="text-xs font-extrabold uppercase tracking-[0.25em] text-[#f5d08a]">Why Choose Us</div>
+          <h2 class="text-3xl sm:text-4xl font-black tracking-tight">Lý Do Chọn Skin Coach L'amour</h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div class="luxury-glass-card rounded-3xl bg-white/[0.08] border border-white/15 p-6 space-y-4 backdrop-blur-md">
+            <div class="w-12 h-12 rounded-2xl bg-[#f5d08a]/15 border border-[#f5d08a]/30 flex items-center justify-center text-[#f5d08a]">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"/></svg>
+            </div>
+            <h3 class="text-base font-extrabold leading-snug">Trở thành chuyên gia Skin Coach chuẩn quốc tế</h3>
+            <p class="text-xs text-emerald-100/85 leading-relaxed">Chủ spa được đào tạo bài bản về khai vấn da, tư vấn mỹ phẩm – công nghệ – sức khoẻ làn da, nâng cao uy tín trong mắt khách hàng.</p>
+          </div>
+
+          <div class="luxury-glass-card rounded-3xl bg-white/[0.08] border border-white/15 p-6 space-y-4 backdrop-blur-md">
+            <div class="w-12 h-12 rounded-2xl bg-[#f5d08a]/15 border border-[#f5d08a]/30 flex items-center justify-center text-[#f5d08a]">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg>
+            </div>
+            <h3 class="text-base font-extrabold leading-snug">Xây dựng thương hiệu cá nhân &amp; mô hình spa bền vững</h3>
+            <p class="text-xs text-emerald-100/85 leading-relaxed">Đồng hành xây dựng chiến lược thương hiệu cá nhân, phát triển marketing và mô hình kinh doanh spa hiệu quả.</p>
+          </div>
+
+          <div class="luxury-glass-card rounded-3xl bg-white/[0.08] border border-white/15 p-6 space-y-4 backdrop-blur-md">
+            <div class="w-12 h-12 rounded-2xl bg-[#f5d08a]/15 border border-[#f5d08a]/30 flex items-center justify-center text-[#f5d08a]">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"/></svg>
+            </div>
+            <h3 class="text-base font-extrabold leading-snug">Tiếp cận hệ sinh thái sản phẩm – dịch vụ – đào tạo toàn diện</h3>
+            <p class="text-xs text-emerald-100/85 leading-relaxed">Kết nối hệ thống mỹ phẩm, công nghệ, tài liệu và cộng đồng chuyên gia – tạo điều kiện áp dụng thực tế và mở rộng kinh doanh.</p>
+          </div>
+
+          <div class="luxury-glass-card rounded-3xl bg-white/[0.08] border border-white/15 p-6 space-y-4 backdrop-blur-md">
+            <div class="w-12 h-12 rounded-2xl bg-[#f5d08a]/15 border border-[#f5d08a]/30 flex items-center justify-center text-[#f5d08a]">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/></svg>
+            </div>
+            <h3 class="text-base font-extrabold leading-snug">Nhận chứng nhận nghề nghiệp – nâng tầm vị thế</h3>
+            <p class="text-xs text-emerald-100/85 leading-relaxed">Nhận chứng nhận Skin Coach chính thức, có giá trị trong ngành – nâng cao độ tin cậy khi tư vấn, điều trị và xây dựng đội ngũ.</p>
+          </div>
+        </div>
+
+        <!-- Animated Stat Bar -->
+        <div class="rounded-[28px] bg-gradient-to-r from-[#a3e635] via-[#84cc16] to-[#65a30d] text-slate-950 p-6 sm:p-8 shadow-2xl">
+          <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-slate-950/10 flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-slate-950" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div>
+                <div class="text-2xl sm:text-3xl font-black tracking-tight"><span class="company-counter" data-count-to="13">13</span>+</div>
+                <div class="text-xs font-bold text-slate-900/80">Năm Kinh Nghiệm</div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-slate-950/10 flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-slate-950" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342"/></svg>
+              </div>
+              <div>
+                <div class="text-2xl sm:text-3xl font-black tracking-tight"><span class="company-counter" data-count-to="965">965</span>+</div>
+                <div class="text-xs font-bold text-slate-900/80">Khoá Học Được Tổ Chức</div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-slate-950/10 flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-slate-950" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <div>
+                <div class="text-2xl sm:text-3xl font-black tracking-tight"><span class="company-counter" data-count-to="3840">3840</span>+</div>
+                <div class="text-xs font-bold text-slate-900/80">Khách Hàng Thân Thiết</div>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-2xl bg-slate-950/10 flex items-center justify-center shrink-0">
+                <svg class="w-6 h-6 text-slate-950" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007z"/></svg>
+              </div>
+              <div>
+                <div class="text-2xl sm:text-3xl font-black tracking-tight"><span class="company-counter" data-count-to="192">192</span>K+</div>
+                <div class="text-xs font-bold text-slate-900/80">Sản Phẩm Đã Bán</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. ĐỐI TÁC SKINCOACH — INFINITE LUXURY MARQUEE -->
+    <div class="bg-white py-14 sm:py-16 border-b border-slate-100 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 reveal">
+        <div class="text-center space-y-1.5">
+          <div class="text-xs font-extrabold uppercase tracking-[0.22em] text-[#0a6836]">Các Đối Tác</div>
+          <h2 class="text-2xl sm:text-3xl font-black text-slate-900">Đối Tác Skincoach</h2>
+        </div>
+
+        <div class="relative overflow-hidden py-2">
+          <div class="animate-partner-marquee flex items-center gap-6 w-max">
+            <!-- Set 1 -->
+            <div class="w-48 shrink-0 rounded-2xl border border-slate-200/80 bg-slate-50/70 px-5 py-4 text-center">
+              <div class="text-base font-black text-amber-600 tracking-widest">ZAOBA</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">International Certification</div>
+            </div>
+            <div class="w-48 shrink-0 rounded-2xl border border-slate-200/80 bg-slate-50/70 px-5 py-4 text-center">
+              <div class="text-base font-black text-emerald-700 tracking-tight">COSMO C&amp;T</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">코스모 C&amp;T Korea</div>
+            </div>
+            <div class="w-48 shrink-0 rounded-2xl border border-slate-200/80 bg-slate-50/70 px-5 py-4 text-center">
+              <div class="text-base font-black text-red-600 tracking-wider">sorex ISOV</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">Korea Cosmeceutical</div>
+            </div>
+            <div class="w-48 shrink-0 rounded-2xl border border-slate-200/80 bg-slate-50/70 px-5 py-4 text-center">
+              <div class="text-base font-black text-sky-600 tracking-tight">Huons Natural</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">Biotech Skincare</div>
+            </div>
+            <div class="w-48 shrink-0 rounded-2xl border border-slate-200/80 bg-slate-50/70 px-5 py-4 text-center">
+              <div class="text-base font-black text-fuchsia-700 tracking-wider">MESOTOX</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">Mesotherapy</div>
+            </div>
+            <div class="w-48 shrink-0 rounded-2xl border border-slate-200/80 bg-slate-50/70 px-5 py-4 text-center">
+              <div class="text-base font-black text-amber-500 tracking-wider">ISOV ★★★★★</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">Korea Standard Spa</div>
+            </div>
+            <div class="w-48 shrink-0 rounded-2xl border border-slate-200/80 bg-slate-50/70 px-5 py-4 text-center">
+              <div class="text-base font-black text-red-700 tracking-wider">APHCA</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">Asia Pacific Beauty</div>
+            </div>
+            <!-- Set 2 (duplicate for seamless loop) -->
+            <div class="w-48 shrink-0 rounded-2xl border border-slate-200/80 bg-slate-50/70 px-5 py-4 text-center">
+              <div class="text-base font-black text-amber-600 tracking-widest">ZAOBA</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">International Certification</div>
+            </div>
+            <div class="w-48 shrink-0 rounded-2xl border border-slate-200/80 bg-slate-50/70 px-5 py-4 text-center">
+              <div class="text-base font-black text-emerald-700 tracking-tight">COSMO C&amp;T</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">코스모 C&amp;T Korea</div>
+            </div>
+            <div class="w-48 shrink-0 rounded-2xl border border-slate-200/80 bg-slate-50/70 px-5 py-4 text-center">
+              <div class="text-base font-black text-red-600 tracking-wider">sorex ISOV</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">Korea Cosmeceutical</div>
+            </div>
+            <div class="w-48 shrink-0 rounded-2xl border border-slate-200/80 bg-slate-50/70 px-5 py-4 text-center">
+              <div class="text-base font-black text-sky-600 tracking-tight">Huons Natural</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">Biotech Skincare</div>
+            </div>
+            <div class="w-48 shrink-0 rounded-2xl border border-slate-200/80 bg-slate-50/70 px-5 py-4 text-center">
+              <div class="text-base font-black text-fuchsia-700 tracking-wider">MESOTOX</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">Mesotherapy</div>
+            </div>
+            <div class="w-48 shrink-0 rounded-2xl border border-slate-200/80 bg-slate-50/70 px-5 py-4 text-center">
+              <div class="text-base font-black text-amber-500 tracking-wider">ISOV ★★★★★</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">Korea Standard Spa</div>
+            </div>
+            <div class="w-48 shrink-0 rounded-2xl border border-slate-200/80 bg-slate-50/70 px-5 py-4 text-center">
+              <div class="text-base font-black text-red-700 tracking-wider">APHCA</div>
+              <div class="text-[10px] text-slate-500 mt-0.5">Asia Pacific Beauty</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. TESTIMONIAL — ĐÁNH GIÁ CỦA KHÁCH HÀNG (4 Ô VUÔNG / LẦN) -->
+    <div class="bg-[#f5f8f6] py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6 reveal">
+        <div class="flex flex-wrap items-end justify-between gap-4">
+          <div class="space-y-1">
+            <div class="text-xs font-extrabold uppercase tracking-[0.22em] text-[#0a6836]">Testimonial • 2025 — 2026</div>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 uppercase">ĐÁNH GIÁ CỦA KHÁCH HÀNG</h2>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <span class="inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white border border-slate-200 text-xs font-bold text-amber-600">★ 4.8 / 5.0</span>
+            <span id="testimonial-counter" class="px-3 py-1.5 rounded-full bg-white border border-slate-200 text-xs font-bold text-slate-700 font-mono">1–4 / 20</span>
+            <button type="button" onclick="stepTestimonial(-1)" aria-label="Nhóm đánh giá trước"
+              class="w-9 h-9 rounded-full bg-slate-900 hover:bg-[#0a6836] text-white font-bold flex items-center justify-center transition cursor-pointer border-0">←</button>
+            <button type="button" onclick="stepTestimonial(1)" aria-label="Nhóm đánh giá tiếp theo"
+              class="w-9 h-9 rounded-full bg-slate-900 hover:bg-[#0a6836] text-white font-bold flex items-center justify-center transition cursor-pointer border-0">→</button>
+          </div>
+        </div>
+
+        <div id="testimonial-grid" class="testimonial-fade grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <!-- Rendered by app.js (4 compact square cards per view) -->
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. HỆ THỐNG PHÂN PHỐI TOÀN QUỐC -->
+    <div class="bg-white py-16 sm:py-20 border-y border-slate-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center reveal">
+        <div class="lg:col-span-6">
+          <div class="rounded-[30px] bg-gradient-to-br from-emerald-50/70 to-white border border-emerald-900/10 p-6 text-center relative overflow-hidden shadow-lg">
+            <img src="assets/company/ban-do-phan-phoi.png" alt="Hệ thống phân phối L'amour trên toàn quốc"
+              onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')"
+              class="w-full max-h-[430px] object-contain mx-auto" />
+            <div class="hidden py-10 px-4 space-y-5">
+              <div class="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-emerald-100/80 text-[#064b26] text-xs font-extrabold uppercase tracking-wider">
+                <span class="radar-dot"></span>
+                <span>Mạng lưới 40+ tỉnh thành</span>
+              </div>
+              <div class="flex flex-wrap justify-center gap-2 text-xs font-bold text-slate-700 max-w-lg mx-auto">
+                <span class="px-3 py-1.5 rounded-full bg-white border border-emerald-200 shadow-xs">Hà Nội</span>
+                <span class="px-3 py-1.5 rounded-full bg-white border border-emerald-200 shadow-xs">Hải Phòng</span>
+                <span class="px-3 py-1.5 rounded-full bg-white border border-emerald-200 shadow-xs">Nghệ An</span>
+                <span class="px-3 py-1.5 rounded-full bg-white border border-emerald-200 shadow-xs">TP. Huế</span>
+                <span class="px-3 py-1.5 rounded-full bg-white border border-emerald-200 shadow-xs">Đà Nẵng</span>
+                <span class="px-3 py-1.5 rounded-full bg-white border border-emerald-200 shadow-xs">Đắk Lắk</span>
+                <span class="px-3 py-1.5 rounded-full bg-white border border-emerald-200 shadow-xs">Khánh Hòa</span>
+                <span class="px-3 py-1.5 rounded-full bg-white border border-emerald-200 shadow-xs">TP. Hồ Chí Minh</span>
+                <span class="px-3 py-1.5 rounded-full bg-white border border-emerald-200 shadow-xs">Cần Thơ</span>
+                <span class="px-3 py-1.5 rounded-full bg-white border border-emerald-200 shadow-xs">Cà Mau</span>
+                <span class="px-3 py-1.5 rounded-full bg-[#064b26] text-[#f5d08a] shadow-xs">Hoàng Sa • Trường Sa</span>
+              </div>
+              <div class="text-[11px] text-slate-500">Chép ảnh bản đồ vào <code class="bg-slate-100 px-1.5 py-0.5 rounded">assets/company/ban-do-phan-phoi.png</code></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 space-y-5">
+          <div class="inline-flex items-center gap-2 text-xs font-extrabold uppercase tracking-[0.22em] text-[#0a6836]">
+            <span class="radar-dot"></span>
+            <span>Mạng lưới toàn quốc</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">Hệ Thống Phân Phối Toàn Quốc</h2>
+          <div class="space-y-3 text-sm sm:text-base text-slate-600 leading-relaxed">
+            <p>Với mạng lưới phân phối trải dài từ Bắc đến Nam, L'amour tự hào là đối tác đáng tin cậy của hàng ngàn spa, thẩm mỹ viện trên toàn quốc.</p>
+            <p>Chúng tôi không chỉ cung cấp dược mỹ phẩm điều trị da chính hãng, mà còn chuyển giao công nghệ và giải pháp chuyên sâu đến tận tay các cơ sở đối tác. Mỗi điểm phân phối là một “cánh tay nối dài” giúp L'amour lan tỏa giá trị: <strong class="text-slate-900">hiệu quả – an toàn – đồng hành phát triển.</strong></p>
+            <p>Hiện nay, hệ thống của chúng tôi đã có mặt tại <strong class="text-[#0a6836]">hơn 40 tỉnh thành</strong> – khẳng định sức mạnh phủ rộng, khả năng hỗ trợ nhanh chóng và dịch vụ hậu mãi tận tâm.</p>
+          </div>
+          <div class="rounded-2xl bg-emerald-50 border border-emerald-200/80 p-4 text-xs sm:text-sm font-extrabold uppercase text-[#064b26]">
+            TRỞ THÀNH ĐẠI LÝ CHÍNH THỨC – NHẬN HỖ TRỢ ĐỘC QUYỀN TỪ L'AMOUR!
+          </div>
+          <a href="https://zalo.me/0868858975" target="_blank" rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#064b26] hover:bg-[#0a6836] text-white font-extrabold text-xs uppercase tracking-wider shadow-lg transition">
+            <span>LIÊN HỆ NGAY</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- 8. HỢP TÁC QUỐC TẾ -->
+    <div class="bg-[#f5f8f6] py-16 sm:py-20">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8 reveal">
+        <div class="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <div class="text-xs font-extrabold uppercase tracking-[0.22em] text-[#0a6836]">International Partnership</div>
+            <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-1">Hợp Tác Quốc Tế</h2>
+          </div>
+          <button type="button" onclick="switchTab('tin-tuc')"
+            class="px-6 py-3 rounded-full bg-[#a3e635] hover:bg-[#84cc16] text-slate-950 font-extrabold text-xs uppercase tracking-wider transition cursor-pointer border-0 shadow-md">
+            VIEW ALL POSTS →
+          </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <article onclick="switchTab('tin-tuc')" class="luxury-glass-card cursor-pointer bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-sm group">
+            <div class="aspect-[16/10] bg-slate-100 overflow-hidden relative">
+              <img src="assets/company/hop-tac-han-1.jpg" alt="Du Học Thẩm Mỹ Tại Hàn Quốc"
+                onerror="this.src='https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=80'"
+                class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" />
+            </div>
+            <div class="p-6 flex items-center justify-between gap-3">
+              <h3 class="text-base sm:text-lg font-extrabold text-slate-900 group-hover:text-[#0a6836] transition">Du Học Thẩm Mỹ Tại Hàn Quốc</h3>
+              <span class="text-[#0a6836] font-bold shrink-0">→</span>
+            </div>
+          </article>
+
+          <article onclick="switchTab('tin-tuc')" class="luxury-glass-card cursor-pointer bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-sm group">
+            <div class="aspect-[16/10] bg-slate-100 overflow-hidden relative">
+              <img src="assets/company/hop-tac-han-2.jpg" alt="Thi Tay Nghề Làm Đẹp Tại Hàn Quốc"
+                onerror="this.src='https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=900&q=80'"
+                class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" />
+            </div>
+            <div class="p-6 flex items-center justify-between gap-3">
+              <h3 class="text-base sm:text-lg font-extrabold text-slate-900 group-hover:text-[#0a6836] transition">Thi Tay Nghề Làm Đẹp Tại Hàn Quốc</h3>
+              <span class="text-[#0a6836] font-bold shrink-0">→</span>
+            </div>
+          </article>
+
+          <article onclick="switchTab('tin-tuc')" class="luxury-glass-card cursor-pointer bg-white rounded-3xl border border-slate-200/80 overflow-hidden shadow-sm group">
+            <div class="aspect-[16/10] bg-slate-100 overflow-hidden relative">
+              <img src="assets/company/hop-tac-dai-loan.jpg" alt="Thi Tay Nghề Làm Đẹp Tại Đài Loan"
+                onerror="this.src='https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=900&q=80'"
+                class="w-full h-full object-cover group-hover:scale-105 transition duration-700" loading="lazy" />
+            </div>
+            <div class="p-6 flex items-center justify-between gap-3">
+              <h3 class="text-base sm:text-lg font-extrabold text-slate-900 group-hover:text-[#0a6836] transition">Thi Tay Nghề Làm Đẹp Tại Đài Loan</h3>
+              <span class="text-[#0a6836] font-bold shrink-0">→</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ========================================================= -->
+  <!-- TAB 2: SẢN PHẨM                                           -->
+  <!-- ========================================================= -->
+  <section id="tab-san-pham" class="tab-panel bg-slate-50">
+    <div class="banner-bookshelf text-white py-10 sm:py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h1 class="text-3xl sm:text-4xl lg:text-[42px] font-black uppercase tracking-tight">SẢN PHẨM ĐANG PHÂN PHỐI</h1>
+            <p class="text-xs sm:text-sm text-emerald-100/90 mt-1">Danh mục 55 dược mỹ phẩm chuyên nghiệp ISOV Korea • Mặc định hiển thị giá bán lẻ trước VAT</p>
+          </div>
+          <span id="products-total-badge" class="px-4 py-1.5 rounded-full bg-white/15 border border-white/25 text-xs font-extrabold text-amber-200">
+            55 sản phẩm
+          </span>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-3 items-stretch lg:items-center">
+          <input id="product-search-input" type="text" placeholder="Tìm theo tên sản phẩm, thành phần, loại da hoặc công dụng..."
+            class="flex-1 h-11 px-5 rounded-full bg-white text-slate-900 placeholder-slate-400 text-xs sm:text-sm shadow-md focus:outline-none focus:ring-2 focus:ring-amber-300" />
+          <div class="flex flex-wrap sm:flex-nowrap gap-3 items-center">
+            <select id="product-category-select" class="h-11 px-4 rounded-full bg-white text-slate-800 text-xs sm:text-sm font-semibold shadow-md sm:w-52">
+              <option value="ALL">Tất cả nhóm (9)</option>
+            </select>
+            <button id="product-reset-btn" type="button" class="text-xs font-bold text-white/90 hover:text-amber-300 underline underline-offset-4 px-2 whitespace-nowrap bg-transparent border-0 cursor-pointer">
+              Xóa bộ lọc
+            </button>
+          </div>
+        </div>
+
+        <!-- Tùy chọn hiển thị giá: Trước VAT (mặc định) / Sau VAT / Chiết khấu -->
+        <div class="flex flex-wrap items-center gap-2 pt-1">
+          <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-100 mr-1">Chế độ xem giá:</span>
+          <button type="button" data-price-mode="beforeVat" onclick="setProductPriceMode('beforeVat')"
+            class="price-mode-btn is-active px-3.5 py-1.5 rounded-full text-xs font-extrabold transition cursor-pointer">
+            Giá bán lẻ (Trước VAT)
+          </button>
+          <button type="button" data-price-mode="afterVat" onclick="setProductPriceMode('afterVat')"
+            class="price-mode-btn px-3.5 py-1.5 rounded-full text-xs font-extrabold transition cursor-pointer">
+            Giá sau VAT
+          </button>
+          <button type="button" data-price-mode="ck35" onclick="setProductPriceMode('ck35')"
+            class="price-mode-btn px-3.5 py-1.5 rounded-full text-xs font-extrabold transition cursor-pointer">
+            Chiết khấu 35%
+          </button>
+          <button type="button" data-price-mode="ck40" onclick="setProductPriceMode('ck40')"
+            class="price-mode-btn px-3.5 py-1.5 rounded-full text-xs font-extrabold transition cursor-pointer">
+            Chiết khấu 40%
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
+      <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6"></div>
+      <div id="products-empty" class="hidden text-center py-16 bg-white rounded-3xl border border-slate-200">
+        <div class="text-lg font-extrabold text-slate-800">Không tìm thấy sản phẩm phù hợp</div>
+        <p class="text-xs text-slate-500 mt-1">Thử tìm với từ khóa khác hoặc bấm Xóa bộ lọc.</p>
+      </div>
+      <div id="products-pagination" class="flex items-center justify-center gap-2 mt-10"></div>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- TAB 3: THƯ VIỆN SÁCH (GỒM NỘI QUY DẠNG TOGGLE HEADING)    -->
+  <!-- ========================================================= -->
+  <section id="tab-thu-vien" class="tab-panel">
+    <!-- Hero -->
+    <div class="relative overflow-hidden banner-bookshelf text-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-6 space-y-5 reveal">
+            <div class="text-xs sm:text-sm font-bold tracking-[0.22em] uppercase text-emerald-200">KHỞI NGUỒN</div>
+            <h1 class="text-3xl sm:text-5xl lg:text-[52px] font-black leading-[1.12] tracking-tight uppercase">
+              TRI THỨC<br />CHUẨN Y KHOA
+            </h1>
+            <p class="text-sm sm:text-base text-white/85 leading-relaxed max-w-xl font-medium">
+              Không gian đọc mở, nơi kết nối kiến thức chuyên sâu về da liễu, giải phẫu và ứng dụng hoạt chất điều trị thực chiến.
+            </p>
+            <div class="pt-2 flex flex-wrap items-center gap-3">
+              <button type="button" onclick="switchTab('kho-sach')"
+                class="inline-flex items-center gap-2.5 px-6 py-3 rounded-full bg-white text-[#064b26] font-extrabold text-xs sm:text-sm shadow-xl hover:bg-amber-300 hover:text-slate-950 transition">
+                <span>Khám phá ngay</span>
+                <span class="w-5 h-5 rounded-full bg-[#064b26] text-white inline-flex items-center justify-center text-[11px]">↗</span>
+              </button>
+              <button type="button" onclick="openLibraryRules()"
+                class="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-white/30 bg-white/10 text-white font-bold text-xs sm:text-sm hover:bg-white/20 transition">
+                <span>Xem Nội quy &amp; Quy trình</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 flex items-center justify-center lg:justify-end gap-4 sm:gap-5 pt-4 lg:pt-0">
+            <button type="button" onclick="openBookFromAnywhere('DS001')" class="w-28 sm:w-36 md:w-40 float-book-1 group border-0 bg-transparent p-0 cursor-pointer">
+              <div class="aspect-[3/4] rounded-xl overflow-hidden shadow-2xl border-2 border-white/25 bg-white">
+                <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=500&q=80" alt="Giải Phẫu Học Da Liễu" class="w-full h-full object-cover" />
+              </div>
+            </button>
+            <button type="button" onclick="openBookFromAnywhere('DS002')" class="w-32 sm:w-44 md:w-48 -mt-6 float-book-2 group z-10 border-0 bg-transparent p-0 cursor-pointer">
+              <div class="aspect-[3/4] rounded-xl overflow-hidden shadow-2xl border-2 border-amber-300/70 bg-white">
+                <img src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?auto=format&fit=crop&w=500&q=80" alt="Thay đổi cuộc sống với thần số học" class="w-full h-full object-cover" />
+              </div>
+            </button>
+            <button type="button" onclick="openBookFromAnywhere('DS003')" class="w-28 sm:w-36 md:w-40 float-book-3 group border-0 bg-transparent p-0 cursor-pointer">
+              <div class="aspect-[3/4] rounded-xl overflow-hidden shadow-2xl border-2 border-white/25 bg-white">
+                <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=500&q=80" alt="Xoay Chuyển Tình Thế" class="w-full h-full object-cover" />
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Links Strip -->
+    <div class="bg-[#054422] text-white border-y border-white/10">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-wrap items-center justify-between gap-4 text-xs sm:text-sm">
+        <span class="font-extrabold tracking-widest uppercase text-emerald-200">TÌM HIỂU THÊM</span>
+        <div class="flex flex-wrap items-center gap-6 sm:gap-10 font-semibold">
+          <a href="#ra-doi-section" class="hover:text-amber-300 transition">Về thư viện ↗</a>
+          <button type="button" onclick="openLibraryRules()" class="hover:text-amber-300 transition bg-transparent border-0 text-white font-semibold cursor-pointer">Nội quy / Quy trình mượn sách ↗</button>
+          <button type="button" onclick="switchTab('kho-sach')" class="hover:text-amber-300 transition bg-transparent border-0 text-white font-semibold cursor-pointer">Tra cứu kho sách ↗</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROBLEM + RA ĐỜI + SÁCH TRONG THƯ VIỆN -->
+    <div class="bg-problem-gradient text-white py-16 sm:py-20 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          <div class="lg:col-span-6 space-y-5 reveal">
+            <h2 class="text-4xl sm:text-5xl font-black tracking-tight uppercase">PROBLEM</h2>
+            <p class="text-sm sm:text-base text-white/90 leading-relaxed">
+              Bạn từng bối rối với hàng trăm lời quảng cáo khoa trương ngoài kia, nhưng những gì bạn cần là dữ liệu khoa học để tác động đúng bản chất biểu bì?
+            </p>
+            <p class="text-sm sm:text-base text-white/85 leading-relaxed">
+              Bạn từng có vô vàn câu hỏi về chuyên môn và kỹ thuật, nhưng chỉ có thể dựa vào kinh nghiệm truyền miệng thay vì phác đồ bài bản chuẩn y khoa?
+            </p>
+          </div>
+          <div class="lg:col-span-6 reveal reveal-delay-2">
+            <div class="grid grid-cols-12 gap-4 items-end max-w-lg mx-auto">
+              <div class="col-span-5 -mr-6 mb-4 z-10 rounded-xl overflow-hidden shadow-2xl border border-white/20">
+                <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=700&q=80" alt="Spa" class="w-full h-44 object-cover" />
+              </div>
+              <div class="col-span-7 rounded-xl overflow-hidden shadow-2xl border border-white/20">
+                <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=800&q=80" alt="Y khoa" class="w-full h-60 object-cover" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="ra-doi-section" class="rounded-3xl bg-[#064b26]/75 border border-white/15 p-7 sm:p-10 shadow-2xl reveal">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="lg:col-span-8 space-y-3">
+              <h2 class="text-2xl sm:text-4xl font-black uppercase leading-tight">THƯ VIỆN SÁCH NGÀNH SPA RA ĐỜI</h2>
+              <p class="text-sm sm:text-base font-semibold text-amber-200 italic">“Chúng tôi tin rằng: Khi người làm nghề có kiến thức vững vàng, khách hàng sẽ nhận được sự an toàn tuyệt đối.”</p>
+              <p class="text-xs sm:text-sm text-white/85 leading-relaxed">Đội ngũ chuyên gia Lamour cùng các bác sĩ, giảng viên đã tuyển chọn và hệ thống hóa danh mục đầu sách chuyên ngành giá trị nhất, giúp mọi thành viên tiếp cận tri thức chuẩn xác.</p>
+            </div>
+            <div class="lg:col-span-4 flex lg:justify-end">
+              <button type="button" onclick="switchTab('kho-sach')" class="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-full bg-white text-[#064b26] font-extrabold text-xs sm:text-sm shadow-xl hover:bg-amber-300 transition">
+                <span>Truy cập ngay kho sách</span><span>↗</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="space-y-5 reveal">
+          <div class="flex items-center justify-between">
+            <h2 class="text-2xl sm:text-3xl font-black uppercase">SÁCH TRONG THƯ VIỆN</h2>
+            <button type="button" onclick="switchTab('kho-sach')" class="text-xs sm:text-sm font-bold text-amber-300 hover:underline bg-transparent border-0 cursor-pointer">Xem toàn bộ →</button>
+          </div>
+          <div class="overflow-hidden rounded-2xl py-2">
+            <div id="home-book-marquee" class="animate-books-marquee gap-5"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats Strip -->
+    <div class="bg-white py-12 border-b border-slate-100">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center reveal">
+        <div class="lg:col-span-8 grid grid-cols-3 gap-6">
+          <div><div class="text-3xl sm:text-5xl font-black text-slate-900">450+</div><div class="text-xs sm:text-sm text-slate-500 mt-1">Đầu sách chuyên ngành</div></div>
+          <div><div class="text-3xl sm:text-5xl font-black text-slate-900">700+</div><div class="text-xs sm:text-sm text-slate-500 mt-1">Tài liệu dịch độc quyền</div></div>
+          <div><div class="text-3xl sm:text-5xl font-black text-slate-900">100%</div><div class="text-xs sm:text-sm text-slate-500 mt-1">Miễn phí cho Khách Lamour</div></div>
+        </div>
+        <div class="lg:col-span-4 flex flex-col sm:items-end gap-2 text-xs sm:text-sm font-bold text-[#0a6836]">
+          <button type="button" onclick="openLibraryRules()" class="hover:underline bg-transparent border-0 text-[#0a6836] font-bold cursor-pointer">Nội quy thư viện ↗</button>
+          <button type="button" onclick="switchTab('kho-sach')" class="hover:underline bg-transparent border-0 text-[#0a6836] font-bold cursor-pointer">Đăng ký mượn sách ↗</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- NỘI QUY / QUY ĐỊNH THƯ VIỆN (HIỂN THỊ TRỰC QUAN, KHÔNG TOGGLE) -->
+    <div id="noi-quy-section" class="bg-[#f5f8f6] py-16 sm:py-20 border-t border-slate-200/70">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10 reveal">
+        <div class="text-center max-w-2xl mx-auto space-y-2">
+          <div class="text-xs font-extrabold uppercase tracking-[0.22em] text-[#0a6836]">Chính sách &amp; Hướng dẫn</div>
+          <h2 class="text-2xl sm:text-4xl font-black uppercase text-slate-900 tracking-tight">NỘI QUY &amp; QUY ĐỊNH THƯ VIỆN</h2>
+          <p class="text-xs sm:text-sm text-slate-600">Thông tin minh bạch về đối tượng áp dụng, quy trình mượn sách và chính sách bảo quản tài liệu.</p>
+        </div>
+
+        <!-- 01. Đối tượng & Thời hạn mượn -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-2.5">
+            <span class="px-2.5 py-1 rounded-lg bg-[#0a6836] text-white text-[11px] font-black font-mono">01</span>
+            <h3 class="text-base sm:text-lg font-black text-slate-900 uppercase">Đối tượng &amp; Thời hạn mượn sách</h3>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="luxury-glass-card rounded-3xl bg-gradient-to-br from-[#064b26] to-[#0a6836] text-white p-6 sm:p-7 shadow-xl space-y-4">
+              <div class="flex items-center justify-between gap-3">
+                <span class="text-sm sm:text-base font-black text-[#f5d08a]">Khách hàng &amp; Học viên Lamour</span>
+                <span class="px-3 py-1 rounded-full bg-white/15 text-[11px] font-extrabold uppercase tracking-wider text-white">Ưu đãi đặc biệt</span>
+              </div>
+              <div class="grid grid-cols-2 gap-3 pt-1">
+                <div class="rounded-2xl bg-white/10 border border-white/15 p-3.5">
+                  <div class="text-[11px] text-emerald-200 font-semibold">Tiền cọc</div>
+                  <div class="text-lg sm:text-xl font-black text-white mt-0.5">0đ</div>
+                  <div class="text-[11px] text-emerald-100/80">Miễn phí hoàn toàn</div>
+                </div>
+                <div class="rounded-2xl bg-white/10 border border-white/15 p-3.5">
+                  <div class="text-[11px] text-emerald-200 font-semibold">Thời hạn mượn</div>
+                  <div class="text-lg sm:text-xl font-black text-[#f5d08a] mt-0.5">12 tháng</div>
+                  <div class="text-[11px] text-emerald-100/80">Từ ngày lập phiếu</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="luxury-glass-card rounded-3xl bg-white border border-slate-200/90 p-6 sm:p-7 shadow-sm space-y-4">
+              <div class="flex items-center justify-between gap-3">
+                <span class="text-sm sm:text-base font-black text-slate-900">Khách Vãng Lai Ngành Spa</span>
+                <span class="px-3 py-1 rounded-full bg-slate-100 text-[11px] font-extrabold uppercase tracking-wider text-slate-600">Tiêu chuẩn</span>
+              </div>
+              <div class="grid grid-cols-2 gap-3 pt-1">
+                <div class="rounded-2xl bg-slate-50 border border-slate-200/80 p-3.5">
+                  <div class="text-[11px] text-slate-500 font-semibold">Tiền cọc giữ hộ</div>
+                  <div class="text-lg sm:text-xl font-black text-slate-900 mt-0.5">500.000đ</div>
+                  <div class="text-[11px] text-slate-500">Hoàn 100% khi trả sách</div>
+                </div>
+                <div class="rounded-2xl bg-slate-50 border border-slate-200/80 p-3.5">
+                  <div class="text-[11px] text-slate-500 font-semibold">Thời hạn mượn</div>
+                  <div class="text-lg sm:text-xl font-black text-[#0a6836] mt-0.5">03 tháng</div>
+                  <div class="text-[11px] text-slate-500">Từ ngày lập phiếu</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02. Quy trình 4 bước mượn sách -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-2.5">
+            <span class="px-2.5 py-1 rounded-lg bg-[#0a6836] text-white text-[11px] font-black font-mono">02</span>
+            <h3 class="text-base sm:text-lg font-black text-slate-900 uppercase">Quy trình 4 bước mượn sách qua Zalo</h3>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div class="luxury-glass-card rounded-2xl bg-white border border-slate-200/80 p-5 space-y-2 shadow-xs">
+              <div class="text-2xl font-black text-[#0a6836]/25 font-mono leading-none">01</div>
+              <div class="font-extrabold text-sm text-slate-900">Tra cứu &amp; Chọn sách</div>
+              <p class="text-xs text-slate-600 leading-relaxed">Tìm kiếm đầu sách chuyên ngành bạn cần tại tab <strong>Kho sách</strong>.</p>
+            </div>
+            <div class="luxury-glass-card rounded-2xl bg-white border border-slate-200/80 p-5 space-y-2 shadow-xs">
+              <div class="text-2xl font-black text-[#0a6836]/25 font-mono leading-none">02</div>
+              <div class="font-extrabold text-sm text-slate-900">Điền mẫu &amp; Copy</div>
+              <p class="text-xs text-slate-600 leading-relaxed">Nhập Họ tên, SĐT, Tên Spa vào phiếu mượn sách và bấm <strong>Copy mẫu</strong>.</p>
+            </div>
+            <div class="luxury-glass-card rounded-2xl bg-white border border-slate-200/80 p-5 space-y-2 shadow-xs">
+              <div class="text-2xl font-black text-[#0a6836]/25 font-mono leading-none">03</div>
+              <div class="font-extrabold text-sm text-slate-900">Gửi qua Zalo Lamour</div>
+              <p class="text-xs text-slate-600 leading-relaxed">Dán nội dung gửi về Zalo <strong>0868 858 975</strong> để Admin kiểm tra kho thực tế.</p>
+            </div>
+            <div class="luxury-glass-card rounded-2xl bg-white border border-slate-200/80 p-5 space-y-2 shadow-xs">
+              <div class="text-2xl font-black text-[#0a6836]/25 font-mono leading-none">04</div>
+              <div class="font-extrabold text-sm text-slate-900">Nhận phiếu &amp; Sách</div>
+              <p class="text-xs text-slate-600 leading-relaxed">Admin lập phiếu xác nhận thời hạn và tiến hành giao sách đến bạn.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 03. Quy định Quá hạn, Bảo quản & Bồi thường -->
+        <div class="space-y-4">
+          <div class="flex items-center gap-2.5">
+            <span class="px-2.5 py-1 rounded-lg bg-[#0a6836] text-white text-[11px] font-black font-mono">03</span>
+            <h3 class="text-base sm:text-lg font-black text-slate-900 uppercase">Quy định Quá hạn, Bảo quản &amp; Bồi thường</h3>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="rounded-2xl bg-white border border-slate-200/80 p-5 space-y-2 shadow-xs">
+              <div class="text-xs font-extrabold uppercase tracking-wider text-amber-600">Nhắc hạn &amp; Phí trễ hạn</div>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Thư viện nhắc hạn trước <strong>01 tháng</strong> trên Zalo; không gia hạn tự động. Phí trễ hạn áp dụng: <strong>5.000đ / ngày / cuốn</strong>.</p>
+            </div>
+            <div class="rounded-2xl bg-white border border-slate-200/80 p-5 space-y-2 shadow-xs">
+              <div class="text-xs font-extrabold uppercase tracking-wider text-[#0a6836]">Sách đang phát hành</div>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Trường hợp bị mất hoặc hư hỏng nặng: mua lại cuốn mới đúng tên/tác giả kèm phí kiểm tra <strong>20.000đ</strong>.</p>
+            </div>
+            <div class="rounded-2xl bg-white border border-slate-200/80 p-5 space-y-2 shadow-xs">
+              <div class="text-xs font-extrabold uppercase tracking-wider text-slate-700">Sách ngừng phát hành</div>
+              <p class="text-xs sm:text-sm text-slate-600 leading-relaxed">Bồi thường <strong>3 lần giá bìa</strong> (hoặc tính theo đơn giá trang quy định nếu sách không in giá bìa).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- TAB 4: KHO SÁCH NGÀNH SPA                                 -->
+  <!-- ========================================================= -->
+  <section id="tab-kho-sach" class="tab-panel bg-slate-50">
+    <div class="banner-bookshelf text-white py-10 sm:py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+        <h1 class="text-3xl sm:text-4xl lg:text-[42px] font-black uppercase tracking-tight">KHO SÁCH NGÀNH SPA</h1>
+        <div class="flex flex-col lg:flex-row items-stretch lg:items-center gap-3">
+          <div class="flex-1 relative">
+            <input id="search-input" type="text" placeholder="Nhập tên sách, tên tác giả hoặc mã sách để tìm sách"
+              class="w-full h-11 sm:h-12 pl-5 pr-11 rounded-full bg-white text-slate-900 placeholder-slate-400 text-xs sm:text-sm font-medium shadow-md focus:outline-none focus:ring-2 focus:ring-amber-300" />
+          </div>
+          <select id="category-select" class="h-11 sm:h-12 px-4 rounded-full bg-white text-slate-800 text-xs sm:text-sm font-semibold shadow-md lg:w-52">
+            <option value="ALL">Tất cả thể loại</option>
+          </select>
+          <select id="language-select" class="h-11 sm:h-12 px-4 rounded-full bg-white text-slate-800 text-xs sm:text-sm font-semibold shadow-md lg:w-48">
+            <option value="ALL">Tất cả sách</option>
+          </select>
+          <button id="clear-filter-btn" type="button" class="h-11 sm:h-12 px-4 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 text-white text-xs font-bold transition whitespace-nowrap">
+            Xóa bộ lọc
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12 min-h-[55vh]">
+      <div class="flex items-center justify-between text-xs sm:text-sm text-slate-500 font-medium mb-6">
+        <span id="book-count-text">Đang tải danh mục sách...</span>
+        <span class="hidden sm:inline text-[#0a6836] font-semibold">Bấm vào từng cuốn sách để xem chi tiết &amp; đăng ký mượn qua Zalo</span>
+      </div>
+      <div id="books-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+      <div id="empty-state" class="hidden text-center py-16 bg-white rounded-3xl border border-slate-200">
+        <div class="text-4xl mb-3">📚</div>
+        <h3 class="text-lg font-extrabold text-slate-800">Không tìm thấy cuốn sách phù hợp</h3>
+      </div>
+      <div id="pagination-bar" class="mt-10 flex items-center justify-center sm:justify-end gap-2"></div>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- TAB 5: ISOV STANDARD (BỎ LOGO THƯ VIỆN, BỎ SUB-NAV)       -->
+  <!-- ========================================================= -->
+  <section id="tab-isov-standard" class="tab-panel isov-section-bg relative overflow-hidden">
+    <canvas id="particle-canvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+
+    <!-- HERO SECTION -->
+    <div class="relative z-10 pt-14 pb-20 lg:pt-20 lg:pb-24 px-4 overflow-hidden">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7 text-center lg:text-left reveal">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#590811]/85 border border-amber-400/40 text-amber-300 text-xs font-bold tracking-wider uppercase mb-6">
+            <i data-lucide="sparkles" class="w-4 h-4"></i>
+            <span>Chương Trình Vinh Danh &amp; Nâng Hạng 2026 – 2027</span>
+          </div>
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black leading-[1.15] tracking-tight mb-6 uppercase">
+            Chuẩn Hóa <span class="text-gold-shimmer">Spa 5 Sao Hàn Quốc</span> &amp; Đại Sứ ISOV
+          </h1>
+          <p class="text-base sm:text-lg text-white/85 leading-relaxed mb-8 font-medium">
+            Hệ thống xét duyệt nâng hạng minh bạch từ <strong class="text-amber-300">Công ty L'amour</strong>: Chuẩn hóa không gian Spa, nâng tầm chuyên môn <strong class="text-amber-300">Cos Master</strong> và trao tặng hàng loạt đặc quyền danh giá hàng tháng cùng Đại sự kiện Vinh danh Tháng 07/2027.
+          </p>
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10">
+            <a href="#isov-dang-ky" onclick="switchFormTab('join')" class="btn-gold-glow w-full sm:w-auto px-7 py-4 rounded-full font-extrabold text-sm uppercase tracking-wider flex items-center justify-center gap-2.5">
+              <i data-lucide="user-plus" class="w-5 h-5"></i><span>1. Đăng Ký Tham Gia</span>
+            </a>
+            <a href="#isov-dang-ky" onclick="switchFormTab('review')" class="w-full sm:w-auto px-7 py-4 rounded-full font-extrabold text-sm uppercase tracking-wider border-2 border-amber-300 bg-[#35050a]/60 hover:bg-amber-300 hover:text-[#1c0205] text-amber-300 transition flex items-center justify-center gap-2.5">
+              <i data-lucide="award" class="w-5 h-5"></i><span>2. Đăng Ký Xét Duyệt Sao</span>
+            </a>
+          </div>
+          <div class="grid grid-cols-3 gap-3 sm:gap-4 pt-5 border-t border-amber-400/20">
+            <div><div class="text-2xl sm:text-3xl font-black text-amber-300">09 Cấp Bậc</div><div class="text-xs text-white/75 font-medium">Từ 3 Triệu – 360 Triệu</div></div>
+            <div><div class="text-2xl sm:text-3xl font-black text-amber-300">Mùng 10</div><div class="text-xs text-white/75 font-medium">Trao quà nhận ngay hàng tháng</div></div>
+            <div><div class="text-2xl sm:text-3xl font-black text-amber-300">Tháng 07</div><div class="text-xs text-white/75 font-medium">Vinh danh tại Sự kiện Đại sứ</div></div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 reveal reveal-delay-2">
+          <div class="grid grid-cols-2 gap-4 relative">
+            <div class="ruby-card rounded-2xl overflow-hidden col-span-2 relative group cursor-pointer" onclick="openVideoModal()">
+              <img src="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1000&q=80" alt="Không gian Spa chuẩn 5 sao ISOV" class="w-full h-56 sm:h-64 object-cover group-hover:scale-105 transition duration-700" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#1c0205] via-[#1c0205]/35 to-transparent"></div>
+              <div class="absolute inset-0 flex items-center justify-center">
+                <span class="w-14 h-14 rounded-full bg-amber-400/95 text-[#1c0205] flex items-center justify-center shadow-2xl group-hover:scale-110 transition">
+                  <i data-lucide="play" class="w-6 h-6 fill-current ml-0.5"></i>
+                </span>
+              </div>
+              <div class="absolute bottom-4 left-4 right-4 flex items-end justify-between gap-2">
+                <div>
+                  <span class="px-2.5 py-1 rounded bg-amber-400 text-[#1c0205] text-[10px] font-black uppercase">ISOV 5-Star Standard</span>
+                  <h3 class="text-white font-bold text-sm sm:text-base mt-1">Chuẩn Hóa Không Gian &amp; Thiết Bị Công Nghệ</h3>
+                </div>
+                <span class="px-2.5 py-1 rounded-full bg-black/55 border border-amber-300/40 text-amber-200 text-[10px] font-bold shrink-0">Xem Film ↗</span>
+              </div>
+            </div>
+            <div class="ruby-card rounded-2xl overflow-hidden relative group cursor-pointer" onclick="openImageModal('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=1200&q=80', 'Cos Master ISOV • Ứng Dụng Liệu Trình & Case Lâm Sàng')">
+              <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=600&q=80" alt="Điều trị lâm sàng ISOV" class="w-full h-44 object-cover group-hover:scale-105 transition duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#1c0205] via-transparent to-transparent"></div>
+              <div class="absolute bottom-3 left-3 right-3"><div class="text-[11px] font-extrabold text-amber-300 uppercase">Cos Master ISOV</div><div class="text-xs font-bold text-white">Ứng Dụng Liệu Trình &amp; Case Lâm Sàng</div></div>
+            </div>
+            <div class="ruby-card rounded-2xl overflow-hidden relative group cursor-pointer" onclick="openImageModal('https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=1200&q=80', 'Gala Vinh Danh • Yến Tiệc Đại Sứ & Du Học Hàn Quốc')">
+              <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?auto=format&fit=crop&w=600&q=80" alt="Vinh danh Đại sứ ISOV" class="w-full h-44 object-cover group-hover:scale-105 transition duration-500" />
+              <div class="absolute inset-0 bg-gradient-to-t from-[#1c0205] via-transparent to-transparent"></div>
+              <div class="absolute bottom-3 left-3 right-3"><div class="text-[11px] font-extrabold text-amber-300 uppercase">Gala Vinh Danh</div><div class="text-xs font-bold text-white">Yến Tiệc Đại Sứ &amp; Du Học Hàn Quốc</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HÌNH ẢNH MINH HỌA TIÊU CHUẨN -->
+    <div id="isov-hinh-anh" class="relative z-10 py-16 px-4 border-t border-amber-400/15">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-12 reveal">
+          <span class="text-amber-300 text-xs font-bold uppercase tracking-[0.25em] block mb-2">HÌNH ẢNH MINH HỌA TIÊU CHUẨN</span>
+          <h2 class="text-2xl sm:text-4xl font-black uppercase">Những Giá Trị <span class="text-amber-300">Spa Nhận Được</span></h2>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6 reveal">
+          <div class="ruby-card rounded-2xl overflow-hidden group cursor-pointer" onclick="openImageModal('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1200&q=80', '01 • Chứng Nhận & Bảng Hiệu Spa Gắn Sao')">
+            <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=800&q=80" alt="Bảng hiệu" class="w-full h-48 object-cover" />
+            <div class="p-6"><span class="text-xs font-extrabold text-amber-300 uppercase">01 • Bảng Hiệu &amp; Nhận Diện</span><h3 class="text-lg font-bold text-white mt-1 mb-2">Chứng Nhận &amp; Bảng Hiệu Spa Gắn Sao</h3><p class="text-xs sm:text-sm text-white/75 leading-relaxed">Trang bị bộ nhận diện chính quy từ ISOV Hàn Quốc: Tranh tráng gương, Bảng hiệu Đại sứ, Bảng hiệu Spa 3–5 sao và Lễ trao chứng nhận tại cơ sở.</p></div>
+          </div>
+          <div class="ruby-card rounded-2xl overflow-hidden group cursor-pointer" onclick="openImageModal('https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=80', '02 • Cos Master: Basic • Expert • Master')">
+            <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=800&q=80" alt="Đào tạo" class="w-full h-48 object-cover" />
+            <div class="p-6"><span class="text-xs font-extrabold text-amber-300 uppercase">02 • Đào Tạo Chuyên Sâu</span><h3 class="text-lg font-bold text-white mt-1 mb-2">Cos Master: Basic • Expert • Master</h3><p class="text-xs sm:text-sm text-white/75 leading-relaxed">Làm chủ công nghệ Meso Peel CL4, HD Ethosome, T.E.G Some, Mesotherapy và nhận Giáo trình Setup Spa 5 Sao chuẩn Hàn Quốc.</p></div>
+          </div>
+          <div class="ruby-card rounded-2xl overflow-hidden group cursor-pointer" onclick="openImageModal('https://images.unsplash.com/photo-1538485399081-7191377e8241?auto=format&fit=crop&w=1200&q=80', '03 • Thi Tay Nghề Quảng Châu & Du Học Hàn Quốc')">
+            <img src="https://images.unsplash.com/photo-1538485399081-7191377e8241?auto=format&fit=crop&w=800&q=80" alt="Du học" class="w-full h-48 object-cover" />
+            <div class="p-6"><span class="text-xs font-extrabold text-amber-300 uppercase">03 • Vươn Tầm Quốc Tế</span><h3 class="text-lg font-bold text-white mt-1 mb-2">Thi Tay Nghề Quảng Châu &amp; Du Học Hàn Quốc</h3><p class="text-xs sm:text-sm text-white/75 leading-relaxed">Cơ hội trở thành thí sinh hoặc Ban giám khảo tại Quảng Châu (Trung Quốc) và nhận suất du học thẩm mỹ tại Hàn Quốc.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QUY TRÌNH 4 BƯỚC -->
+    <div id="isov-quy-trinh" class="relative z-10 py-20 px-4 bg-[#140103]/60 border-y border-amber-400/15">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-14 reveal">
+          <span class="text-amber-300 text-xs font-bold uppercase tracking-[0.25em] block mb-2">QUY TRÌNH ĐƠN GIẢN &amp; NHANH CHÓNG</span>
+          <h2 class="text-2xl sm:text-4xl font-black uppercase mb-3">4 Bước Tham Gia &amp; <span class="text-amber-300">Xét Duyệt Hạng Mức</span></h2>
+          <p class="text-white/80 text-sm sm:text-base">Chỉ cần điền thông tin trên web, nhấn <strong class="text-amber-300">Copy nội dung</strong> và gửi kèm hình ảnh cho Sale phụ trách. Mọi dữ liệu doanh số, khóa học và Case lâm sàng sẽ được công ty đối chiếu trực tiếp.</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="ruby-card rounded-2xl p-6 reveal">
+            <div class="flex items-center justify-between mb-4"><span class="text-3xl font-black text-amber-300">BƯỚC 01</span><div class="w-11 h-11 rounded-xl bg-amber-400/15 border border-amber-300/30 flex items-center justify-center text-amber-300"><i data-lucide="file-badge" class="w-6 h-6"></i></div></div>
+            <h3 class="text-lg font-extrabold text-white mb-2">Đăng Ký Tham Gia</h3>
+            <p class="text-xs sm:text-sm text-white/80 leading-relaxed mb-4">Điền form <strong class="text-amber-300">Đăng ký tham gia</strong> bên dưới, bấm Copy văn bản và gửi kèm ảnh <strong class="text-white">Giấy phép kinh doanh Spa</strong> cho Sale phụ trách.</p>
+            <a href="#isov-dang-ky" onclick="switchFormTab('join')" class="text-xs font-extrabold text-amber-300 underline uppercase">Tạo mẫu đăng ký →</a>
+          </div>
+          <div class="ruby-card rounded-2xl p-6 reveal">
+            <div class="flex items-center justify-between mb-4"><span class="text-3xl font-black text-amber-300">BƯỚC 02</span><div class="w-11 h-11 rounded-xl bg-amber-400/15 border border-amber-300/30 flex items-center justify-center text-amber-300"><i data-lucide="clipboard-check" class="w-6 h-6"></i></div></div>
+            <h3 class="text-lg font-extrabold text-white mb-2">Đăng Ký Xét Duyệt</h3>
+            <p class="text-xs sm:text-sm text-white/80 leading-relaxed mb-4">Điền form <strong class="text-amber-300">Xét duyệt</strong> (số nhân sự, số giường, diện tích, máy móc, sản phẩm, bằng cấp, liệu trình), bấm Copy và gửi kèm <strong class="text-white">Hình ảnh Spa</strong> cho Sale.</p>
+            <a href="#isov-dang-ky" onclick="switchFormTab('review')" class="text-xs font-extrabold text-amber-300 underline uppercase">Tạo mẫu xét duyệt →</a>
+          </div>
+          <div class="ruby-card rounded-2xl p-6 reveal">
+            <div class="flex items-center justify-between mb-4"><span class="text-3xl font-black text-amber-300">BƯỚC 03</span><div class="w-11 h-11 rounded-xl bg-amber-400/15 border border-amber-300/30 flex items-center justify-center text-amber-300"><i data-lucide="search-check" class="w-6 h-6"></i></div></div>
+            <h3 class="text-lg font-extrabold text-white mb-2">Công Ty Tra Cứu &amp; Chấm Sao</h3>
+            <p class="text-xs sm:text-sm text-white/80 leading-relaxed">Nhân sự và <strong class="text-white">Phòng Đào Tạo L'amour</strong> sẽ tự động tra cứu Doanh số (01/07/2026 – 30/06/2027), lịch sử học Cos Master và Case lâm sàng để đánh giá cấp bậc / số sao.</p>
+          </div>
+          <div class="ruby-card rounded-2xl p-6 reveal">
+            <div class="flex items-center justify-between mb-4"><span class="text-3xl font-black text-amber-300">BƯỚC 04</span><div class="w-11 h-11 rounded-xl bg-amber-400/15 border border-amber-300/30 flex items-center justify-center text-amber-300"><i data-lucide="gift" class="w-6 h-6"></i></div></div>
+            <h3 class="text-lg font-extrabold text-white mb-2">Trao Quyền Lợi Kép</h3>
+            <p class="text-xs sm:text-sm text-white/80 leading-relaxed">• <strong class="text-amber-300">Quyền lợi nhận ngay:</strong> Gửi tặng hàng tháng (chốt ngày 10) ngay khi đạt tiêu chí.<br />• <strong class="text-amber-300">Quyền lợi sự kiện:</strong> Trao tại Đại sự kiện năm 2027.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SIMULATOR 9 CẤP BẬC -->
+    <div id="isov-simulator" class="relative z-10 py-20 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-10 reveal">
+          <span class="text-amber-300 text-xs font-bold uppercase tracking-[0.25em] block mb-2">TRA CỨU QUYỀN LỢI TƯƠNG TÁC</span>
+          <h2 class="text-2xl sm:text-4xl font-black uppercase mb-3">Khám Phá <span class="text-gold-shimmer">9 Nấc Thang Quyền Lợi</span></h2>
+          <p class="text-white/80 text-sm sm:text-base">Bấm chọn từng cấp bậc hoặc kéo thanh trượt để xem điều kiện và quyền lợi chi tiết.</p>
+        </div>
+        <div class="ruby-card rounded-3xl p-6 sm:p-10 border-2 border-amber-400/35 reveal">
+          <div id="tier-buttons" class="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-9 gap-2 mb-8"></div>
+          <div class="mb-10 px-2">
+            <div class="flex justify-between text-xs font-bold text-amber-300 uppercase tracking-wider mb-3">
+              <span>Khởi Đầu: 3 Triệu</span>
+              <span id="slider-current-label" class="text-xs sm:text-sm text-white bg-[#590811] px-4 py-1 rounded-full border border-amber-300/40 font-extrabold">Cấp bậc 1 / 9</span>
+              <span>Đỉnh Cao: 360 Triệu</span>
+            </div>
+            <input id="tier-slider" type="range" min="0" max="8" value="0" step="1" class="w-full isov-range" />
+          </div>
+          <div class="grid lg:grid-cols-12 gap-8 items-stretch">
+            <div class="lg:col-span-5 bg-[#1c0205]/85 rounded-2xl p-6 sm:p-7 border border-amber-400/25 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between gap-2 mb-4">
+                  <span id="sim-badge" class="px-3 py-1 rounded-full text-xs font-extrabold uppercase bg-amber-400 text-[#1c0205]">CẤP BẬC 01</span>
+                  <span id="sim-course-badge" class="px-3 py-1 rounded-full text-xs font-bold border border-amber-300/40 text-amber-300">COS MASTER: BASIC</span>
+                </div>
+                <h3 id="sim-title" class="text-xl sm:text-2xl font-black text-white mb-2">1. ĐẠI LÝ ISOV</h3>
+                <div class="flex items-baseline gap-2 mb-5 pb-5 border-b border-amber-400/15">
+                  <span class="text-xs uppercase text-white/60 font-semibold">Doanh số:</span>
+                  <span id="sim-revenue" class="text-2xl sm:text-3xl font-black text-amber-300">3 TRIỆU</span>
+                  <span class="text-[11px] text-white/60">(Sau CK, chưa VAT)</span>
+                </div>
+                <div class="space-y-4 text-xs sm:text-sm">
+                  <div><div class="text-xs font-extrabold uppercase text-amber-300 mb-1">Chương trình Cos Master (Công ty đối chiếu):</div><p id="sim-training" class="text-white/85 leading-relaxed bg-[#35050a]/50 p-3 rounded-xl border border-white/10"></p></div>
+                  <div><div class="text-xs font-extrabold uppercase text-amber-300 mb-1">Điều kiện Hồ sơ Spa &amp; Case lâm sàng:</div><p id="sim-criteria" class="text-white/85 leading-relaxed bg-[#35050a]/50 p-3 rounded-xl border border-white/10"></p></div>
+                </div>
+              </div>
+              <div class="mt-6 pt-4 border-t border-amber-400/15 flex items-center justify-between text-xs text-amber-200 font-bold">
+                <span>Tích lũy: 01/07/2026 – 30/06/2027</span>
+                <a href="#isov-dang-ky" onclick="switchFormTab('review')" class="underline hover:text-white">Tạo mẫu xét duyệt →</a>
+              </div>
+            </div>
+            <div class="lg:col-span-7 grid sm:grid-cols-2 gap-6">
+              <div class="bg-gradient-to-b from-[#35050a]/90 to-[#1c0205]/90 rounded-2xl p-6 border border-amber-400/30 flex flex-col justify-between">
+                <div><span class="text-[11px] font-extrabold uppercase tracking-wider text-amber-300 block mb-1">Chốt ngày 10 hàng tháng</span><h4 class="text-lg font-black text-white mb-4 uppercase">Quyền Lợi Nhận Ngay</h4><ul id="sim-immediate-benefits" class="space-y-2.5 text-xs sm:text-sm text-white/90"></ul></div>
+                <div class="mt-6 text-[11px] text-white/60 italic">* Nhận hàng tháng ngay khi vừa đạt đủ tiêu chí.</div>
+              </div>
+              <div class="bg-gradient-to-b from-amber-950/60 to-[#1c0205]/90 rounded-2xl p-6 border border-amber-300/50 flex flex-col justify-between">
+                <div><span class="text-[11px] font-extrabold uppercase tracking-wider text-amber-300 block mb-1">Sự kiện Tháng 07/2027</span><h4 class="text-lg font-black text-white mb-4 uppercase">Quyền Lợi Tại Sự Kiện</h4><ul id="sim-event-benefits" class="space-y-2.5 text-xs sm:text-sm text-white/90"></ul></div>
+                <div class="mt-6 text-[11px] text-amber-200/85 font-semibold">★ Trao tại Đại sự kiện Vinh danh Đại sứ &amp; ISOV 5 Sao năm 2027.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BẢNG TỔNG HỢP 9 CẤP BẬC -->
+    <div class="relative z-10 py-16 px-4 border-t border-amber-400/15">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6 reveal">
+          <div><span class="text-amber-300 text-xs font-bold uppercase tracking-[0.25em] block mb-2">TOÀN BỘ 9 HẠNG MỨC</span><h2 class="text-2xl sm:text-4xl font-black uppercase">Bảng Tổng Hợp <span class="text-amber-300">Điều Kiện &amp; Quyền Lợi</span></h2></div>
+          <div class="flex flex-wrap gap-2">
+            <button type="button" onclick="filterCards('ALL', this)" class="filter-btn px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-wider bg-amber-400 text-[#1c0205] transition">Tất cả (9)</button>
+            <button type="button" onclick="filterCards('BASIC', this)" class="filter-btn px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-wider bg-[#35050a] border border-amber-400/30 text-amber-200 transition">Basic (2)</button>
+            <button type="button" onclick="filterCards('EXPERT', this)" class="filter-btn px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-wider bg-[#35050a] border border-amber-400/30 text-amber-200 transition">Expert (3)</button>
+            <button type="button" onclick="filterCards('MASTER', this)" class="filter-btn px-4 py-2 rounded-full text-xs font-extrabold uppercase tracking-wider bg-[#35050a] border border-amber-400/30 text-amber-200 transition">Master (4)</button>
+          </div>
+        </div>
+        <div id="all-tiers-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      </div>
+    </div>
+
+    <!-- CÔNG CỤ TẠO PHIẾU ĐĂNG KÝ 2 MẪU -->
+    <div id="isov-dang-ky" class="relative z-10 py-20 px-4 border-t border-amber-400/25 bg-[#140103]/95">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-10 reveal">
+          <span class="text-amber-300 text-xs font-extrabold uppercase tracking-[0.25em] block mb-2">KHÔNG LO LỖI MẠNG • TẠO MẪU NHANH TRONG 30 GIÂY</span>
+          <h2 class="text-2xl sm:text-4xl font-black uppercase mb-3">Tạo Phiếu Đăng Ký &amp; <span class="text-gold-shimmer">Copy Gửi Sale Phụ Trách</span></h2>
+          <p class="text-sm sm:text-base text-white/80">Chọn đúng nhu cầu của bạn bên dưới, điền thông tin để hệ thống tự động soạn sẵn mẫu đăng ký chuẩn. Sau đó nhấn nút <strong class="text-amber-300">Copy Nội Dung</strong> và dán gửi kèm hình ảnh qua Zalo cho Sale phụ trách.</p>
+        </div>
+
+        <div class="flex flex-col sm:flex-row justify-center gap-4 mb-10 reveal">
+          <button id="tab-btn-join" type="button" onclick="switchFormTab('join')" class="px-6 py-4 rounded-2xl font-extrabold text-sm uppercase tracking-wider flex items-center justify-center gap-3 bg-gradient-to-r from-amber-300 to-amber-500 text-[#1c0205] shadow-lg transition">
+            <i data-lucide="user-check" class="w-5 h-5"></i><span>Mẫu 1: Đăng Ký Tham Gia Dự Án</span>
+          </button>
+          <button id="tab-btn-review" type="button" onclick="switchFormTab('review')" class="px-6 py-4 rounded-2xl font-extrabold text-sm uppercase tracking-wider flex items-center justify-center gap-3 bg-[#35050a]/80 border border-amber-400/35 text-amber-200 transition">
+            <i data-lucide="medal" class="w-5 h-5"></i><span>Mẫu 2: Đăng Ký Xét Duyệt Cấp Bậc / Sao</span>
+          </button>
+        </div>
+
+        <div class="grid lg:grid-cols-12 gap-8 items-start reveal">
+          <div class="lg:col-span-7 ruby-card rounded-3xl p-6 sm:p-8 border-2 border-amber-400/35">
+            <div id="form-panel-join" class="space-y-5">
+              <div class="border-b border-amber-400/20 pb-4">
+                <span class="px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 text-xs font-extrabold uppercase">Bước 1 • Dành cho Spa mới bắt đầu</span>
+                <h3 class="text-xl font-black text-white mt-2 uppercase">Thông Tin Đăng Ký Tham Gia</h3>
+              </div>
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div><label class="block text-xs font-bold uppercase text-amber-300 mb-1.5">Tên Thương Hiệu Spa *</label><input id="join-spa-name" oninput="updateGeneratedText()" type="text" placeholder="VD: Aura Beauty &amp; Clinic" class="w-full px-4 py-3 rounded-xl bg-[#1c0205] border border-amber-400/30 text-white text-sm" /></div>
+                <div><label class="block text-xs font-bold uppercase text-amber-300 mb-1.5">Họ Tên Chủ Spa / Đại Diện *</label><input id="join-owner" oninput="updateGeneratedText()" type="text" placeholder="VD: Nguyễn Thị Minh Anh" class="w-full px-4 py-3 rounded-xl bg-[#1c0205] border border-amber-400/30 text-white text-sm" /></div>
+              </div>
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div><label class="block text-xs font-bold uppercase text-amber-300 mb-1.5">Số Điện Thoại Zalo *</label><input id="join-phone" oninput="updateGeneratedText()" type="tel" placeholder="VD: 0909 123 456" class="w-full px-4 py-3 rounded-xl bg-[#1c0205] border border-amber-400/30 text-white text-sm" /></div>
+                <div><label class="block text-xs font-bold uppercase text-amber-300 mb-1.5">Tên Sale Phụ Trách (Nếu nhớ)</label><input id="join-sale" oninput="updateGeneratedText()" type="text" placeholder="VD: Sale Thanh Thảo" class="w-full px-4 py-3 rounded-xl bg-[#1c0205] border border-amber-400/30 text-white text-sm" /></div>
+              </div>
+              <div><label class="block text-xs font-bold uppercase text-amber-300 mb-1.5">Địa Chỉ Cơ Sở Spa *</label><input id="join-address" oninput="updateGeneratedText()" type="text" placeholder="Nhập số nhà, đường, quận/huyện, tỉnh/thành phố..." class="w-full px-4 py-3 rounded-xl bg-[#1c0205] border border-amber-400/30 text-white text-sm" /></div>
+              <div>
+                <label class="block text-xs font-bold uppercase text-amber-300 mb-1.5">Cấp Bậc Mục Tiêu Dự Kiến Hướng Tới</label>
+                <select id="join-target" onchange="updateGeneratedText()" class="w-full px-4 py-3 rounded-xl bg-[#1c0205] border border-amber-400/30 text-white text-sm">
+                  <option value="1. Đại Lý ISOV (3 Triệu)">1. Đại Lý ISOV (3 Triệu)</option>
+                  <option value="2. Spa Đạt Tiêu Chuẩn ISOV Hàn Quốc (10 Triệu)">2. Spa Đạt Tiêu Chuẩn ISOV Hàn Quốc (10 Triệu)</option>
+                  <option value="3. Đại Sứ Loyalty (20 Triệu)">3. Đại Sứ Loyalty (20 Triệu)</option>
+                  <option value="4. Đại Sứ Leader (50 Triệu)">4. Đại Sứ Leader (50 Triệu)</option>
+                  <option value="5. Đại Sứ Clinical (100 Triệu)">5. Đại Sứ Clinical (100 Triệu)</option>
+                  <option value="6. Trainer ISOV (150 Triệu)">6. Trainer ISOV (150 Triệu)</option>
+                  <option value="7. Spa Đạt 3 Sao ISOV (180 Triệu)">7. Spa Đạt 3 Sao ISOV (180 Triệu)</option>
+                  <option value="8. Spa Đạt 4 Sao ISOV (300 Triệu)">8. Spa Đạt 4 Sao ISOV (300 Triệu)</option>
+                  <option value="9. Spa Đạt 5 Sao ISOV (360 Triệu)">9. Spa Đạt 5 Sao ISOV (360 Triệu)</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="form-panel-review" class="space-y-4 hidden">
+              <div class="border-b border-amber-400/20 pb-4">
+                <span class="px-3 py-1 rounded-full bg-amber-400/20 text-amber-300 text-xs font-extrabold uppercase">Bước 2 • Kê khai năng lực cơ sở Spa</span>
+                <h3 class="text-xl font-black text-white mt-2 uppercase">Thông Tin Đăng Ký Xét Duyệt</h3>
+              </div>
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div><label class="block text-xs font-bold uppercase text-amber-300 mb-1">Tên Spa Đăng Ký Xét Duyệt *</label><input id="rev-spa-name" oninput="updateGeneratedText()" type="text" placeholder="VD: Aura Beauty &amp; Clinic" class="w-full px-3.5 py-2.5 rounded-xl bg-[#1c0205] border border-amber-400/30 text-white text-sm" /></div>
+                <div><label class="block text-xs font-bold uppercase text-amber-300 mb-1">Họ Tên Chủ Spa &amp; SĐT *</label><input id="rev-owner" oninput="updateGeneratedText()" type="text" placeholder="VD: Chị Minh Anh - 0909123456" class="w-full px-3.5 py-2.5 rounded-xl bg-[#1c0205] border border-amber-400/30 text-white text-sm" /></div>
+              </div>
+              <div>
+                <label class="block text-xs font-bold uppercase text-amber-300 mb-1">Hạng Mức Đề Nghị Xét Duyệt *</label>
+                <select id="rev-tier" onchange="updateGeneratedText()" class="w-full px-3.5 py-2.5 rounded-xl bg-[#1c0205] border border-amber-400/30 text-white text-sm">
+                  <option value="1. Đại Lý ISOV (3 Triệu)">1. Đại Lý ISOV (3 Triệu)</option>
+                  <option value="2. Spa Đạt Tiêu Chuẩn ISOV Hàn Quốc (10 Triệu)">2. Spa Đạt Tiêu Chuẩn ISOV Hàn Quốc (10 Triệu)</option>
+                  <option value="3. Đại Sứ Loyalty (20 Triệu)">3. Đại Sứ Loyalty (20 Triệu)</option>
+                  <option value="4. Đại Sứ Leader (50 Triệu)">4. Đại Sứ Leader (50 Triệu)</option>
+                  <option value="5. Đại Sứ Clinical (100 Triệu - Kèm Case Lâm Sàng)">5. Đại Sứ Clinical (100 Triệu - Kèm Case Lâm Sàng)</option>
+                  <option value="6. Trainer ISOV (150 Triệu - Kèm Case Lâm Sàng)">6. Trainer ISOV (150 Triệu - Kèm Case Lâm Sàng)</option>
+                  <option value="7. Spa Đạt 3 Sao ISOV (180 Triệu)">7. Spa Đạt 3 Sao ISOV (180 Triệu)</option>
+                  <option value="8. Spa Đạt 4 Sao ISOV (300 Triệu)">8. Spa Đạt 4 Sao ISOV (300 Triệu)</option>
+                  <option value="9. Spa Đạt 5 Sao ISOV (360 Triệu)">9. Spa Đạt 5 Sao ISOV (360 Triệu)</option>
+                </select>
+              </div>
+              <div class="grid grid-cols-3 gap-3">
+                <div><label class="block text-[11px] font-bold uppercase text-amber-300 mb-1">Diện Tích Spa (m²)</label><input id="rev-area" oninput="updateGeneratedText()" type="text" placeholder="VD: 65m2" class="w-full px-3 py-2.5 rounded-xl bg-[#1c0205] border border-amber-400/30 text-white text-sm" /></div>
+                <div><label class="block text-[11px] font-bold uppercase text-amber-300 mb-1">Số Lượng Nhân Sự</label><input id="rev-staff" oninput="updateGeneratedText()" type="text" placeholder="VD: 5 nhân sự" class="w-full px-3 py-2.5 rounded-xl bg-[#1c0205] border border-amber-400/30 text-white text-sm" /></div>
+                <div><label class="block text-[11px] font-bold uppercase text-amber-300 mb-1">Số Giường Spa</label><input id="rev-beds" oninput="updateGeneratedText()" type="text" placeholder="VD: 6 giường" class="w-full px-3 py-2.5 rounded-xl bg-[#1c0205] border border-amber-400/30 text-white text-sm" /></div>
+              </div>
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div><label class="block text-xs font-bold uppercase text-amber-300 mb-1">Máy Móc Công Nghệ Đang Có</label><input id="rev-machines" oninput="updateGeneratedText()" type="text" placeholder="VD: 6 máy" class="w-full px-3.5 py-2.5 rounded-xl bg-[#1c0205] border border-amber-400/30 text-white text-sm" /></div>
+                <div><label class="block text-xs font-bold uppercase text-amber-300 mb-1">Số Bằng Cấp Chuyên Môn Chủ Spa</label><input id="rev-certs" oninput="updateGeneratedText()" type="text" placeholder="VD: 3 bằng cấp" class="w-full px-3.5 py-2.5 rounded-xl bg-[#1c0205] border border-amber-400/30 text-white text-sm" /></div>
+              </div>
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div><label class="block text-xs font-bold uppercase text-amber-300 mb-1">Sản Phẩm ISOV Đang Ứng Dụng</label><input id="rev-products" oninput="updateGeneratedText()" type="text" placeholder="VD: Meso Peel CL4..." class="w-full px-3.5 py-2.5 rounded-xl bg-[#1c0205] border border-amber-400/30 text-white text-sm" /></div>
+                <div><label class="block text-xs font-bold uppercase text-amber-300 mb-1">Số Liệu Trình ISOV (Trên 17)</label><input id="rev-protocols" oninput="updateGeneratedText()" type="text" placeholder="VD: 8/17 liệu trình" class="w-full px-3.5 py-2.5 rounded-xl bg-[#1c0205] border border-amber-400/30 text-white text-sm" /></div>
+              </div>
+              <div><label class="block text-xs font-bold uppercase text-amber-300 mb-1">Ghi Chú Thêm</label><input id="rev-note" oninput="updateGeneratedText()" type="text" placeholder="VD: Đã gửi kèm 10 ảnh..." class="w-full px-3.5 py-2.5 rounded-xl bg-[#1c0205] border border-amber-400/30 text-white text-sm" /></div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 ruby-card rounded-3xl p-6 sm:p-8 border-2 border-amber-300/60 bg-[#1c0205]/90 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs font-extrabold uppercase tracking-wider text-amber-300">Bản Tin Nhắn Tự Động Soạn Sẵn</span>
+                <span id="preview-mode-badge" class="px-2.5 py-0.5 rounded bg-amber-400 text-[#1c0205] text-[10px] font-black uppercase">Đăng ký tham gia</span>
+              </div>
+              <textarea id="generated-message" readonly rows="13" class="w-full p-4 rounded-2xl bg-[#35050a]/60 border border-amber-400/30 text-white text-xs sm:text-sm font-medium leading-relaxed focus:outline-none resize-none"></textarea>
+              <div class="mt-4 p-4 rounded-2xl bg-[#35050a]/40 border border-dashed border-amber-300/40 text-xs space-y-1.5">
+                <div class="font-extrabold text-amber-300 uppercase mb-1">Hình ảnh cần gửi kèm cho Sale:</div>
+                <div id="checklist-items" class="text-white/85 space-y-1"></div>
+              </div>
+            </div>
+            <div class="mt-6">
+              <button type="button" onclick="copyGeneratedText()" class="btn-gold-glow w-full py-4 rounded-2xl font-black text-sm uppercase tracking-wider flex items-center justify-center gap-2.5">
+                <i data-lucide="copy" class="w-5 h-5"></i><span id="copy-btn-text">Copy Nội Dung Gửi Cho Sale</span>
+              </button>
+              <div id="copy-toast" class="hidden mt-3 p-3 rounded-xl bg-emerald-900/90 border border-emerald-400 text-center text-xs font-bold text-white">
+                ✓ Đã sao chép thành công! Hãy mở Zalo của Sale phụ trách, dán (Paste) nội dung này và gửi kèm hình ảnh nhé.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 LƯU Ý & QUY ĐỊNH -->
+    <div class="relative z-10 py-14 px-4 border-t border-amber-400/15">
+      <div class="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-5 reveal">
+        <div class="ruby-card p-5 rounded-2xl"><div class="text-amber-300 font-extrabold text-xs uppercase mb-1">1. Doanh số cộng dồn</div><p class="text-xs text-white/80 leading-relaxed">Tính từ 01/07/2026 đến 30/06/2027 cho mỹ phẩm Công ty L'amour phân phối (sau chiết khấu, chưa VAT).</p></div>
+        <div class="ruby-card p-5 rounded-2xl"><div class="text-amber-300 font-extrabold text-xs uppercase mb-1">2. Quyền lợi nhận ngay</div><p class="text-xs text-white/80 leading-relaxed">Mùng 10 hàng tháng cập nhật doanh số và tiến hành gửi tặng ngay các quyền lợi đạt chuẩn.</p></div>
+        <div class="ruby-card p-5 rounded-2xl"><div class="text-amber-300 font-extrabold text-xs uppercase mb-1">3. Quyền lợi sự kiện</div><p class="text-xs text-white/80 leading-relaxed">Vinh danh sân khấu, trao bảng hiệu &amp; dự Yến tiệc tại Sự kiện Đại sứ vào Tháng 07/2027.</p></div>
+        <div class="ruby-card p-5 rounded-2xl"><div class="text-amber-300 font-extrabold text-xs uppercase mb-1">4. Chuyển đổi vượt 360 triệu</div><p class="text-xs text-white/80 leading-relaxed">Đạt 360 triệu được chuyển đổi doanh số vượt thêm để đăng ký Đại sứ / ISOV Standard cho nhân viên hoặc học viên.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- TAB 6: KHO DỮ LIỆU ONLINE (BỎ THANH TRỌNG ĐIỂM & SUB-NAV) -->
+  <!-- ========================================================= -->
+  <section id="tab-kho-du-lieu" class="tab-panel">
+    <!-- HERO -->
+    <div class="hero-light-mesh relative overflow-hidden border-b border-slate-200/80">
+      <div class="absolute inset-0 bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:24px_24px] opacity-35 pointer-events-none"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-7 space-y-6 reveal">
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-bold text-[#065F46]">
+            <span>DỰ ÁN CHUYỂN ĐỔI SỐ TRI THỨC NGÀNH SPA QUY MÔ LỚN</span>
+          </div>
+          <h1 class="text-4xl sm:text-5xl lg:text-[56px] font-black tracking-tight text-slate-900 leading-[1.1]">
+            KHO DỮ LIỆU <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#043F2E] via-[#0F9D58] to-[#1A73E8]">ONLINE LAMOUR</span>
+          </h1>
+          <p class="text-base sm:text-lg text-slate-600 font-medium leading-relaxed max-w-2xl">
+            Không chỉ là một thư mục lưu trữ — đây là <strong class="text-slate-900 font-bold">"Bộ Não Chuyên Môn Số Hóa"</strong> được đội ngũ R&amp;D và Đào tạo Lamour kiến tạo trên nền tảng Google Drive, giúp hàng trăm chủ Spa làm chủ phác đồ chuẩn y khoa, rút ngắn 80% thời gian đào tạo và bứt phá doanh thu bền vững.
+          </p>
+          <div class="max-w-xl pt-1">
+            <div class="relative flex items-center bg-white rounded-2xl border-2 border-emerald-700/20 focus-within:border-[#065F46] shadow-xl p-1.5 transition">
+              <div class="pl-3 pr-2 text-[#065F46]"><i data-lucide="search" class="w-5 h-5"></i></div>
+              <input type="text" id="heroSearchInput" oninput="handleQuickSearch(this.value)" placeholder="Tra cứu nhanh: Phác đồ nám, Meso, Exosome, Mô hình 100tr..." class="w-full py-2.5 px-2 text-sm text-slate-800 placeholder-slate-400 focus:outline-none font-medium" />
+              <a href="#drive-4-cot" class="bg-[#065F46] hover:bg-[#043F2E] text-white text-xs font-extrabold px-5 py-3 rounded-xl transition shrink-0 uppercase tracking-wider">Khám phá ngay</a>
+            </div>
+            <div id="searchResultsBox" class="hidden mt-2 bg-white border border-slate-200 rounded-2xl p-3 shadow-2xl space-y-1.5"></div>
+          </div>
+          <div class="grid grid-cols-3 gap-4 pt-4 max-w-xl border-t border-slate-200/80">
+            <div><div class="text-2xl sm:text-3xl font-black text-[#065F46]">500+</div><div class="text-xs font-semibold text-slate-500 mt-0.5">Tài liệu &amp; Phác đồ chuẩn</div></div>
+            <div><div class="text-2xl sm:text-3xl font-black text-[#1A73E8]">4 Trụ cột</div><div class="text-xs font-semibold text-slate-500 mt-0.5">Phân tầng khoa học</div></div>
+            <div><div class="text-2xl sm:text-3xl font-black text-[#0F9D58]">24/7</div><div class="text-xs font-semibold text-slate-500 mt-0.5">Đồng bộ R&amp;D tức thì</div></div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 reveal reveal-delay-2">
+          <div class="relative mx-auto max-w-md bg-white rounded-3xl p-6 shadow-[0_20px_50px_rgba(6,95,70,0.14)] border border-slate-200/90 animate-float-slow">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-[#EA4335]"></span><span class="w-3 h-3 rounded-full bg-[#F4B400]"></span><span class="w-3 h-3 rounded-full bg-[#0F9D58]"></span>
+                <span class="ml-1.5 text-xs font-extrabold text-slate-700">Lamour_Master_Drive</span>
+              </div>
+              <span class="px-2.5 py-1 rounded-full bg-emerald-50 text-[#065F46] text-[10px] font-extrabold border border-emerald-200">Đã xác thực</span>
+            </div>
+            <div class="mt-4 space-y-2.5">
+              <div onclick="openFolderModal('san-pham')" class="cursor-pointer flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-blue-50/80 border border-slate-200/70 transition group">
+                <div class="flex items-center gap-3.5"><div class="w-10 h-10 rounded-xl bg-blue-100 text-[#1A73E8] flex items-center justify-center"><i data-lucide="folder" class="w-5 h-5 fill-current"></i></div><div><p class="text-xs sm:text-sm font-extrabold text-slate-800">01. Kiến thức Sản phẩm ISOV</p><p class="text-[11px] text-slate-500">Catalogue, hoạt chất &amp; Slide đào tạo</p></div></div>
+                <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400"></i>
+              </div>
+              <div onclick="openFolderModal('lieu-trinh')" class="cursor-pointer flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-emerald-50/80 border border-slate-200/70 transition group">
+                <div class="flex items-center gap-3.5"><div class="w-10 h-10 rounded-xl bg-emerald-100 text-[#065F46] flex items-center justify-center"><i data-lucide="folder" class="w-5 h-5 fill-current"></i></div><div><p class="text-xs sm:text-sm font-extrabold text-slate-800">02. Liệu trình thực chiến Spa</p><p class="text-[11px] text-slate-500">Phác đồ Nám, Meso, Peel &amp; Phục hồi</p></div></div>
+                <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400"></i>
+              </div>
+              <div onclick="openFolderModal('khoa-hoc')" class="cursor-pointer flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-amber-50/80 border border-slate-200/70 transition group">
+                <div class="flex items-center gap-3.5"><div class="w-10 h-10 rounded-xl bg-amber-100 text-[#D99B00] flex items-center justify-center"><i data-lucide="folder" class="w-5 h-5 fill-current"></i></div><div><p class="text-xs sm:text-sm font-extrabold text-slate-800">03. Khóa học Chuyên môn Da liễu</p><p class="text-[11px] text-slate-500">Giáo trình chuẩn y khoa &amp; Video soi da</p></div></div>
+                <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400"></i>
+              </div>
+              <div onclick="openFolderModal('doanh-thu')" class="cursor-pointer flex items-center justify-between p-3.5 rounded-2xl bg-slate-50 hover:bg-red-50/80 border border-slate-200/70 transition group">
+                <div class="flex items-center gap-3.5"><div class="w-10 h-10 rounded-xl bg-red-100 text-[#EA4335] flex items-center justify-center"><i data-lucide="folder" class="w-5 h-5 fill-current"></i></div><div><p class="text-xs sm:text-sm font-extrabold text-slate-800">04. Mô hình Doanh thu 100tr/tháng</p><p class="text-[11px] text-slate-500">Kịch bản chốt sale, menu &amp; Marketing</p></div></div>
+                <i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-400"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TICKER -->
+    <div class="bg-slate-50 border-b border-slate-200 py-3.5 overflow-hidden">
+      <div class="flex whitespace-nowrap animate-marquee gap-10 text-xs font-extrabold uppercase tracking-wider text-slate-600">
+        <span>✓ Chuẩn hóa phác đồ điều trị y khoa</span><span>✓ Đồng bộ tức thì trên iPad &amp; Smartphone</span><span>✓ Đào tạo kỹ thuật viên mới nhanh gấp 3 lần</span><span>✓ Lộ trình tăng trưởng doanh thu 100 triệu/tháng</span>
+        <span>✓ Chuẩn hóa phác đồ điều trị y khoa</span><span>✓ Đồng bộ tức thì trên iPad &amp; Smartphone</span><span>✓ Đào tạo kỹ thuật viên mới nhanh gấp 3 lần</span><span>✓ Lộ trình tăng trưởng doanh thu 100 triệu/tháng</span>
+      </div>
+    </div>
+
+    <!-- SO SÁNH & SỨ MỆNH -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 space-y-12 reveal">
+      <div class="text-center max-w-3xl mx-auto space-y-3">
+        <span class="text-xs font-extrabold uppercase tracking-widest text-[#065F46] bg-emerald-50 px-3.5 py-1.5 rounded-full border border-emerald-200">Bước ngoặt vận hành Spa hiện đại</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 leading-tight">Chấm dứt cảnh "Bơi trong đống tài liệu rời rạc"</h2>
+        <p class="text-sm sm:text-base text-slate-600 font-medium">85% chủ Spa mất hàng giờ mỗi tuần chỉ để tìm lại một bảng thành phần, hỏi lại quy trình mix hoạt chất hoặc đào tạo lại từ đầu mỗi khi có nhân sự mới. Dự án <strong class="text-slate-900">Kho Dữ Liệu Online Lamour</strong> được xây dựng để giải quyết triệt để bài toán đó.</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="rounded-3xl p-7 sm:p-8 bg-slate-50 border border-slate-200 space-y-4">
+          <h3 class="font-extrabold text-lg text-slate-800">Vận hành theo cách truyền thống</h3>
+          <ul class="space-y-3 text-sm text-slate-600">
+            <li>✕ Tài liệu trôi nổi trên nhiều nhóm chat Zalo, Messenger, lúc cần tư vấn khách lại không tìm thấy.</li>
+            <li>✕ Mỗi kỹ thuật viên hiểu và thực hiện phác đồ một kiểu, thiếu tính đồng nhất y khoa.</li>
+            <li>✕ Chủ Spa kiệt sức vì phải trực tiếp cầm tay chỉ việc lặp đi lặp lại cho từng nhân sự mới.</li>
+          </ul>
+        </div>
+        <div class="deep-emerald-gradient rounded-3xl p-7 sm:p-8 text-white shadow-2xl space-y-4">
+          <h3 class="font-extrabold text-lg text-white">Sức mạnh Kho Dữ Liệu Online Lamour</h3>
+          <ul class="space-y-3 text-sm text-emerald-50">
+            <li>✓ <strong>Tra cứu 3 giây ngay tại giường trị liệu:</strong> Mở iPad hoặc điện thoại là có ngay phác đồ chuẩn từng mililit.</li>
+            <li>✓ <strong>Hệ thống hóa từ A-Z:</strong> Đóng gói trọn vẹn từ kiến thức hoạt chất, bệnh lý da đến kịch bản chốt sale 100 triệu/tháng.</li>
+            <li>✓ <strong>Tự động cập nhật từ phòng R&amp;D:</strong> Mọi công trình nghiên cứu mới của Lamour tự động đồng bộ vào kho của bạn mà không cần xin lại link.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="deep-emerald-gradient rounded-3xl p-6 sm:p-10 lg:p-12 shadow-xl grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-4 flex justify-center py-6">
+          <div class="relative w-44 h-44 flex items-center justify-center">
+            <div class="absolute w-32 h-32 rounded-2xl bg-blue-400/35 border border-white/40 rotate-45 translate-y-8 animate-float-delayed"></div>
+            <div class="absolute w-32 h-32 rounded-2xl bg-emerald-300/45 border border-white/60 rotate-45 animate-float-fast"></div>
+            <div class="absolute w-32 h-32 rounded-2xl bg-white/90 border border-white rotate-45 -translate-y-8 animate-float-slow flex items-center justify-center"><i data-lucide="layers" class="w-10 h-10 text-[#065F46] -rotate-45"></i></div>
+          </div>
+        </div>
+        <div class="lg:col-span-8 space-y-5">
+          <div class="bg-white text-slate-900 rounded-2xl p-6 sm:p-8 shadow-lg">
+            <p class="text-base sm:text-xl font-extrabold leading-relaxed text-slate-800">“Chúng tôi không chỉ trao cho bạn sản phẩm — Lamour trao cho bạn cả một hệ thống tri thức chuẩn y khoa và mô hình kinh doanh đã được kiểm chứng thực tế, giúp Spa của bạn vận hành tự động và tăng trưởng vượt bậc.”</p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <div class="bg-white text-[#043F2E] font-extrabold text-xs sm:text-sm py-3.5 px-4 rounded-xl text-center">Kiến thức thực chiến</div>
+            <div class="bg-white text-[#043F2E] font-extrabold text-xs sm:text-sm py-3.5 px-4 rounded-xl text-center">Tài liệu chuẩn y khoa</div>
+            <div class="bg-white text-[#043F2E] font-extrabold text-xs sm:text-sm py-3.5 px-4 rounded-xl text-center">Cập nhật liên tục 24/7</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 TRỤ CỘT TRI THỨC -->
+    <div id="drive-4-cot" class="bg-slate-50/90 border-y border-slate-200/80 py-16 sm:py-20 reveal">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="mb-10">
+          <span class="text-xs font-extrabold uppercase tracking-widest text-[#065F46]">Cấu trúc kho dữ liệu Google Drive</span>
+          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-1">4 Trụ Cột Tri Thức Cốt Lõi</h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div onclick="openFolderModal('san-pham')" class="card-hover-lift cursor-pointer bg-white rounded-3xl p-6 border border-slate-200 border-t-4 border-t-[#1A73E8] flex flex-col justify-between">
+            <div><span class="text-[11px] font-extrabold px-2.5 py-1 rounded-full bg-blue-50 text-[#1A73E8]">KHO 01 • 48+ FILES</span><h3 class="text-lg font-extrabold text-slate-900 mt-4 mb-2">Kiến thức Sản phẩm công ty</h3><p class="text-xs sm:text-sm text-slate-600 mb-4">Toàn bộ hồ sơ khoa học thương hiệu <strong>ISOV</strong> và dược mỹ phẩm Hàn Quốc.</p></div>
+            <div class="pt-4 border-t border-slate-100 text-xs font-extrabold text-[#1A73E8]">Xem trước thư mục →</div>
+          </div>
+          <div onclick="openFolderModal('lieu-trinh')" class="card-hover-lift cursor-pointer bg-white rounded-3xl p-6 border border-slate-200 border-t-4 border-t-[#065F46] flex flex-col justify-between">
+            <div><span class="text-[11px] font-extrabold px-2.5 py-1 rounded-full bg-emerald-50 text-[#065F46]">KHO 02 • 36+ PHÁC ĐỒ</span><h3 class="text-lg font-extrabold text-slate-900 mt-4 mb-2">Kiến thức Liệu trình cho Spa</h3><p class="text-xs sm:text-sm text-slate-600 mb-4">Mesotherapy, Peel da sinh học, điều trị nám &amp; phục hồi.</p></div>
+            <div class="pt-4 border-t border-slate-100 text-xs font-extrabold text-[#065F46]">Xem trước thư mục →</div>
+          </div>
+          <div onclick="openFolderModal('khoa-hoc')" class="card-hover-lift cursor-pointer bg-white rounded-3xl p-6 border border-slate-200 border-t-4 border-t-[#F4B400] flex flex-col justify-between">
+            <div><span class="text-[11px] font-extrabold px-2.5 py-1 rounded-full bg-amber-50 text-amber-800">KHO 03 • 24+ BÀI GIẢNG</span><h3 class="text-lg font-extrabold text-slate-900 mt-4 mb-2">Khóa học Chuyên môn Da liễu</h3><p class="text-xs sm:text-sm text-slate-600 mb-4">Giáo trình da liễu tổng quan, phân loại tuýp da Fitzpatrick &amp; xử lý phản ứng.</p></div>
+            <div class="pt-4 border-t border-slate-100 text-xs font-extrabold text-amber-700">Xem trước thư mục →</div>
+          </div>
+          <div onclick="openFolderModal('doanh-thu')" class="card-hover-lift cursor-pointer bg-white rounded-3xl p-6 border border-slate-200 border-t-4 border-t-[#EA4335] flex flex-col justify-between">
+            <div><span class="text-[11px] font-extrabold px-2.5 py-1 rounded-full bg-red-50 text-[#EA4335]">KHO 04 • BÍ QUYẾT TĂNG TRƯỞNG</span><h3 class="text-lg font-extrabold text-slate-900 mt-4 mb-2">Mô hình Doanh thu 100 triệu/tháng</h3><p class="text-xs sm:text-sm text-slate-600 mb-4">Menu dịch vụ lợi nhuận cao, kịch bản chốt liệu trình &amp; Marketing.</p></div>
+            <div class="pt-4 border-t border-slate-100 text-xs font-extrabold text-[#EA4335]">Xem trước thư mục →</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CON SỐ BIẾT NÓI & ROI CALCULATOR -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 space-y-12 reveal">
+      <div class="text-center max-w-3xl mx-auto"><span class="text-xs font-extrabold uppercase tracking-widest text-[#065F46]">Hiệu quả đo lường thực tế</span><h2 class="text-3xl sm:text-4xl font-black text-slate-900 mt-1">Con Số Biết Nói Từ Hệ Thống Lamour</h2></div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="rounded-3xl p-7 bg-white border border-slate-200 shadow-sm"><div class="text-3xl sm:text-4xl font-black text-[#065F46] counter" data-target="-80" data-suffix="%">0%</div><h3 class="text-lg font-extrabold text-slate-900 mt-1">Thời gian tìm kiếm tài liệu</h3></div>
+        <div class="rounded-3xl p-7 bg-white border border-slate-200 shadow-sm"><div class="text-3xl sm:text-4xl font-black text-[#1A73E8] counter" data-target="100" data-suffix="%">0%</div><h3 class="text-lg font-extrabold text-slate-900 mt-1">Đồng bộ tức thì đa thiết bị</h3></div>
+        <div class="rounded-3xl p-7 bg-white border border-slate-200 shadow-sm"><div class="text-3xl sm:text-4xl font-black text-amber-600 counter" data-prefix="+" data-target="3" data-suffix="X">0X</div><h3 class="text-lg font-extrabold text-slate-900 mt-1">Tốc độ hòa nhập của kỹ thuật viên</h3></div>
+        <div class="rounded-3xl p-7 bg-white border border-slate-200 shadow-sm"><div class="text-3xl sm:text-4xl font-black text-[#0F9D58]">24/7</div><h3 class="text-lg font-extrabold text-slate-900 mt-1">Cập nhật phác đồ tự động</h3></div>
+      </div>
+
+      <div class="bg-emerald-50/70 border border-emerald-200 rounded-3xl p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-6 space-y-4">
+          <h3 class="text-2xl sm:text-3xl font-black text-slate-900">Spa của bạn tiết kiệm được bao nhiêu giờ mỗi tháng?</h3>
+          <div class="flex justify-between text-sm font-extrabold text-slate-800"><span>Quy mô nhân sự Spa:</span><span id="staffCountLabel" class="text-[#065F46] text-lg">5 nhân sự</span></div>
+          <input type="range" id="staffSlider" min="1" max="30" value="5" oninput="updateRoiCalculator(this.value)" class="w-full h-2.5 bg-emerald-200 rounded-lg accent-[#065F46]" />
+        </div>
+        <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="bg-white rounded-2xl p-6 border border-emerald-100"><div class="text-xs font-bold text-slate-500 uppercase">Thời gian tiết kiệm / tháng</div><div id="savedHoursResult" class="text-3xl sm:text-4xl font-black text-[#065F46] mt-2">35 giờ</div></div>
+          <div class="bg-white rounded-2xl p-6 border border-emerald-100"><div class="text-xs font-bold text-slate-500 uppercase">Mức độ đồng bộ phác đồ</div><div class="text-3xl sm:text-4xl font-black text-[#1A73E8] mt-2">100%</div><p class="text-xs text-slate-500 mt-1">Cho <span id="staffMirror">5</span> nhân sự.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KÍCH HOẠT QUYỀN DRIVE -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 reveal">
+      <div class="deep-emerald-gradient rounded-3xl p-7 sm:p-12 text-white shadow-2xl grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-6 space-y-4">
+          <span class="inline-block px-3 py-1 rounded-full bg-white/15 text-amber-300 text-xs font-extrabold uppercase">Đặc quyền dành cho Đối tác Lamour</span>
+          <h2 class="text-3xl sm:text-4xl font-black leading-tight">Sẵn sàng đưa toàn bộ Kho Dữ Liệu về Spa của bạn?</h2>
+          <p class="text-sm sm:text-base text-emerald-100 leading-relaxed">Điền thông tin bên cạnh để tạo tin nhắn đăng ký chuẩn và gửi ngay cho chuyên viên Lamour qua Zalo.</p>
+        </div>
+        <div class="lg:col-span-6 bg-white text-slate-900 rounded-2xl p-6 sm:p-8 shadow-xl space-y-4">
+          <h3 class="font-extrabold text-lg text-slate-900">Đăng ký cấp quyền Google Drive</h3>
+          <input type="text" id="spaNameInput" placeholder="Tên Spa / Thẩm mỹ viện *" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm" />
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <input type="tel" id="spaPhoneInput" placeholder="Số điện thoại Zalo *" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm" />
+            <input type="email" id="spaEmailInput" placeholder="Gmail nhận quyền Drive *" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-sm" />
+          </div>
+          <button type="button" onclick="copyRegistrationAndNotify()" class="w-full py-3.5 px-5 rounded-xl bg-[#065F46] hover:bg-[#043F2E] text-white font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-lg transition">
+            Sao chép thông tin đăng ký gửi Zalo
+          </button>
+          <div id="copyFeedback" class="hidden p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-[#065F46] font-semibold">
+            ✅ Đã sao chép nội dung đăng ký vào bộ nhớ tạm! Bạn chỉ cần dán (Paste) vào Zalo chuyên viên Lamour để được kích hoạt ngay.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================= -->
+  <!-- TAB 7: TIN TỨC (PHÁT TRIỂN SAU TRONG TRANG ADMIN)         -->
+  <!-- ========================================================= -->
+  <section id="tab-tin-tuc" class="tab-panel bg-slate-50">
+    <div class="bg-news-gradient text-white py-12 sm:py-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+        <div>
+          <span class="text-xs font-extrabold uppercase tracking-[0.22em] text-amber-300">ĐÀO TẠO &amp; SỰ KIỆN LAMOUR</span>
+          <h1 class="text-3xl sm:text-5xl font-black uppercase mt-1">TIN TỨC LAMOUR</h1>
+        </div>
+        <span class="px-4 py-2 rounded-full bg-white/15 border border-white/25 text-xs font-bold text-amber-200">
+          Khu vực cập nhật bài viết Đào tạo / Sự kiện (Đồng bộ Admin về sau)
+        </span>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div id="news-tab-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- SHARED FOOTER -->
+  <footer class="bg-[#032415] text-white pt-14 pb-8 border-t border-emerald-900/60">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 items-start">
+        <!-- Cột 1: Logo Lamour & Thông tin liên hệ -->
+        <div class="md:col-span-4 space-y-4">
+          <div class="flex items-center gap-3">
+            <img src="assets/company/logo-lamour-trắng.png" alt="Logo L'amour"
+              onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden')"
+              class="h-12 w-auto object-contain shrink-0" />
+            <div class="hidden w-12 h-12 rounded-2xl bg-white/10 border border-[#f5d08a]/40 flex items-center justify-center shrink-0">
+              <svg class="w-7 h-7 text-[#f5d08a]" viewBox="0 0 48 48" fill="none">
+                <circle cx="24" cy="11" r="5.5" stroke="currentColor" stroke-width="2.4"/>
+                <circle cx="36" cy="20" r="5.5" stroke="currentColor" stroke-width="2.4"/>
+                <circle cx="31" cy="34" r="5.5" stroke="currentColor" stroke-width="2.4"/>
+                <circle cx="17" cy="34" r="5.5" stroke="currentColor" stroke-width="2.4"/>
+                <circle cx="12" cy="20" r="5.5" stroke="currentColor" stroke-width="2.4"/>
+              </svg>
+            </div>
+            <div>
+              <div class="text-lg font-black tracking-tight text-white">Công ty TNHH TM DV Lamour</div>
+              <div class="text-[11px] font-bold uppercase tracking-[0.18em] text-[#f5d08a]">Skin Coach L'amour</div>
+            </div>
+          </div>
+
+          <p class="text-xs sm:text-sm text-emerald-100/80 leading-relaxed">
+            Hệ sinh thái đào tạo Skin Coach chuẩn quốc tế, phân phối dược mỹ phẩm điều trị da ISOV Korea và chuyển giao giải pháp vận hành Spa bền vững trên toàn quốc.
+          </p>
+
+          <div class="space-y-2 text-xs sm:text-sm text-emerald-100/90 pt-1">
+            <div class="flex items-start gap-2.5">
+              <svg class="w-4 h-4 text-[#f5d08a] shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"/></svg>
+              <span>110/20/38 đường số 30, phường An Nhơn, TP. HCM</span>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <svg class="w-4 h-4 text-[#f5d08a] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+              <a href="tel:0868858975" class="hover:text-[#f5d08a] transition font-semibold">(+84) 868 858 975</a>
+            </div>
+            <div class="flex items-center gap-2.5">
+              <svg class="w-4 h-4 text-[#f5d08a] shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              <span>Thứ 2 – Thứ 7: 08:30 – 17:30</span>
+            </div>
+          </div>
+
+          <!-- Social pills -->
+          <div class="flex flex-wrap gap-2 pt-2">
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"
+              class="px-3 py-1.5 rounded-full bg-white/10 hover:bg-[#f5d08a] hover:text-[#052315] text-[11px] font-bold transition">Fanpage</a>
+            <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer"
+              class="px-3 py-1.5 rounded-full bg-white/10 hover:bg-[#f5d08a] hover:text-[#052315] text-[11px] font-bold transition">TikTok</a>
+            <a href="https://zalo.me/0868858975" target="_blank" rel="noopener noreferrer"
+              class="px-3 py-1.5 rounded-full bg-white/10 hover:bg-[#f5d08a] hover:text-[#052315] text-[11px] font-bold transition">Zalo OA</a>
+          </div>
+        </div>
+
+        <!-- Cột 2: Hệ sinh thái L'amour -->
+        <div class="md:col-span-2 space-y-2.5 text-xs sm:text-sm">
+          <div class="font-extrabold uppercase tracking-wider text-[#f5d08a] text-xs mb-3">Hệ sinh thái</div>
+          <div><button type="button" onclick="switchTab('cong-ty')" class="hover:text-[#f5d08a] bg-transparent border-0 text-emerald-100/85 cursor-pointer p-0 transition">Công ty Lamour</button></div>
+          <div><button type="button" onclick="switchTab('san-pham')" class="hover:text-[#f5d08a] bg-transparent border-0 text-emerald-100/85 cursor-pointer p-0 transition">Sản phẩm ISOV</button></div>
+          <div><button type="button" onclick="switchTab('thu-vien')" class="hover:text-[#f5d08a] bg-transparent border-0 text-emerald-100/85 cursor-pointer p-0 transition">Thư viện sách</button></div>
+          <div><button type="button" onclick="switchTab('kho-sach')" class="hover:text-[#f5d08a] bg-transparent border-0 text-emerald-100/85 cursor-pointer p-0 transition">Kho sách Ngành Spa</button></div>
+          <div><button type="button" onclick="switchTab('isov-standard')" class="hover:text-[#f5d08a] bg-transparent border-0 text-emerald-100/85 cursor-pointer p-0 transition">ISOV Standard</button></div>
+          <div><button type="button" onclick="switchTab('kho-du-lieu')" class="hover:text-[#f5d08a] bg-transparent border-0 text-emerald-100/85 cursor-pointer p-0 transition">Kho dữ liệu Online</button></div>
+          <div><button type="button" onclick="switchTab('tin-tuc')" class="hover:text-[#f5d08a] bg-transparent border-0 text-emerald-100/85 cursor-pointer p-0 transition">Tin tức &amp; Sự kiện</button></div>
+        </div>
+
+        <!-- Cột 3: Hỗ trợ Đối tác -->
+        <div class="md:col-span-2 space-y-2.5 text-xs sm:text-sm">
+          <div class="font-extrabold uppercase tracking-wider text-[#f5d08a] text-xs mb-3">Đối tác &amp; Hỗ trợ</div>
+          <div><a href="https://zalo.me/0868858975" target="_blank" rel="noopener noreferrer" class="hover:text-[#f5d08a] text-emerald-100/85 transition">Đăng ký Đại lý ISOV</a></div>
+          <div><button type="button" onclick="switchTab('isov-standard')" class="hover:text-[#f5d08a] bg-transparent border-0 text-emerald-100/85 cursor-pointer p-0 transition text-left">Chuyển giao ISOV Standard</button></div>
+          <div><button type="button" onclick="switchTab('thu-vien')" class="hover:text-[#f5d08a] bg-transparent border-0 text-emerald-100/85 cursor-pointer p-0 transition text-left">Nội quy Mượn sách</button></div>
+          <div><button type="button" onclick="switchTab('kho-du-lieu')" class="hover:text-[#f5d08a] bg-transparent border-0 text-emerald-100/85 cursor-pointer p-0 transition text-left">Cấp quyền Drive Spa</button></div>
+          <div><a href="https://zalo.me/0868858975" target="_blank" rel="noopener noreferrer" class="hover:text-[#f5d08a] text-emerald-100/85 transition">Tư vấn phác đồ da</a></div>
+        </div>
+
+        <!-- Cột 4: QR Zalo -->
+        <div class="md:col-span-4">
+          <div class="font-extrabold uppercase tracking-wider text-[#f5d08a] text-xs mb-3">Kết nối Zalo Chuyên Viên</div>
+          <div class="bg-white rounded-2xl p-4 text-slate-900 flex items-center gap-4 shadow-2xl">
+            <img id="footer-zalo-qr" src="" alt="QR Zalo Lamour" class="w-24 h-24 rounded-xl border border-slate-200 object-contain shrink-0" />
+            <div class="space-y-1.5">
+              <div class="text-xs font-black text-[#064b26]">ZALO L'AMOUR • 0868 858 975</div>
+              <p class="text-[11px] text-slate-600 leading-snug">Tư vấn sản phẩm ISOV, đăng ký đại lý, hỏi mượn sách &amp; cấp quyền Kho dữ liệu.</p>
+              <a href="https://zalo.me/0868858975" target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center px-3.5 py-1.5 rounded-lg bg-[#0068ff] hover:bg-blue-700 text-white text-[11px] font-bold transition">
+                Nhắn Zalo ngay →
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Copyright Bar -->
+      <div class="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-emerald-200/70">
+        <div>© 2025 – 2026 <strong class="text-white">Công ty TNHH TM DV Lamour • Skin Coach L'amour</strong>. All rights reserved.</div>
+        <div class="flex flex-wrap items-center justify-center gap-x-3 gap-y-1">
+          <span>ISOV Korea Official Partner • Mạng lưới phân phối 40+ tỉnh thành</span>
+          <span class="hidden sm:inline text-white/25">|</span>
+          <span>Project by <strong class="text-[#f5d08a] font-bold">Ho Anh Vu</strong></span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- PRODUCT DETAIL MODAL (CHỈ HIỂN THỊ THÔNG TIN & GIÁ/CHIẾT KHẤU) -->
+  <div id="product-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/55 backdrop-blur-md p-3 sm:p-6">
+    <div class="min-h-full flex items-center justify-center">
+      <div class="bg-white rounded-3xl shadow-2xl border border-slate-200 max-w-5xl w-full p-5 sm:p-8 relative">
+        <div class="flex items-center justify-between pb-5 border-b border-slate-100">
+          <button id="product-modal-back-btn" type="button" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-700 hover:text-[#0a6836] bg-transparent border-0 cursor-pointer">
+            <span class="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center">←</span><span>Quay lại danh sách sản phẩm</span>
+          </button>
+          <button id="product-modal-close-btn" type="button" class="w-9 h-9 rounded-full bg-[#991b1b] hover:bg-red-700 text-white font-bold flex items-center justify-center border-0 cursor-pointer">✕</button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-7 py-6">
+          <div class="md:col-span-4 flex flex-col items-center">
+            <div id="product-modal-image-wrap" class="w-56 sm:w-full max-w-[280px] aspect-[3/4] rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-100 relative"></div>
+            <div class="mt-3 text-[11px] text-slate-500 text-center">
+              File ảnh: <code id="product-modal-img-name" class="px-1.5 py-0.5 rounded bg-slate-100 text-slate-700 font-semibold"></code>
+            </div>
+          </div>
+
+          <div class="md:col-span-8 space-y-4">
+            <div class="flex flex-wrap items-center gap-2">
+              <span id="product-modal-group-badge" class="px-3.5 py-1 rounded-full bg-[#0a6836] text-white text-[11px] font-extrabold uppercase tracking-wider"></span>
+              <span id="product-modal-volume-badge" class="px-3.5 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold"></span>
+            </div>
+
+            <div>
+              <h2 id="product-modal-name" class="text-2xl sm:text-3xl font-black text-slate-900 leading-tight"></h2>
+              <p id="product-modal-usp" class="text-xs sm:text-sm font-extrabold text-[#0a6836] uppercase tracking-wide mt-1"></p>
+            </div>
+
+            <!-- Khối giá + nút chọn Trước VAT / Sau VAT / Chiết khấu -->
+            <div class="rounded-2xl bg-emerald-50/70 border border-emerald-200 p-4 sm:p-5 space-y-3">
+              <div class="flex flex-wrap items-baseline justify-between gap-2">
+                <div>
+                  <span id="product-modal-price-label" class="text-[11px] font-extrabold uppercase tracking-wider text-[#0a6836] block">Giá bán lẻ (Trước VAT)</span>
+                  <div id="product-modal-price-value" class="text-2xl sm:text-3xl font-black text-slate-900 mt-0.5"></div>
+                </div>
+                <span id="product-modal-vat-note" class="text-[11px] font-semibold text-slate-500"></span>
+              </div>
+
+              <div class="flex flex-wrap items-center gap-2 pt-1">
+                <button type="button" data-modal-price-mode="beforeVat" onclick="setProductModalPriceMode('beforeVat')"
+                  class="modal-price-btn px-3 py-1.5 rounded-full text-[11px] font-extrabold transition cursor-pointer">
+                  Trước VAT
+                </button>
+                <button type="button" data-modal-price-mode="afterVat" onclick="setProductModalPriceMode('afterVat')"
+                  class="modal-price-btn px-3 py-1.5 rounded-full text-[11px] font-extrabold transition cursor-pointer">
+                  Sau VAT
+                </button>
+                <button type="button" data-modal-price-mode="ck35" onclick="setProductModalPriceMode('ck35')"
+                  class="modal-price-btn px-3 py-1.5 rounded-full text-[11px] font-extrabold transition cursor-pointer">
+                  Chiết khấu 35%
+                </button>
+                <button type="button" data-modal-price-mode="ck40" onclick="setProductModalPriceMode('ck40')"
+                  class="modal-price-btn px-3 py-1.5 rounded-full text-[11px] font-extrabold transition cursor-pointer">
+                  Chiết khấu 40%
+                </button>
+              </div>
+            </div>
+
+            <!-- Thông tin chi tiết sản phẩm -->
+            <div class="grid grid-cols-1 gap-3 pt-1 text-xs sm:text-sm">
+              <div class="rounded-xl bg-slate-50 border border-slate-200/80 p-3.5">
+                <div class="font-extrabold text-slate-800 text-xs uppercase tracking-wider mb-1">Loại da phù hợp</div>
+                <div id="product-modal-skin" class="text-slate-600 leading-relaxed"></div>
+              </div>
+              <div class="rounded-xl bg-slate-50 border border-slate-200/80 p-3.5">
+                <div class="font-extrabold text-slate-800 text-xs uppercase tracking-wider mb-1">Thành phần nổi bật</div>
+                <div id="product-modal-ingredients" class="text-slate-600 leading-relaxed"></div>
+              </div>
+              <div class="rounded-xl bg-slate-50 border border-slate-200/80 p-3.5">
+                <div class="font-extrabold text-slate-800 text-xs uppercase tracking-wider mb-1">Ưu điểm vượt trội</div>
+                <div id="product-modal-advantage" class="text-slate-600 leading-relaxed"></div>
+              </div>
+              <div class="rounded-xl bg-slate-50 border border-slate-200/80 p-3.5">
+                <div class="font-extrabold text-slate-800 text-xs uppercase tracking-wider mb-1">Lợi ích / Công dụng</div>
+                <div id="product-modal-benefit" class="text-slate-600 leading-relaxed"></div>
+              </div>
+              <div class="rounded-xl bg-slate-50 border border-slate-200/80 p-3.5">
+                <div class="font-extrabold text-slate-800 text-xs uppercase tracking-wider mb-1">Cách dùng</div>
+                <div id="product-modal-usage" class="text-slate-600 leading-relaxed"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOOK DETAIL & BORROW MODAL -->
+  <div id="book-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/55 backdrop-blur-md p-3 sm:p-6">
+    <div class="min-h-full flex items-center justify-center">
+      <div class="bg-white rounded-3xl shadow-2xl border border-slate-200 max-w-5xl w-full p-5 sm:p-8 relative">
+        <div class="flex items-center justify-between pb-5 border-b border-slate-100">
+          <button id="modal-back-btn" type="button" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-700 hover:text-[#0a6836]">
+            <span class="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center">←</span><span>Quay lại kho sách</span>
+          </button>
+          <button id="modal-close-btn" type="button" class="w-9 h-9 rounded-full bg-[#991b1b] hover:bg-red-700 text-white font-bold flex items-center justify-center">✕</button>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-7 py-6">
+          <div class="md:col-span-4 flex justify-center"><div id="modal-cover-box" class="w-56 sm:w-full max-w-[270px] aspect-[3/4] rounded-2xl overflow-hidden shadow-xl border border-slate-200 bg-slate-100"></div></div>
+          <div class="md:col-span-8 space-y-4">
+            <h2 id="modal-title" class="text-2xl sm:text-3xl font-black text-slate-900 leading-tight"></h2>
+            <div id="modal-author" class="text-sm sm:text-base font-semibold text-slate-600"></div>
+            <div id="modal-stars" class="flex items-center gap-1 text-amber-400 text-base"></div>
+            <div class="flex flex-wrap items-center gap-2 pt-1">
+              <span id="modal-code-badge" class="px-4 py-1.5 rounded-full bg-[#0a6836] text-white text-xs font-extrabold"></span>
+              <span class="px-4 py-1.5 rounded-full bg-slate-100 text-slate-700 text-xs font-bold">Kiểm tra tình trạng qua Zalo OA</span>
+            </div>
+            <div id="modal-desc" class="text-xs sm:text-sm text-slate-600 leading-relaxed whitespace-pre-line pt-1"></div>
+            <div class="grid grid-cols-[120px_1fr] gap-y-2 pt-2 text-xs sm:text-sm border-t border-slate-100">
+              <div class="font-bold text-slate-800">Thể loại</div><div id="modal-category" class="text-slate-600"></div>
+              <div class="font-bold text-slate-800">Nhà xuất bản</div><div id="modal-publisher" class="text-slate-600"></div>
+              <div class="font-bold text-slate-800">Ngôn ngữ</div><div id="modal-language" class="text-slate-600"></div>
+            </div>
+          </div>
+        </div>
+        <div class="pt-5 border-t border-slate-200 space-y-5">
+          <div class="inline-block px-5 py-2 rounded-full bg-[#0a6836] text-white text-xs font-extrabold uppercase">ĐĂNG KÝ MƯỢN SÁCH - ĐIỀN VÀO Ô BÊN DƯỚI</div>
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
+            <div class="lg:col-span-4 space-y-3">
+              <div><label class="block text-xs font-bold text-slate-800 mb-1">Họ và Tên người mượn</label><input id="borrow-name" type="text" placeholder="Nhập họ và tên của bạn..." class="w-full h-10 px-4 rounded-full border border-slate-300 text-xs sm:text-sm" /></div>
+              <div><label class="block text-xs font-bold text-slate-800 mb-1">Số điện thoại</label><input id="borrow-phone" type="tel" placeholder="Nhập số điện thoại" class="w-full h-10 px-4 rounded-full border border-slate-300 text-xs sm:text-sm" /></div>
+              <div><label class="block text-xs font-bold text-slate-800 mb-1">Tên cơ sở Spa</label><input id="borrow-spa" type="text" placeholder="Nhập tên Spa" class="w-full h-10 px-4 rounded-full border border-slate-300 text-xs sm:text-sm" /></div>
+            </div>
+            <div class="lg:col-span-4 flex flex-col">
+              <label class="block text-xs font-bold text-slate-800 mb-1.5">Nội dung tin nhắn (tự động cập nhật theo mẫu)</label>
+              <textarea id="borrow-message" readonly rows="7" class="w-full flex-1 rounded-2xl border border-slate-200 bg-slate-50 p-3.5 text-xs text-slate-700 leading-relaxed resize-none"></textarea>
+            </div>
+            <div class="lg:col-span-4 flex flex-col justify-between space-y-3">
+              <ol class="text-[11px] sm:text-xs text-slate-600 space-y-1 leading-snug">
+                <li><strong>Bước 1:</strong> Điền các thông tin vào mẫu bên trái</li>
+                <li><strong>Bước 2:</strong> Kiểm tra mẫu tin nhắn tự động</li>
+                <li><strong>Bước 3:</strong> Ấn nút <strong>Copy mẫu</strong> bên dưới</li>
+                <li><strong>Bước 4:</strong> Quét mã QR hoặc ấn nút <strong>Zalo đăng ký</strong></li>
+              </ol>
+              <div class="flex items-center gap-3 pt-1">
+                <div class="flex-1 space-y-2">
+                  <button id="copy-sample-btn" type="button" class="w-full h-9 rounded-full bg-[#0a6836] hover:bg-[#064b26] text-white text-xs font-extrabold">Copy mẫu</button>
+                  <a id="open-zalo-btn" href="#" target="_blank" rel="noopener noreferrer" class="w-full h-9 rounded-full bg-[#0077cc] hover:bg-[#005fa3] text-white text-xs font-extrabold flex items-center justify-center">Zalo đăng ký</a>
+                </div>
+                <div class="w-24 h-24 rounded-xl border border-slate-200 bg-white p-1.5 shrink-0"><img id="modal-zalo-qr" src="" alt="QR Zalo" class="w-full h-full object-contain" /></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOLDER PREVIEW MODAL (KHO DỮ LIỆU) -->
+  <div id="folderModal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/70 backdrop-blur-sm p-4">
+    <div class="bg-white text-slate-900 rounded-3xl max-w-xl w-full overflow-hidden shadow-2xl">
+      <div id="modalHeader" class="p-6 text-white flex items-center justify-between bg-[#065F46]">
+        <div><h3 id="modalTitle" class="font-extrabold text-base sm:text-lg">Tên thư mục</h3><p id="modalSubtitle" class="text-xs text-white/85">Google Drive</p></div>
+        <button type="button" onclick="closeFolderModal()" class="p-1.5 rounded-xl bg-white/15 hover:bg-white/25 text-white font-bold">✕</button>
+      </div>
+      <div class="p-6 space-y-4">
+        <p id="modalDesc" class="text-sm text-slate-600 leading-relaxed"></p>
+        <div id="modalFileList" class="space-y-2"></div>
+        <div class="pt-4 border-t border-slate-100 flex justify-end gap-3">
+          <button type="button" onclick="closeFolderModal()" class="px-4 py-2.5 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100">Đóng</button>
+          <a id="modalDriveLink" href="https://drive.google.com" target="_blank" rel="noopener" class="px-5 py-2.5 rounded-xl text-xs font-extrabold text-white bg-[#065F46] hover:bg-[#043F2E]">Mở Google Drive →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VIDEO & IMAGE MODALS (ISOV) -->
+  <div id="video-modal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-[#1c0205] border border-amber-400/40 rounded-3xl max-w-3xl w-full p-5 sm:p-6 space-y-4">
+      <div class="flex items-center justify-between"><h3 class="font-extrabold text-amber-300 text-sm sm:text-base uppercase">ISOV Korea Standard Spa 5 Sao</h3><button type="button" onclick="closeVideoModal()" class="w-8 h-8 rounded-full bg-white/10 text-white font-bold">✕</button></div>
+      <div class="aspect-video rounded-2xl overflow-hidden bg-black"><video id="isov-video-player" controls muted loop playsinline class="w-full h-full object-cover" poster="https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1200&q=80"><source src="https://assets.mixkit.co/videos/preview/mixkit-woman-receiving-a-facial-treatment-at-a-spa-42874-large.mp4" type="video/mp4" /></video></div>
+    </div>
+  </div>
+  <div id="image-modal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex items-center justify-center p-4" onclick="closeImageModal()">
+    <div class="max-w-4xl w-full space-y-3" onclick="event.stopPropagation()">
+      <div class="flex items-center justify-between text-white"><span id="image-modal-caption" class="text-xs sm:text-sm font-bold text-amber-300"></span><button type="button" onclick="closeImageModal()" class="w-8 h-8 rounded-full bg-white/15 text-white font-bold">✕</button></div>
+      <img id="image-modal-src" src="" alt="" class="w-full max-h-[80vh] object-contain rounded-2xl bg-black" />
+    </div>
+  </div>
+
+  <script src="assets/books-data.js"></script>
+  <script src="assets/products-data.js"></script>
+  <script src="assets/news-data.js"></script>
+  <script src="assets/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+﻿HƯỚNG DẪN ĐẶT TÊN ẢNH BÌA SÁCH TRONG THƯ MỤC NÀY
+=================================================
+Chép ảnh bìa sách vào thư mục: New Landing Page/assets/books/
+Đặt tên theo MÃ ĐẦU SÁCH (hỗ trợ .jpg, .png, .webp):
+
+DS001.jpg  -->  Phụ nữ hơn nhau ở khí chất
+DS002.jpg  -->  Thay đổi cuộc sống với Thần số học
+DS003.jpg  -->  Nghệ thuật xoay chuyển tình thế
+DS004.jpg  -->  Kinh tế vi mô
+DS005.jpg  -->  Lâm sàng phụ khoa và giải phẫu bệnh
+DS006.jpg  -->  Đừng chỉ đẹp mà không hiểu chuyện
+DS007.jpg  -->  Thiết kế một cuộc đời đáng sống
+DS008.jpg  -->  Thuật thiết lập và hoàn thành mục tiêu
+DS009.jpg  -->  Đời ngắn đừng ngủ dài
+DS010.jpg  -->  TIP Công Sở 1 – Khả năng sắp xếp công việc
+DS011.jpg  -->  Trí tuệ xúc cảm
+DS012.jpg  -->  Hãy làm một phụ nữ giỏi nói chuyện, giỏi làm việc
+DS013.jpg  -->  Sư phạm khai phóng – Thế giới, Việt Nam & Tôi
+DS014.jpg  -->  Đắc nhân tâm – How to Win Friends & Influence People
+DS015.jpg  -->  Sức mạnh tiềm thức
+DS016.jpg  -->  Câu hỏi là câu trả lời
+DS017.jpg  -->  Dẫn đầu hay là chết
+DS018.jpg  -->  Cẩm nang tu đạo
+DS019.jpg  -->  Khoa học & nghệ thuật của việc ra quyết định
+DS020.jpg  -->  Trí tuệ cảm xúc cao – Thu phục lòng người ngay khi mở miệng!
+DS021.jpg  -->  Hành tinh của một kẻ nghĩ nhiều
+DS022.jpg  -->  Tư duy phản biện – Để không bị thao túng tâm lý
+DS023.jpg  -->  Muôn kiếp nhân sinh (Tập 1)
+DS024.jpg  -->  Nhân quả trong cõi phù du
+DS025.jpg  -->  Quẳng gánh lo đi và vui sống
+DS026.jpg  -->  Không diệt không sinh đừng sợ hãi
+DS027.jpg  -->  Nghệ thuật bán hàng của người Do Thái – Bí quyết Marketing sáng tạo
+DS028.jpg  -->  The Secret – Bí mật
+DS029.jpg  -->  Thuật nhìn người – Nghệ thuật thấu hiểu lòng người
+DS030.jpg  -->  Mặc kệ thiên hạ, sống như người Nhật
+DS031.jpg  -->  Mẹo nhớ huyệt – 100 huyệt cơ bản ứng dụng trong Massage trị liệu
+DS032.jpg  -->  Quản trị nghề nghiệp
+DS033.jpg  -->  Người giàu có nhất thành Babylon
+DS034.jpg  -->  Think and Grow Rich – 13 nguyên tắc nghĩ giàu, làm giàu
+DS035.jpg  -->  Những cấm kị khi giao tiếp với khách hàng
+DS036.jpg  -->  Muốn thành công, nói không với trì hoãn – 21 nguyên tắc vàng đập tan sự trì hoãn
+DS037.jpg  -->  Mô hình chất lượng dịch vụ trong bán lẻ – Giải pháp dành cho doanh nghiệp bán lẻ và doanh nghiệp kinh doanh dịch vụ
+DS038.jpg  -->  Biết cách ra quyết định – Khi lúng túng, bạn làm gì?
+DS039.jpg  -->  Có làm mới có sai – Thất bại thực ra cũng là một sự đóng góp
+DS040.jpg  -->  Sống theo phương thức 80/20 – Bớt công việc, bớt ưu phiền, thêm thành công, thêm niềm vui sống
+DS041.jpg  -->  Thật đơn giản – Thuyết trình: Đừng chỉ thuyết trình giỏi, hãy thuyết trình xuất chúng
+DS042.jpg  -->  Tuyển dụng, phát triển & giữ chân nhân tài – Thành công nhờ tập hợp bên mình những người xuất sắc nhất
+DS043.jpg  -->  Làm chủ tư duy thay đổi vận mệnh – Những phương pháp hiệu quả giúp bạn đạt được bất cứ điều gì bạn muốn
+DS044.jpg  -->  Giáo trình đào tạo Spa chuyên nghiệp
+DS045.jpg  -->  Giáo trình Spa chuyên nghiệp
+DS046.jpg  -->  Tôi tài giỏi, bạn cũng thế!
+DS047.jpg  -->  Gieo thói quen nhỏ, gặt thành công lớn
+DS048.jpg  -->  Lý thuyết trò chơi – Giải mã nhận thức hành vi, thao túng tâm trí đối phương, làm chủ trò chơi tâm lý
+DS049.jpg  -->  Nghệ thuật PR bản thân – 10 cách giúp bạn chia sẻ ý tưởng sáng tạo và được mọi người chú ý
+DS050.jpg  -->  Rèn luyện tư duy phản biện
+DS051.jpg  -->  Các hoạt chất thay da hóa học ứng dụng trong da liễu thẩm mỹ
+DS052.jpg  -->  Khơi mở tiềm năng của bạn
+DS053.jpg  -->  Howard Schultz – Tỷ phú Starbucks
+DS054.jpg  -->  Sổ tay hướng dẫn dành cho nhân viên tổng đài
+DS055.jpg  -->  Đi tìm lẽ sống
+DS056.jpg  -->  Người nam châm – Bí mật của Luật hấp dẫn
+DS057.jpg  -->  Vị giám đốc một phút – Bí quyết áp dụng để thành công
+DS058.jpg  -->  Tuần làm việc 4 giờ – Làm việc 4 giờ/tuần thay vì 48 giờ/tuần và gia nhập nhóm New Rich
+DS059.jpg  -->  DDS – Điện sinh học
+DS060.jpg  -->  Lãnh đạo bán hàng chuyên nghiệp – Bí quyết xây dựng đội nhóm bán hàng bất khả chiến bại
+DS061.jpg  -->  Luật trí não – 12 quy tắc giúp nâng tầm não bộ, học hỏi nhanh hơn và sống hạnh phúc hơn
+DS062.jpg  -->  Lợi thế bán hàng – Cách đột phá và duy trì doanh số vượt trội
+DS063.jpg  -->  Thu hút thiện cảm tạo dựng lòng tin
+DS064.jpg  -->  Hỷ lạc từ tâm – The Book of Joy
+DS065.jpg  -->  Đồng tiền hạnh phúc – Happy Money
+DS066.jpg  -->  Bản đồ về dòng tiền – Hiểu và áp dụng sơ đồ kế toán trong doanh nghiệp và đời sống
+DS067.jpg  -->  Think & Grow Rich – 5 nguyên tắc vàng nghĩ giàu, làm giàu
+DS068.jpg  -->  Tư duy thịnh vượng – Dòng chảy của đồng tiền
+DS069.jpg  -->  Chiến lược tài chính trong quản trị kinh doanh
+DS070.jpg  -->  Radical Focus – OKRs: Bí mật của tăng trưởng – Công cụ tạo ra những thay đổi mang tính đột phá cho doanh nghiệp
+DS071.jpg  -->  Cẩm nang doanh nhân – Hành trang khởi sự doanh nghiệp thời hiện đại
+DS072.jpg  -->  Sách đen – Bộ công cụ của phụ nữ thành đạt
+DS073.jpg  -->  Thuật lãnh đạo từ vị tu sĩ bán chiếc Ferrari – 8 nguyên tắc của nhà lãnh đạo thông thái
+DS074.jpg  -->  Nghệ thuật bán hàng bằng câu chuyện
+DS075.jpg  -->  7 thói quen của bạn trẻ thành đạt
+DS076.jpg  -->  The Book of Leadership – Dẫn dắt bản thân, đội nhóm và tổ chức vươn xa
+DS077.jpg  -->  Quyền lực lãnh đạo – Cách để thao túng và điều khiển người khác
+DS078.jpg  -->  Thay cách mặc đổi cuộc đời – Bí quyết tạo phong cách tự tin
+DS079.jpg  -->  Massage kinh lạc huyệt vị toàn thư
+DS080.jpg  -->  Làm chủ tuổi trẻ – Hành trang cho thanh xuân
+DS081.jpg  -->  Larry Page & Sergey Brin – Cha đẻ của công cụ tìm kiếm lớn nhất hành tinh
+DS082.jpg  -->  Your Next Destination to Vietnam and Asian Beauty Markets
+DS083.jpg  -->  Con đường thành đạt của phụ nữ – Không phải ở nơi bạn bắt đầu mà là nơi bạn kết thúc!
+DS084.jpg  -->  Phân loại, lọc dữ liệu tìm kiếm thông tin với Access 2003 – Tạo và quản lý cơ sở dữ liệu với Office 2003
+DS085.jpg  -->  Tiếng Anh văn phòng
+DS086.jpg  -->  Làm chủ doanh nghiệp giai đoạn 2
+DS087.jpg  -->  Điều Vĩ Đại Đời Thường (Who Will Cry When You Die?)
+DS088.jpg  -->  Thuật Quyết Định - Suy Nghĩ Thông Minh Làm Việc Sáng Suốt
+DS089.jpg  -->  Siêu Tăng Trưởng (Traction) - Ứng Dụng EOS
+DS090.jpg  -->  Healing Foods - Dinh Dưỡng Chữa Bệnh: Gia Vị & Thảo Dược
+DS091.jpg  -->  Healing Foods - Dinh Dưỡng Chữa Bệnh: Đậu - Hạt - Ngũ Cốc
+DS092.jpg  -->  Atomic Habits - Thay Đổi Tí Hon Hiệu Quả Bất Ngờ
+DS093.jpg  -->  Ai Sẽ Khóc Khi Bạn Lìa Xa
+DS094.jpg  -->  Brand Strategy - Aaker Bàn Về Thương Hiệu
+DS095.jpg  -->  Nhà Lãnh Đạo Giỏi Giải Quyết Vấn Đề Như Thế Nào? (Go For Gold)
+DS096.jpg  -->  Làm Đẹp Thuần Chay - Hướng Dẫn Thanh Lọc Làn Da Từ Thiên Nhiên
+DS097.jpg  -->  Dù Bất Kỳ Điều Gì Xảy Ra... (What If...)
+DS098.jpg  -->  Một Lít Nước Mắt (1 Litre no Namida)
+DS099.jpg  -->  Khéo Ăn Nói Sẽ Có Được Thiên Hạ
+DS100.jpg  -->  Thay Đổi Tư Duy Đột Phá Thành Công (Detonate)
+DS101.jpg  -->  Tối Đa Hóa Năng Lực Nhân Viên (The Manager's Guide to Maximizing Employee Potential)
+DS102.jpg  -->  Khoa Học Làn Da - Cốt Lõi Để Có Một Làn Da Khỏe & Đẹp (Skin Mag Khoa Học Làn Da - Số 1)
+DS103.jpg  -->  Thuật Tuyển Dụng & Sa Thải (Hiring & Firing)
+DS104.jpg  -->  Thuật Lãnh Đạo (Leadership)
+DS105.jpg  -->  Chinh Phục Mục Tiêu (Goals!)
+DS106.jpg  -->  Sáng Tạo & Cân Bằng - Dành Cho Phụ Nữ Hiện Đại
+DS107.jpg  -->  Chuẩn Bị Để Thăng Tiến Trong Sự Nghiệp
+DS108.jpg  -->  Thuật Bán Hàng (Sale Success)
+DS109.jpg  -->  Big Money Energy - Năng Lượng Lớn Từ Đồng Tiền
+DS110.jpg  -->  Mô Hình Phân Phối & Bán Lẻ - Giải Pháp Nào Cho Doanh Nghiệp Việt Nam?
+DS111.jpg  -->  Thành Công Trong Kinh Doanh Và Cuộc Sống Cùng Shark Robert Herjavec (Driven: How to Succeed in Business and in Life)
+DS112.jpg  -->  Contact Marketing - Nghệ Thuật Chinh Phục Khách Hàng (How to Get a Meeting with Anyone)
+DS113.jpg  -->  Một Cuốn Sách Lễ Nghi Hữu Dụng Dành Cho Các Cô Gái (70+ Quy Tắc Xã Giao Thanh Lịch Của Quý Cô Hiện Đại)
+DS114.jpg  -->  Cẩm Nang Cung Cách Thanh Lịch - 8 Bài Học Từ Người Nhật
+DS115.jpg  -->  Trump - Đừng Bao Giờ Bỏ Cuộc (Trump: Never Give Up)
+DS116.jpg  -->  How To Make People Like You In 90 Seconds - 90 Giây Để Thu Hút Bất Kỳ Ai
+DS117.jpg  -->  Những Bài Học Bằng Vàng
+DS118.jpg  -->  9 Mẫu Phụ Nữ Hấp Dẫn Nhất
+DS119.jpg  -->  5 Bài Học Để Đời
+DS120.jpg  -->  Nhà Lãnh Đạo 4.0 - 17 Kỹ Năng Lãnh Đạo Xuất Chúng (Harvard Business Review Manager's Handbook)
+DS121.jpg  -->  Nghĩ Giàu Làm Giàu 365 Ngày (Napoleon Hill's Positive Action Plan)
+DS122.jpg  -->  Rich Habits - Thói Quen Thành Công Của Những Triệu Phú Tự Thân
+DS123.jpg  -->  Vươn Tới Mặt Trời
+DS124.jpg  -->  999 Lá Thư Gửi Cho Chính Mình (Mong Bạn Trở Thành Phiên Bản Hoàn Hảo Nhất)
+DS125.jpg  -->  The 22 Immutable Laws of Marketing - 22 Quy Luật Bất Biến Trong Marketing
+DS126.jpg  -->  Sống Can Đảm Đời Viên Mãn (Living An Enriched Life)
+DS127.jpg  -->  Rich Kids - Bí Quyết Dạy Con Làm Giàu Của Người Cha Triệu Phú
+DS128.jpg  -->  Cắt Giảm Chi Phí - Quản Lý, Kiểm Soát Và Chuyển Đổi Chi Phí Thành Lợi Nhuận
+DS129.jpg  -->  Nghĩ Đơn Giản, Sống Đơn Thuần
+DS130.jpg  -->  Tư Duy Kế Toán Phải Có Trong Kinh Doanh

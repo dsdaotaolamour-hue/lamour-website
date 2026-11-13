@@ -1,0 +1,10 @@
+﻿THƯ MỤC ẢNH TRANG CÔNG TY LAMOUR (SKIN COACH L'AMOUR)
+======================================================
+Bạn chỉ cần chép các ảnh thật vào thư mục New Landing Page/assets/company/ theo đúng tên dưới đây (hỗ trợ .jpg hoặc .png):
+
+1. ceo-thao-lamour.png   -> Ảnh chân dung Coach Spa Thảo L'amour (Hero & Tầm nhìn/Sứ mệnh)
+2. gala-lamour.jpg       -> Ảnh Gala Vinh Danh CEO Spa Xuất Sắc
+3. ban-do-phan-phoi.png  -> Ảnh Bản đồ Hệ thống Phân phối 40+ tỉnh thành Việt Nam
+4. hop-tac-han-1.jpg     -> Ảnh Du học thẩm mỹ tại Hàn Quốc
+5. hop-tac-han-2.jpg     -> Ảnh Thi tay nghề làm đẹp tại Hàn Quốc
+6. hop-tac-dai-loan.jpg  -> Ảnh Thi tay nghề làm đẹp tại Đài Loan

@@ -1,0 +1,63 @@
+﻿HƯỚNG DẪN ĐẶT TÊN FILE ẢNH SẢN PHẨM TRONG THƯ MỤC NÀY
+=====================================================
+Bạn chỉ cần chép toàn bộ ảnh sản phẩm vào thư mục:
+New Landing Page/assets/products/
+
+Hỗ trợ tự động các đuôi: .jpg, .png, .webp (ưu tiên .jpg -> .png -> .webp).
+Tên file đặt đúng theo danh sách dưới đây (không phân biệt viết hoa/thường trên Windows):
+
+01. Meso Peel Cl4.jpg
+02. Biocell Face Scrub.jpg
+03. Radiance Lha Peel Pad.jpg
+04. Facial Clean Bubble Cleanser.jpg
+05. Complex AC Bubble Cleanser.jpg
+06. Skin Hydration Cleansing Gel.jpg
+07. 8 Ph Balance Cleansing Cream.jpg
+08. Ph Balance Cleansing Lotion.jpg
+09. Ph Balance Toning Lotion.jpg
+10. Skin Hydration Moisture Gel Toner.jpg
+11. Azulene Care Mist.jpg
+12. Ethosome Dds Astaxanthin Booster.jpg
+13. E.G.F Stem C.jpg
+14. Brightening Fills Ampoule.jpg
+15. Complex AC Ampoule.jpg
+16. Meso Fills.jpg
+17. Exo Llt Pro Ac Fills Solution.jpg
+18. Exo Llt Pro Tri Fills Solution.jpg
+19. Derma Matrix Exo-Pn Skin Booster.jpg
+20. Soothing Massage Cream.jpg
+21. Centella TC Cream.jpg
+22. Wrinkle Care Eye Cream.jpg
+23. Meso C Cream.jpg
+24. Meso Fills Cream.jpg
+25. UV Block Cream.jpg
+26. Perfect Magic Bb Cream.jpg
+27. Meso Calming Ampoule Mask Ii.jpg
+28. Meso Hydro Ampoule Mask.jpg
+29. Anti Wrinkle Eye Mask.jpg
+30. Vita Radiance Cream Mask.jpg
+31. Clear Clarifying Cream Mask.jpg
+32. Centella Cream Mask.jpg
+33. B5 Moisturizing Cream Mask.jpg
+34. Antioxidant Cream Mask.jpg
+35. Meso Hydro Mask.jpg
+36. Centella Calming Gel Cream.jpg
+37. Time Reset Hd Serum.jpg
+38. Skin Boosting Act Serum.jpg
+39. Skin Brightening Act Serum.jpg
+40. Multi Vitamin C Hd Serum.jpg
+41. Multi Vitamin B Hd Serum.jpg
+42. Pink Energy Hd Serum.jpg
+43. Blue Energy Hd Serum.jpg
+44. Serum Ves.jpg
+45. Vita Radiance Serum.jpg
+46. Clear Clarifying Serum.jpg
+47. Centella Soothing Serum.jpg
+48. B5 Moisturizing Serum.jpg
+49. Antioxidant Serum.jpg
+50. Mesotox Skin Booster Glutathione.jpg
+51. Mesotox Skin Booster Pdrn.jpg
+52. Mesotox Lipo Cocktail.jpg
+53. Mesotox Skin Booster Scalp.jpg
+54. Mesotox Skin Booster V-Plot.jpg
+55. Honey Bush Skin Solution.jpg
