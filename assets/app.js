@@ -614,11 +614,11 @@
             </div>
             <h3 class="text-sm sm:text-base font-black text-slate-900 leading-snug group-hover:text-[#0a6836] transition">${pr.title}</h3>
             <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">${pr.description || ''}</p>
-            ${matchedProducts.length ? `<div class="text-[11px] font-bold text-[#0a6836] bg-emerald-50 px-2.5 py-1 rounded-lg">✓ Dùng SP: ${matchedProducts.join(', ')}</div>` : ''}
+            ${matchedProducts.length ? `<div class="text-[11px] font-bold text-[#0a6836] bg-emerald-50 px-2.5 py-1 rounded-lg">Có dùng: ${matchedProducts.join(', ')}</div>` : ''}
           </div>
           <div class="pt-3 border-t border-slate-100 space-y-2">
-            <div class="flex flex-wrap gap-2 text-[11px] text-slate-500">
-              ${pr.duration ? `<span>⏱ ${pr.duration}</span>` : ''}
+            <div class="flex flex-wrap items-center gap-2 text-[11px] text-slate-500">
+              ${pr.duration ? `<span class="inline-flex items-center gap-1"><svg class="w-3.5 h-3.5 text-[#0a6836]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 7v5l3 2"/></svg>${pr.duration}</span>` : ''}
               ${pr.frequency ? `<span class="truncate">• ${pr.frequency}</span>` : ''}
             </div>
             <div class="flex items-center justify-between gap-2 bg-slate-50 rounded-xl px-3 py-2">
@@ -649,27 +649,18 @@
       ? `<div class="rounded-2xl bg-amber-50 border border-amber-200 p-3.5"><div class="text-[10px] font-bold uppercase text-amber-700">Tổng bộ SP (CK 35%)</div><div class="text-base sm:text-lg font-black text-amber-900 mt-0.5">${formatVnd(Math.round(totals.ck35 || 0))}</div></div>`
       : '';
 
-    const stepsRows = (pr.steps || []).map((s) => `
-      <tr class="hover:bg-slate-50">
-        <td class="p-2.5 font-mono font-bold text-[#0a6836]">${s.stt}</td>
-        <td class="p-2.5 font-semibold text-slate-800">${s.action || ''}</td>
-        <td class="p-2.5 font-bold text-slate-900">${s.product || '—'}</td>
-        <td class="p-2.5 text-slate-600">${s.time || '—'}</td>
-        <td class="p-2.5 text-slate-600">${s.useAmount ? `${s.useAmount} ml` : '—'}</td>
-        <td class="p-2.5 font-bold text-[#0a6836] text-right">${s.priceOnce ? formatVnd(Math.round(s.priceOnce)) : '—'}</td>
-      </tr>
-    `).join('');
-
-    const mobileStepsCards = (pr.steps || []).map((s) => `
-      <div class="rounded-xl border border-slate-200 bg-slate-50/60 p-3 space-y-1">
-        <div class="flex items-center justify-between gap-2">
-          <span class="text-[11px] font-black text-[#0a6836]">Bước ${s.stt} • ${s.action || ''}</span>
-          ${s.priceOnce ? `<span class="text-[11px] font-black text-[#064b26] shrink-0">${formatVnd(Math.round(s.priceOnce))}</span>` : ''}
+    const unifiedStepsList = (pr.steps || []).map((s) => `
+      <div class="flex items-start sm:items-center justify-between gap-3 p-3 sm:px-4 sm:py-3 rounded-xl border border-slate-200/80 bg-white hover:border-emerald-300 transition">
+        <div class="flex items-start sm:items-center gap-3 min-w-0">
+          <span class="w-7 h-7 rounded-lg bg-emerald-50 border border-emerald-200 text-[#0a6836] font-mono font-black text-xs flex items-center justify-center shrink-0">${String(s.stt).padStart(2, '0')}</span>
+          <div class="min-w-0">
+            <div class="text-[11px] font-bold uppercase tracking-wide text-slate-500">${s.action || 'Thực hiện'}</div>
+            <div class="text-xs sm:text-sm font-extrabold text-slate-900 mt-0.5 break-words">${s.product || 'Thao tác kỹ thuật'}</div>
+          </div>
         </div>
-        ${s.product ? `<div class="text-xs font-extrabold text-slate-900">${s.product}</div>` : ''}
-        <div class="flex flex-wrap gap-2 text-[10px] text-slate-500">
-          ${s.time ? `<span>⏱ ${s.time}</span>` : ''}
-          ${s.useAmount ? `<span>💧 ${s.useAmount} ml</span>` : ''}
+        <div class="flex flex-wrap items-center justify-end gap-1.5 shrink-0">
+          ${s.time ? `<span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] font-semibold"><svg class="w-3 h-3 text-slate-500" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 7v5l3 2"/></svg>${s.time}</span>` : ''}
+          ${s.useAmount ? `<span class="px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-[#0a6836] text-[11px] font-extrabold">${s.useAmount} ml</span>` : ''}
         </div>
       </div>
     `).join('');
@@ -692,7 +683,7 @@
       <div class="space-y-2">
         <div class="flex flex-wrap items-center gap-2">
           <span class="px-3 py-1 rounded-full bg-[#0a6836] text-white text-[11px] font-extrabold uppercase">${pr.category}</span>
-          ${pr.duration ? `<span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold">⏱ ${pr.duration}</span>` : ''}
+          ${pr.duration ? `<span class="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold"><svg class="w-3.5 h-3.5 text-[#0a6836]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 7v5l3 2"/></svg>${pr.duration}</span>` : ''}
           ${pr.frequency ? `<span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold">${pr.frequency}</span>` : ''}
         </div>
         <h2 class="text-xl sm:text-2xl font-black text-slate-900">${pr.title}</h2>
@@ -715,16 +706,10 @@
         ${ckCard}
       </div>
 
-      <div class="space-y-2">
+      <div class="space-y-2.5">
         <h4 class="text-xs font-extrabold uppercase tracking-wider text-slate-700">Quy trình các bước thực hiện</h4>
-        <div class="sm:hidden space-y-2">${mobileStepsCards}</div>
-        <div class="hidden sm:block overflow-x-auto rounded-2xl border border-slate-200">
-          <table class="w-full text-left text-xs">
-            <thead class="bg-slate-50 border-b border-slate-200 text-slate-500 uppercase text-[10px]">
-              <tr><th class="p-2.5">Bước</th><th class="p-2.5">Thao tác</th><th class="p-2.5">Sản phẩm ISOV</th><th class="p-2.5">Thời gian</th><th class="p-2.5">1 lần dùng</th><th class="p-2.5 text-right">Giá 1 lần</th></tr>
-            </thead>
-            <tbody class="divide-y divide-slate-100">${stepsRows}</tbody>
-          </table>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-2.5">
+          ${unifiedStepsList}
         </div>
       </div>
 
