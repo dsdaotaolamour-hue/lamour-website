@@ -232,11 +232,11 @@
     });
     const lockBtn = document.getElementById('discount-lock-btn');
     if (lockBtn) {
-      lockBtn.textContent = unlocked ? '🔓 Đang mở CK' : '🔒 Chiết khấu';
+      lockBtn.textContent = unlocked ? 'Ẩn Chiết khấu' : 'Chiết khấu';
     }
     const modalLockBtn = document.getElementById('modal-discount-lock-btn');
     if (modalLockBtn) {
-      modalLockBtn.textContent = unlocked ? '🔓 Khóa CK' : '🔒 Mở khóa CK';
+      modalLockBtn.textContent = unlocked ? 'Ẩn Chiết khấu' : 'Chiết khấu';
     }
     if (!unlocked && (productState.priceMode === 'ck35' || productState.priceMode === 'ck40')) {
       productState.priceMode = 'beforeVat';
@@ -275,7 +275,7 @@
   window.submitDiscountPassword = function () {
     const passInput = document.getElementById('discount-pass-input');
     const passErr = document.getElementById('discount-pass-error');
-    const expected = String(site.discountPass || 'lamour2026').trim();
+    const expected = String(site.discountPass || 'Daotao123').trim();
     const entered = passInput ? passInput.value.trim() : '';
     if (entered === expected) {
       productState.discountUnlocked = true;
@@ -660,6 +660,20 @@
       </tr>
     `).join('');
 
+    const mobileStepsCards = (pr.steps || []).map((s) => `
+      <div class="rounded-xl border border-slate-200 bg-slate-50/60 p-3 space-y-1">
+        <div class="flex items-center justify-between gap-2">
+          <span class="text-[11px] font-black text-[#0a6836]">Bước ${s.stt} • ${s.action || ''}</span>
+          ${s.priceOnce ? `<span class="text-[11px] font-black text-[#064b26] shrink-0">${formatVnd(Math.round(s.priceOnce))}</span>` : ''}
+        </div>
+        ${s.product ? `<div class="text-xs font-extrabold text-slate-900">${s.product}</div>` : ''}
+        <div class="flex flex-wrap gap-2 text-[10px] text-slate-500">
+          ${s.time ? `<span>⏱ ${s.time}</span>` : ''}
+          ${s.useAmount ? `<span>💧 ${s.useAmount} ml</span>` : ''}
+        </div>
+      </div>
+    `).join('');
+
     const homeCareCards = (pr.homeCare || []).length
       ? `<div class="space-y-2">
           <h4 class="text-xs font-extrabold uppercase tracking-wider text-[#0a6836]">Chăm sóc về nhà gợi ý</h4>
@@ -703,7 +717,8 @@
 
       <div class="space-y-2">
         <h4 class="text-xs font-extrabold uppercase tracking-wider text-slate-700">Quy trình các bước thực hiện</h4>
-        <div class="overflow-x-auto rounded-2xl border border-slate-200">
+        <div class="sm:hidden space-y-2">${mobileStepsCards}</div>
+        <div class="hidden sm:block overflow-x-auto rounded-2xl border border-slate-200">
           <table class="w-full text-left text-xs">
             <thead class="bg-slate-50 border-b border-slate-200 text-slate-500 uppercase text-[10px]">
               <tr><th class="p-2.5">Bước</th><th class="p-2.5">Thao tác</th><th class="p-2.5">Sản phẩm ISOV</th><th class="p-2.5">Thời gian</th><th class="p-2.5">1 lần dùng</th><th class="p-2.5 text-right">Giá 1 lần</th></tr>
