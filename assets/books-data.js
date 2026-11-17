@@ -6,6 +6,7 @@ window.LAMOUR_SITE = {
   phoneDisplay: '(+84) 868 858 975',
   phoneRaw: '0868858975',
   zaloUrl: 'https://zalo.me/0868858975',
+  discountPass: 'lamour2026',
   // Thay đường dẫn ảnh logo của bạn tại đây (hoặc chép file vào assets/company/: logo-lamour-đen.png, logo-lamour-trắng.png, logo-isov.png, logo-drive.png)
   companyLogoUrl: '',
   isovLogoUrl: '',

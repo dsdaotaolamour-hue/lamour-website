@@ -3,6 +3,7 @@
   const site = window.LAMOUR_SITE || {};
   const books = window.LAMOUR_BOOKS || [];
   const products = window.LAMOUR_PRODUCTS || [];
+  const protocols = window.LAMOUR_PROTOCOLS || [];
   const newsList = window.LAMOUR_NEWS || [];
 
   const VALID_TABS = ['cong-ty', 'san-pham', 'thu-vien', 'kho-sach', 'isov-standard', 'kho-du-lieu', 'tin-tuc'];
@@ -212,14 +213,137 @@
     }, 150);
   };
 
-  // ==================== 1. TAB SẢN PHẨM ====================
+  // ==================== 1. TAB SẢN PHẨM & LIỆU TRÌNH ====================
   const productState = {
+    subView: 'products', // 'products' | 'protocols'
     search: '',
     group: 'ALL',
     priceMode: 'beforeVat',
     page: 1,
-    perPage: 12,
-    selected: null
+    perPage: 16,
+    selected: null,
+    discountUnlocked: sessionStorage.getItem('lamour_ck_unlocked') === '1'
+  };
+
+  function syncDiscountUI() {
+    const unlocked = productState.discountUnlocked;
+    document.querySelectorAll('.discount-only-btn').forEach((el) => {
+      el.classList.toggle('hidden', !unlocked);
+    });
+    const lockBtn = document.getElementById('discount-lock-btn');
+    if (lockBtn) {
+      lockBtn.textContent = unlocked ? '🔓 Đang mở CK' : '🔒 Chiết khấu';
+    }
+    const modalLockBtn = document.getElementById('modal-discount-lock-btn');
+    if (modalLockBtn) {
+      modalLockBtn.textContent = unlocked ? '🔓 Khóa CK' : '🔒 Mở khóa CK';
+    }
+    if (!unlocked && (productState.priceMode === 'ck35' || productState.priceMode === 'ck40')) {
+      productState.priceMode = 'beforeVat';
+    }
+  }
+
+  window.toggleDiscountLock = function () {
+    if (productState.discountUnlocked) {
+      productState.discountUnlocked = false;
+      sessionStorage.removeItem('lamour_ck_unlocked');
+      if (productState.priceMode === 'ck35' || productState.priceMode === 'ck40') {
+        productState.priceMode = 'beforeVat';
+      }
+      syncDiscountUI();
+      if (productState.selected) updateProductModalPrice(productState.selected, productState.priceMode);
+      if (productState.subView === 'products') renderProducts(); else renderProtocols();
+      window.showToast('Đã khóa chế độ xem Chiết khấu.');
+      return;
+    }
+    const passModal = document.getElementById('discount-pass-modal');
+    const passInput = document.getElementById('discount-pass-input');
+    const passErr = document.getElementById('discount-pass-error');
+    if (passErr) passErr.classList.add('hidden');
+    if (passInput) passInput.value = '';
+    if (passModal) {
+      passModal.classList.remove('hidden');
+      setTimeout(() => passInput && passInput.focus(), 60);
+    }
+  };
+
+  window.closeDiscountPassModal = function () {
+    const passModal = document.getElementById('discount-pass-modal');
+    if (passModal) passModal.classList.add('hidden');
+  };
+
+  window.submitDiscountPassword = function () {
+    const passInput = document.getElementById('discount-pass-input');
+    const passErr = document.getElementById('discount-pass-error');
+    const expected = String(site.discountPass || 'lamour2026').trim();
+    const entered = passInput ? passInput.value.trim() : '';
+    if (entered === expected) {
+      productState.discountUnlocked = true;
+      sessionStorage.setItem('lamour_ck_unlocked', '1');
+      syncDiscountUI();
+      window.closeDiscountPassModal();
+      if (productState.subView === 'products') renderProducts(); else renderProtocols();
+      window.showToast('Đã mở khóa giá Chiết khấu 35% & 40%!');
+    } else {
+      if (passErr) passErr.classList.remove('hidden');
+    }
+  };
+
+  function populateCategoryFilterForView() {
+    const catSelect = document.getElementById('product-category-select');
+    if (!catSelect) return;
+    catSelect.innerHTML = '';
+    const allOpt = document.createElement('option');
+    allOpt.value = 'ALL';
+    if (productState.subView === 'protocols') {
+      const cats = [...new Set(protocols.map((p) => p.category).filter(Boolean))];
+      allOpt.textContent = `Tất cả liệu trình (${cats.length})`;
+      catSelect.appendChild(allOpt);
+      cats.forEach((c) => {
+        const opt = document.createElement('option');
+        opt.value = c;
+        opt.textContent = c;
+        catSelect.appendChild(opt);
+      });
+    } else {
+      const groups = [...new Set(products.map((p) => p.group).filter(Boolean))];
+      allOpt.textContent = `Tất cả nhóm (${groups.length})`;
+      catSelect.appendChild(allOpt);
+      groups.forEach((g) => {
+        const opt = document.createElement('option');
+        opt.value = g;
+        opt.textContent = g;
+        catSelect.appendChild(opt);
+      });
+    }
+    productState.group = 'ALL';
+    catSelect.value = 'ALL';
+  }
+
+  window.switchProductSubView = function (view) {
+    productState.subView = view === 'protocols' ? 'protocols' : 'products';
+    productState.page = 1;
+    const pWrap = document.getElementById('products-list-wrap');
+    const prWrap = document.getElementById('protocols-list-wrap');
+    const protoBtn = document.getElementById('product-view-protocols-btn');
+    if (pWrap) pWrap.classList.toggle('hidden', productState.subView === 'protocols');
+    if (prWrap) prWrap.classList.toggle('hidden', productState.subView !== 'protocols');
+    if (protoBtn) protoBtn.classList.toggle('is-active', productState.subView === 'protocols');
+
+    if (productState.subView === 'protocols') {
+      document.querySelectorAll('[data-price-mode]').forEach((b) => b.classList.remove('is-active'));
+    } else {
+      document.querySelectorAll('[data-price-mode]').forEach((b) => {
+        b.classList.toggle('is-active', b.dataset.priceMode === productState.priceMode);
+      });
+    }
+
+    populateCategoryFilterForView();
+    if (productState.subView === 'protocols') {
+      renderProtocols();
+    } else {
+      renderProducts();
+    }
   };
 
   function formatVnd(val) {
@@ -290,7 +414,15 @@
   }
 
   window.setProductPriceMode = function (mode) {
+    if ((mode === 'ck35' || mode === 'ck40') && !productState.discountUnlocked) {
+      window.toggleDiscountLock();
+      return;
+    }
     productState.priceMode = mode;
+    if (productState.subView !== 'products') {
+      window.switchProductSubView('products');
+      return;
+    }
     document.querySelectorAll('[data-price-mode]').forEach((btn) => {
       btn.classList.toggle('is-active', btn.dataset.priceMode === mode);
     });
@@ -298,6 +430,10 @@
   };
 
   window.setProductModalPriceMode = function (mode) {
+    if ((mode === 'ck35' || mode === 'ck40') && !productState.discountUnlocked) {
+      window.toggleDiscountLock();
+      return;
+    }
     productState.priceMode = mode;
     document.querySelectorAll('[data-price-mode]').forEach((btn) => {
       btn.classList.toggle('is-active', btn.dataset.priceMode === mode);
@@ -366,17 +502,7 @@
     const empty = document.getElementById('products-empty');
     const pagEl = document.getElementById('products-pagination');
     const totalBadge = document.getElementById('products-total-badge');
-    const catSelect = document.getElementById('product-category-select');
     if (!grid) return;
-
-    if (catSelect && catSelect.options.length <= 1) {
-      [...new Set(products.map((p) => p.group).filter(Boolean))].forEach((g) => {
-        const opt = document.createElement('option');
-        opt.value = g;
-        opt.textContent = g;
-        catSelect.appendChild(opt);
-      });
-    }
 
     const q = productState.search.trim().toLowerCase();
     const filtered = products.filter((p) => {
@@ -407,24 +533,24 @@
         const volText = p.volume ? `${p.volume} ${p.unit || ''}`.trim() : (p.unit || '');
         return `
           <article onclick="openProductModal(${p.id})"
-            class="cursor-pointer bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-xl hover:-translate-y-1 transition flex flex-col justify-between group">
+            class="cursor-pointer bg-white rounded-lg sm:rounded-2xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-xl hover:-translate-y-1 transition flex flex-col justify-between group">
             <div>
               <div class="aspect-[3/4] overflow-hidden bg-slate-100 relative">
                 ${buildProductMediaMarkup(p, false)}
-                <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/95 text-[#0a6836] text-[10px] font-extrabold shadow-xs uppercase">${p.group}</span>
-                ${volText ? `<span class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-slate-900/75 text-white text-[10px] font-bold">${volText}</span>` : ''}
+                <span class="hidden sm:inline-block absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/95 text-[#0a6836] text-[10px] font-extrabold shadow-xs uppercase">${p.group}</span>
+                ${volText ? `<span class="hidden sm:inline-block absolute top-3 right-3 px-2.5 py-1 rounded-full bg-slate-900/75 text-white text-[10px] font-bold">${volText}</span>` : ''}
               </div>
-              <div class="p-4 space-y-1.5">
-                <h3 class="text-sm sm:text-base font-extrabold text-slate-900 leading-snug line-clamp-2 group-hover:text-[#0a6836] transition">${p.name}</h3>
-                <p class="text-[11px] font-semibold text-slate-500 line-clamp-2">${p.usp}</p>
+              <div class="p-1.5 sm:p-4 space-y-0.5 sm:space-y-1.5">
+                <h3 class="text-[9px] sm:text-base font-extrabold text-slate-900 leading-tight sm:leading-snug line-clamp-2 group-hover:text-[#0a6836] transition">${p.name}</h3>
+                <p class="hidden sm:line-clamp-2 text-[11px] font-semibold text-slate-500">${p.usp}</p>
               </div>
             </div>
-            <div class="px-4 pb-4 pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
-              <div>
-                <div class="text-[10px] font-bold uppercase tracking-wider text-slate-400">${priceInfo.label}</div>
-                <div class="text-sm sm:text-base font-black text-[#0a6836]">${priceInfo.value}</div>
+            <div class="px-1.5 pb-1.5 pt-1 sm:px-4 sm:pb-4 sm:pt-3 border-t border-slate-100 flex items-center justify-between gap-1">
+              <div class="min-w-0">
+                <div class="hidden sm:block text-[10px] font-bold uppercase tracking-wider text-slate-400">${priceInfo.label}</div>
+                <div class="text-[9.5px] sm:text-base font-black text-[#0a6836] truncate">${priceInfo.value}</div>
               </div>
-              <span class="w-8 h-8 rounded-full border border-slate-200 group-hover:bg-[#0a6836] group-hover:text-white group-hover:border-[#0a6836] flex items-center justify-center text-xs transition shrink-0">→</span>
+              <span class="hidden sm:flex w-8 h-8 rounded-full border border-slate-200 group-hover:bg-[#0a6836] group-hover:text-white group-hover:border-[#0a6836] items-center justify-center text-xs transition shrink-0">→</span>
             </div>
           </article>
         `;
@@ -445,6 +571,161 @@
       }
     }
   }
+
+  function renderProtocols() {
+    const grid = document.getElementById('protocols-grid');
+    const empty = document.getElementById('protocols-empty');
+    const totalBadge = document.getElementById('products-total-badge');
+    if (!grid) return;
+
+    const q = productState.search.trim().toLowerCase();
+    const filtered = protocols.filter((pr) => {
+      const mCat = productState.group === 'ALL' || pr.category === productState.group;
+      if (!mCat) return false;
+      if (!q) return true;
+      const inTitle = (pr.title || '').toLowerCase().includes(q) || (pr.description || '').toLowerCase().includes(q) || (pr.category || '').toLowerCase().includes(q);
+      const inSteps = (pr.steps || []).some((s) => (s.product || '').toLowerCase().includes(q) || (s.action || '').toLowerCase().includes(q));
+      const inHome = (pr.homeCare || []).some((h) => (h.product || '').toLowerCase().includes(q));
+      return inTitle || inSteps || inHome;
+    });
+
+    if (totalBadge) totalBadge.textContent = `${filtered.length} liệu trình`;
+
+    if (!filtered.length) {
+      grid.innerHTML = '';
+      if (empty) empty.classList.remove('hidden');
+      return;
+    }
+    if (empty) empty.classList.add('hidden');
+
+    grid.innerHTML = filtered.map((pr) => {
+      const matchedProducts = q
+        ? [...new Set((pr.steps || []).map((s) => s.product).filter((pn) => pn && pn.toLowerCase().includes(q)))]
+        : [];
+      const onceVal = pr.totals && pr.totals.once ? formatVnd(Math.round(pr.totals.once)) : 'Liên hệ';
+      const setVal = pr.totals && pr.totals.beforeVat ? formatVnd(pr.totals.beforeVat) : 'Liên hệ';
+      return `
+        <article onclick="openProtocolModal(${pr.id})"
+          class="cursor-pointer bg-white rounded-2xl border border-slate-200 p-4 sm:p-5 shadow-xs hover:shadow-xl hover:-translate-y-1 transition flex flex-col justify-between gap-3 group">
+          <div class="space-y-2.5">
+            <div class="flex items-center justify-between gap-2">
+              <span class="px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 text-[#0a6836] text-[10px] font-extrabold uppercase">${pr.category}</span>
+              <span class="text-[11px] font-bold text-slate-400">#${String(pr.id).padStart(2, '0')} • ${(pr.steps || []).length} bước</span>
+            </div>
+            <h3 class="text-sm sm:text-base font-black text-slate-900 leading-snug group-hover:text-[#0a6836] transition">${pr.title}</h3>
+            <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">${pr.description || ''}</p>
+            ${matchedProducts.length ? `<div class="text-[11px] font-bold text-[#0a6836] bg-emerald-50 px-2.5 py-1 rounded-lg">✓ Dùng SP: ${matchedProducts.join(', ')}</div>` : ''}
+          </div>
+          <div class="pt-3 border-t border-slate-100 space-y-2">
+            <div class="flex flex-wrap gap-2 text-[11px] text-slate-500">
+              ${pr.duration ? `<span>⏱ ${pr.duration}</span>` : ''}
+              ${pr.frequency ? `<span class="truncate">• ${pr.frequency}</span>` : ''}
+            </div>
+            <div class="flex items-center justify-between gap-2 bg-slate-50 rounded-xl px-3 py-2">
+              <div>
+                <div class="text-[9px] font-bold uppercase text-slate-400">Giá vốn 1 lần</div>
+                <div class="text-xs sm:text-sm font-black text-[#0a6836]">${onceVal}</div>
+              </div>
+              <div class="text-right">
+                <div class="text-[9px] font-bold uppercase text-slate-400">Trọn bộ (Trước VAT)</div>
+                <div class="text-xs font-extrabold text-slate-800">${setVal}</div>
+              </div>
+            </div>
+          </div>
+        </article>
+      `;
+    }).join('');
+  }
+
+  window.openProtocolModal = function (id) {
+    const pr = protocols.find((item) => item.id === id);
+    if (!pr) return;
+    const host = document.getElementById('protocol-modal-content');
+    const modal = document.getElementById('protocol-modal');
+    if (!host || !modal) return;
+
+    const totals = pr.totals || {};
+    const ckCard = productState.discountUnlocked
+      ? `<div class="rounded-2xl bg-amber-50 border border-amber-200 p-3.5"><div class="text-[10px] font-bold uppercase text-amber-700">Tổng bộ SP (CK 35%)</div><div class="text-base sm:text-lg font-black text-amber-900 mt-0.5">${formatVnd(Math.round(totals.ck35 || 0))}</div></div>`
+      : '';
+
+    const stepsRows = (pr.steps || []).map((s) => `
+      <tr class="hover:bg-slate-50">
+        <td class="p-2.5 font-mono font-bold text-[#0a6836]">${s.stt}</td>
+        <td class="p-2.5 font-semibold text-slate-800">${s.action || ''}</td>
+        <td class="p-2.5 font-bold text-slate-900">${s.product || '—'}</td>
+        <td class="p-2.5 text-slate-600">${s.time || '—'}</td>
+        <td class="p-2.5 text-slate-600">${s.useAmount ? `${s.useAmount} ml` : '—'}</td>
+        <td class="p-2.5 font-bold text-[#0a6836] text-right">${s.priceOnce ? formatVnd(Math.round(s.priceOnce)) : '—'}</td>
+      </tr>
+    `).join('');
+
+    const homeCareCards = (pr.homeCare || []).length
+      ? `<div class="space-y-2">
+          <h4 class="text-xs font-extrabold uppercase tracking-wider text-[#0a6836]">Chăm sóc về nhà gợi ý</h4>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2.5">
+            ${pr.homeCare.map((h) => `
+              <div class="rounded-xl bg-emerald-50/70 border border-emerald-200/80 p-3">
+                <div class="text-[10px] font-bold uppercase text-[#0a6836]">${h.step}</div>
+                <div class="text-xs font-extrabold text-slate-900 mt-0.5">${h.product}</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>`
+      : '';
+
+    host.innerHTML = `
+      <div class="space-y-2">
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="px-3 py-1 rounded-full bg-[#0a6836] text-white text-[11px] font-extrabold uppercase">${pr.category}</span>
+          ${pr.duration ? `<span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold">⏱ ${pr.duration}</span>` : ''}
+          ${pr.frequency ? `<span class="px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-[11px] font-bold">${pr.frequency}</span>` : ''}
+        </div>
+        <h2 class="text-xl sm:text-2xl font-black text-slate-900">${pr.title}</h2>
+        <p class="text-xs sm:text-sm text-slate-600">${pr.description || ''}</p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-${productState.discountUnlocked ? '4' : '3'} gap-3">
+        <div class="rounded-2xl bg-emerald-50 border border-emerald-200 p-3.5">
+          <div class="text-[10px] font-bold uppercase text-[#0a6836]">Chi phí 1 lần làm</div>
+          <div class="text-base sm:text-lg font-black text-[#064b26] mt-0.5">${formatVnd(Math.round(totals.once || 0))}</div>
+        </div>
+        <div class="rounded-2xl bg-slate-50 border border-slate-200 p-3.5">
+          <div class="text-[10px] font-bold uppercase text-slate-500">Trọn bộ (Trước VAT)</div>
+          <div class="text-base sm:text-lg font-black text-slate-900 mt-0.5">${formatVnd(Math.round(totals.beforeVat || 0))}</div>
+        </div>
+        <div class="rounded-2xl bg-slate-50 border border-slate-200 p-3.5">
+          <div class="text-[10px] font-bold uppercase text-slate-500">Trọn bộ (Sau VAT)</div>
+          <div class="text-base sm:text-lg font-black text-slate-900 mt-0.5">${formatVnd(Math.round(totals.afterVat || 0))}</div>
+        </div>
+        ${ckCard}
+      </div>
+
+      <div class="space-y-2">
+        <h4 class="text-xs font-extrabold uppercase tracking-wider text-slate-700">Quy trình các bước thực hiện</h4>
+        <div class="overflow-x-auto rounded-2xl border border-slate-200">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-slate-50 border-b border-slate-200 text-slate-500 uppercase text-[10px]">
+              <tr><th class="p-2.5">Bước</th><th class="p-2.5">Thao tác</th><th class="p-2.5">Sản phẩm ISOV</th><th class="p-2.5">Thời gian</th><th class="p-2.5">1 lần dùng</th><th class="p-2.5 text-right">Giá 1 lần</th></tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100">${stepsRows}</tbody>
+          </table>
+        </div>
+      </div>
+
+      ${homeCareCards}
+      ${pr.note ? `<div class="rounded-2xl bg-amber-50/70 border border-amber-200 p-3.5 text-xs text-amber-950"><strong>Lưu ý:</strong> ${pr.note}</div>` : ''}
+    `;
+
+    modal.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+  };
+
+  window.closeProtocolModal = function () {
+    const modal = document.getElementById('protocol-modal');
+    if (modal) modal.classList.add('hidden');
+    document.body.style.overflow = '';
+  };
 
   window.setProductPage = function (p) {
     productState.page = p;
@@ -1045,17 +1326,27 @@
     const mobDrawer = document.getElementById('mobile-menu-drawer');
     if (mobBtn && mobDrawer) mobBtn.addEventListener('click', () => mobDrawer.classList.toggle('hidden'));
 
+    syncDiscountUI();
+    populateCategoryFilterForView();
     renderProducts();
     const pSearch = document.getElementById('product-search-input');
     const pCat = document.getElementById('product-category-select');
     const pReset = document.getElementById('product-reset-btn');
-    if (pSearch) pSearch.addEventListener('input', () => { productState.search = pSearch.value; productState.page = 1; renderProducts(); });
-    if (pCat) pCat.addEventListener('change', () => { productState.group = pCat.value; productState.page = 1; renderProducts(); });
+    if (pSearch) pSearch.addEventListener('input', () => {
+      productState.search = pSearch.value;
+      productState.page = 1;
+      if (productState.subView === 'protocols') renderProtocols(); else renderProducts();
+    });
+    if (pCat) pCat.addEventListener('change', () => {
+      productState.group = pCat.value;
+      productState.page = 1;
+      if (productState.subView === 'protocols') renderProtocols(); else renderProducts();
+    });
     if (pReset) pReset.addEventListener('click', () => {
       productState.search = ''; productState.group = 'ALL'; productState.page = 1;
       if (pSearch) pSearch.value = '';
       if (pCat) pCat.value = 'ALL';
-      renderProducts();
+      if (productState.subView === 'protocols') renderProtocols(); else renderProducts();
     });
     const pmBack = document.getElementById('product-modal-back-btn');
     const pmClose = document.getElementById('product-modal-close-btn');
