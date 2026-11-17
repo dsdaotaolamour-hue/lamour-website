@@ -649,19 +649,19 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-5">
         <div class="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <h1 class="text-3xl sm:text-4xl lg:text-[42px] font-black uppercase tracking-tight">SẢN PHẨM ĐANG PHÂN PHỐI</h1>
-            <p class="text-xs sm:text-sm text-emerald-100/90 mt-1">Danh mục 55 dược mỹ phẩm chuyên nghiệp ISOV Korea • Mặc định hiển thị giá bán lẻ trước VAT</p>
+            <h1 class="text-2xl sm:text-4xl lg:text-[42px] font-black uppercase tracking-tight">SẢN PHẨM ĐANG PHÂN PHỐI</h1>
+            <p class="text-[11px] sm:text-sm text-emerald-100/90 mt-1">Danh mục 55 dược mỹ phẩm ISOV Korea &amp; 26 Liệu trình chuẩn Spa • Mặc định hiển thị giá bán lẻ trước VAT</p>
           </div>
-          <span id="products-total-badge" class="px-4 py-1.5 rounded-full bg-white/15 border border-white/25 text-xs font-extrabold text-amber-200">
+          <span id="products-total-badge" class="px-3.5 py-1.5 rounded-full bg-white/15 border border-white/25 text-[11px] sm:text-xs font-extrabold text-amber-200">
             55 sản phẩm
           </span>
         </div>
 
-        <div class="flex flex-col lg:flex-row gap-3 items-stretch lg:items-center">
-          <input id="product-search-input" type="text" placeholder="Tìm theo tên sản phẩm, thành phần, loại da hoặc công dụng..."
-            class="flex-1 h-11 px-5 rounded-full bg-white text-slate-900 placeholder-slate-400 text-xs sm:text-sm shadow-md focus:outline-none focus:ring-2 focus:ring-amber-300" />
-          <div class="flex flex-wrap sm:flex-nowrap gap-3 items-center">
-            <select id="product-category-select" class="h-11 px-4 rounded-full bg-white text-slate-800 text-xs sm:text-sm font-semibold shadow-md sm:w-52">
+        <div class="flex flex-col lg:flex-row gap-2.5 sm:gap-3 items-stretch lg:items-center">
+          <input id="product-search-input" type="text" placeholder="Tìm sản phẩm, thành phần, công dụng hoặc tên liệu trình..."
+            class="flex-1 h-10 sm:h-11 px-4 sm:px-5 rounded-full bg-white text-slate-900 placeholder-slate-400 text-xs sm:text-sm shadow-md focus:outline-none focus:ring-2 focus:ring-amber-300" />
+          <div class="flex flex-wrap sm:flex-nowrap gap-2 sm:gap-3 items-center">
+            <select id="product-category-select" class="h-10 sm:h-11 px-3.5 sm:px-4 rounded-full bg-white text-slate-800 text-xs sm:text-sm font-semibold shadow-md flex-1 sm:flex-none sm:w-52">
               <option value="ALL">Tất cả nhóm (9)</option>
             </select>
             <button id="product-reset-btn" type="button" class="text-xs font-bold text-white/90 hover:text-amber-300 underline underline-offset-4 px-2 whitespace-nowrap bg-transparent border-0 cursor-pointer">
@@ -670,36 +670,56 @@
           </div>
         </div>
 
-        <!-- Tùy chọn hiển thị giá: Trước VAT (mặc định) / Sau VAT / Chiết khấu -->
-        <div class="flex flex-wrap items-center gap-2 pt-1">
-          <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-100 mr-1">Chế độ xem giá:</span>
+        <!-- Tùy chọn hiển thị giá + Công tắc Chiết khấu + Tab Liệu trình -->
+        <div class="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-1">
+          <span class="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-emerald-100 mr-1">Chế độ xem:</span>
           <button type="button" data-price-mode="beforeVat" onclick="setProductPriceMode('beforeVat')"
-            class="price-mode-btn is-active px-3.5 py-1.5 rounded-full text-xs font-extrabold transition cursor-pointer">
+            class="price-mode-btn is-active px-2.5 sm:px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-extrabold transition cursor-pointer">
             Giá bán lẻ (Trước VAT)
           </button>
           <button type="button" data-price-mode="afterVat" onclick="setProductPriceMode('afterVat')"
-            class="price-mode-btn px-3.5 py-1.5 rounded-full text-xs font-extrabold transition cursor-pointer">
+            class="price-mode-btn px-2.5 sm:px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-extrabold transition cursor-pointer">
             Giá sau VAT
           </button>
           <button type="button" data-price-mode="ck35" onclick="setProductPriceMode('ck35')"
-            class="price-mode-btn px-3.5 py-1.5 rounded-full text-xs font-extrabold transition cursor-pointer">
+            class="hidden discount-only-btn price-mode-btn px-2.5 sm:px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-extrabold transition cursor-pointer">
             Chiết khấu 35%
           </button>
           <button type="button" data-price-mode="ck40" onclick="setProductPriceMode('ck40')"
-            class="price-mode-btn px-3.5 py-1.5 rounded-full text-xs font-extrabold transition cursor-pointer">
+            class="hidden discount-only-btn price-mode-btn px-2.5 sm:px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-extrabold transition cursor-pointer">
             Chiết khấu 40%
+          </button>
+          <button id="product-view-protocols-btn" type="button" onclick="switchProductSubView('protocols')"
+            class="price-mode-btn px-2.5 sm:px-3.5 py-1.5 rounded-full text-[11px] sm:text-xs font-extrabold transition cursor-pointer">
+            ✨ Liệu trình (26)
+          </button>
+          <button id="discount-lock-btn" type="button" onclick="toggleDiscountLock()"
+            class="px-2.5 sm:px-3 py-1.5 rounded-full bg-black/25 hover:bg-black/40 border border-white/25 text-amber-200 text-[10px] sm:text-xs font-bold transition cursor-pointer">
+            🔒 Chiết khấu
           </button>
         </div>
       </div>
     </div>
 
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
-      <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6"></div>
-      <div id="products-empty" class="hidden text-center py-16 bg-white rounded-3xl border border-slate-200">
-        <div class="text-lg font-extrabold text-slate-800">Không tìm thấy sản phẩm phù hợp</div>
-        <p class="text-xs text-slate-500 mt-1">Thử tìm với từ khóa khác hoặc bấm Xóa bộ lọc.</p>
+    <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 py-5 sm:py-12">
+      <!-- Danh sách Sản phẩm (Mobile 4 cột gọn đẹp) -->
+      <div id="products-list-wrap">
+        <div id="products-grid" class="grid grid-cols-4 sm:grid-cols-3 lg:grid-cols-4 gap-1.5 sm:gap-5"></div>
+        <div id="products-empty" class="hidden text-center py-16 bg-white rounded-3xl border border-slate-200">
+          <div class="text-lg font-extrabold text-slate-800">Không tìm thấy sản phẩm phù hợp</div>
+          <p class="text-xs text-slate-500 mt-1">Thử tìm với từ khóa khác hoặc bấm Xóa bộ lọc.</p>
+        </div>
+        <div id="products-pagination" class="flex items-center justify-center gap-2 mt-8 sm:mt-10"></div>
       </div>
-      <div id="products-pagination" class="flex items-center justify-center gap-2 mt-10"></div>
+
+      <!-- Danh sách Liệu trình (26 Liệu trình trực quan) -->
+      <div id="protocols-list-wrap" class="hidden space-y-5">
+        <div id="protocols-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5"></div>
+        <div id="protocols-empty" class="hidden text-center py-16 bg-white rounded-3xl border border-slate-200">
+          <div class="text-lg font-extrabold text-slate-800">Không tìm thấy liệu trình phù hợp</div>
+          <p class="text-xs text-slate-500 mt-1">Thử tìm tên liệu trình (Mụn, GigaWhite, PDRN...) hoặc tên sản phẩm bất kỳ.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1682,12 +1702,16 @@
                   Sau VAT
                 </button>
                 <button type="button" data-modal-price-mode="ck35" onclick="setProductModalPriceMode('ck35')"
-                  class="modal-price-btn px-3 py-1.5 rounded-full text-[11px] font-extrabold transition cursor-pointer">
+                  class="hidden discount-only-btn modal-price-btn px-3 py-1.5 rounded-full text-[11px] font-extrabold transition cursor-pointer">
                   Chiết khấu 35%
                 </button>
                 <button type="button" data-modal-price-mode="ck40" onclick="setProductModalPriceMode('ck40')"
-                  class="modal-price-btn px-3 py-1.5 rounded-full text-[11px] font-extrabold transition cursor-pointer">
+                  class="hidden discount-only-btn modal-price-btn px-3 py-1.5 rounded-full text-[11px] font-extrabold transition cursor-pointer">
                   Chiết khấu 40%
+                </button>
+                <button id="modal-discount-lock-btn" type="button" onclick="toggleDiscountLock()"
+                  class="px-3 py-1.5 rounded-full border border-slate-300 bg-white text-slate-600 hover:border-[#0a6836] hover:text-[#0a6836] text-[11px] font-bold transition cursor-pointer">
+                  🔒 Mở khóa CK
                 </button>
               </div>
             </div>
@@ -1814,8 +1838,43 @@
     </div>
   </div>
 
+  <!-- PASSWORD MODAL CHO CHIẾT KHẤU -->
+  <div id="discount-pass-modal" class="hidden fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-3xl max-w-sm w-full p-6 shadow-2xl border border-slate-200 space-y-4">
+      <div class="flex items-center justify-between">
+        <h3 class="text-base font-black text-slate-900">🔒 Nhập mật khẩu Chiết khấu</h3>
+        <button type="button" onclick="closeDiscountPassModal()" class="w-8 h-8 rounded-full bg-slate-100 text-slate-600 font-bold border-0 cursor-pointer">✕</button>
+      </div>
+      <p class="text-xs text-slate-500">Vui lòng nhập mật khẩu nội bộ để xem giá Chiết khấu 35% và 40%.</p>
+      <input id="discount-pass-input" type="password" placeholder="Nhập mật khẩu..."
+        onkeydown="if(event.key==='Enter') submitDiscountPassword()"
+        class="w-full px-4 py-2.5 rounded-xl border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#0a6836]" />
+      <div id="discount-pass-error" class="hidden text-xs font-bold text-red-600">Mật khẩu chưa đúng, vui lòng thử lại.</div>
+      <div class="flex justify-end gap-2 pt-1">
+        <button type="button" onclick="closeDiscountPassModal()" class="px-4 py-2 rounded-xl bg-slate-100 text-slate-700 text-xs font-bold border-0 cursor-pointer">Đóng</button>
+        <button type="button" onclick="submitDiscountPassword()" class="px-5 py-2 rounded-xl bg-[#0a6836] text-white text-xs font-extrabold border-0 cursor-pointer">Mở khóa</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROTOCOL DETAIL MODAL (CHI TIẾT LIỆU TRÌNH) -->
+  <div id="protocol-modal" class="hidden fixed inset-0 z-50 overflow-y-auto bg-slate-900/60 backdrop-blur-md p-2 sm:p-6">
+    <div class="min-h-full flex items-center justify-center">
+      <div class="bg-white rounded-3xl shadow-2xl border border-slate-200 max-w-5xl w-full p-4 sm:p-8 space-y-5">
+        <div class="flex items-center justify-between pb-4 border-b border-slate-100">
+          <button type="button" onclick="closeProtocolModal()" class="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-slate-700 hover:text-[#0a6836] bg-transparent border-0 cursor-pointer">
+            <span class="w-7 h-7 rounded-full bg-slate-100 flex items-center justify-center">←</span><span>Quay lại danh sách liệu trình</span>
+          </button>
+          <button type="button" onclick="closeProtocolModal()" class="w-9 h-9 rounded-full bg-[#991b1b] hover:bg-red-700 text-white font-bold flex items-center justify-center border-0 cursor-pointer">✕</button>
+        </div>
+        <div id="protocol-modal-content" class="space-y-5"></div>
+      </div>
+    </div>
+  </div>
+
   <script src="assets/books-data.js"></script>
   <script src="assets/products-data.js"></script>
+  <script src="assets/protocols-data.js"></script>
   <script src="assets/news-data.js"></script>
   <script src="assets/app.js"></script>
 </body>
