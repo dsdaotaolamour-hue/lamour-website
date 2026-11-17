@@ -602,8 +602,6 @@
       const matchedProducts = q
         ? [...new Set((pr.steps || []).map((s) => s.product).filter((pn) => pn && pn.toLowerCase().includes(q)))]
         : [];
-      const onceVal = pr.totals && pr.totals.once ? formatVnd(Math.round(pr.totals.once)) : 'Liên hệ';
-      const setVal = pr.totals && pr.totals.beforeVat ? formatVnd(pr.totals.beforeVat) : 'Liên hệ';
       return `
         <article onclick="openProtocolModal(${pr.id})"
           class="cursor-pointer bg-white rounded-2xl border border-slate-200 p-4 sm:p-5 shadow-xs hover:shadow-xl hover:-translate-y-1 transition flex flex-col justify-between gap-3 group">
@@ -616,21 +614,12 @@
             <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">${pr.description || ''}</p>
             ${matchedProducts.length ? `<div class="text-[11px] font-bold text-[#0a6836] bg-emerald-50 px-2.5 py-1 rounded-lg">Có dùng: ${matchedProducts.join(', ')}</div>` : ''}
           </div>
-          <div class="pt-3 border-t border-slate-100 space-y-2">
-            <div class="flex flex-wrap items-center gap-2 text-[11px] text-slate-500">
+          <div class="pt-3 border-t border-slate-100 flex items-center justify-between gap-2 text-[11px] text-slate-500">
+            <div class="flex flex-wrap items-center gap-2 min-w-0">
               ${pr.duration ? `<span class="inline-flex items-center gap-1"><svg class="w-3.5 h-3.5 text-[#0a6836]" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path stroke-linecap="round" d="M12 7v5l3 2"/></svg>${pr.duration}</span>` : ''}
               ${pr.frequency ? `<span class="truncate">• ${pr.frequency}</span>` : ''}
             </div>
-            <div class="flex items-center justify-between gap-2 bg-slate-50 rounded-xl px-3 py-2">
-              <div>
-                <div class="text-[9px] font-bold uppercase text-slate-400">Giá vốn 1 lần</div>
-                <div class="text-xs sm:text-sm font-black text-[#0a6836]">${onceVal}</div>
-              </div>
-              <div class="text-right">
-                <div class="text-[9px] font-bold uppercase text-slate-400">Trọn bộ (Trước VAT)</div>
-                <div class="text-xs font-extrabold text-slate-800">${setVal}</div>
-              </div>
-            </div>
+            <span class="text-xs font-extrabold text-[#0a6836] shrink-0 group-hover:translate-x-0.5 transition">Xem chi tiết →</span>
           </div>
         </article>
       `;
@@ -643,11 +632,6 @@
     const host = document.getElementById('protocol-modal-content');
     const modal = document.getElementById('protocol-modal');
     if (!host || !modal) return;
-
-    const totals = pr.totals || {};
-    const ckCard = productState.discountUnlocked
-      ? `<div class="rounded-2xl bg-amber-50 border border-amber-200 p-3.5"><div class="text-[10px] font-bold uppercase text-amber-700">Tổng bộ SP (CK 35%)</div><div class="text-base sm:text-lg font-black text-amber-900 mt-0.5">${formatVnd(Math.round(totals.ck35 || 0))}</div></div>`
-      : '';
 
     const unifiedStepsList = (pr.steps || []).map((s) => `
       <div class="flex items-start sm:items-center justify-between gap-3 p-3 sm:px-4 sm:py-3 rounded-xl border border-slate-200/80 bg-white hover:border-emerald-300 transition">
@@ -688,22 +672,6 @@
         </div>
         <h2 class="text-xl sm:text-2xl font-black text-slate-900">${pr.title}</h2>
         <p class="text-xs sm:text-sm text-slate-600">${pr.description || ''}</p>
-      </div>
-
-      <div class="grid grid-cols-2 sm:grid-cols-${productState.discountUnlocked ? '4' : '3'} gap-3">
-        <div class="rounded-2xl bg-emerald-50 border border-emerald-200 p-3.5">
-          <div class="text-[10px] font-bold uppercase text-[#0a6836]">Chi phí 1 lần làm</div>
-          <div class="text-base sm:text-lg font-black text-[#064b26] mt-0.5">${formatVnd(Math.round(totals.once || 0))}</div>
-        </div>
-        <div class="rounded-2xl bg-slate-50 border border-slate-200 p-3.5">
-          <div class="text-[10px] font-bold uppercase text-slate-500">Trọn bộ (Trước VAT)</div>
-          <div class="text-base sm:text-lg font-black text-slate-900 mt-0.5">${formatVnd(Math.round(totals.beforeVat || 0))}</div>
-        </div>
-        <div class="rounded-2xl bg-slate-50 border border-slate-200 p-3.5">
-          <div class="text-[10px] font-bold uppercase text-slate-500">Trọn bộ (Sau VAT)</div>
-          <div class="text-base sm:text-lg font-black text-slate-900 mt-0.5">${formatVnd(Math.round(totals.afterVat || 0))}</div>
-        </div>
-        ${ckCard}
       </div>
 
       <div class="space-y-2.5">
