@@ -283,7 +283,7 @@
       syncDiscountUI();
       window.closeDiscountPassModal();
       if (productState.subView === 'products') renderProducts(); else renderProtocols();
-      window.showToast('Đã mở khóa giá Chiết khấu 35% & 40%!');
+      window.showToast('Đã mở khóa bảng giá Chiết khấu!');
     } else {
       if (passErr) passErr.classList.remove('hidden');
     }

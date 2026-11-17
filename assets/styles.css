@@ -8,13 +8,18 @@
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  max-width: 100%;
+}
 
 body {
   font-family: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: var(--text-main);
   background-color: #ffffff;
   overflow-x: hidden;
+  max-width: 100%;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -22,6 +27,7 @@ body {
 .tab-panel {
   display: none;
   opacity: 0;
+  overflow-x: hidden;
 }
 
 .tab-panel.is-active {
@@ -30,8 +36,8 @@ body {
 }
 
 @keyframes tabFadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* Scroll Reveal */
@@ -375,6 +381,39 @@ body {
   color: #1c0205;
 }
 
+@media (max-width: 639px) {
+  .aurora-orb,
+  .aurora-orb-delayed,
+  #tab-cong-ty video {
+    display: none !important;
+  }
+  .lamour-header-inner {
+    padding: 0 12px;
+    height: 62px;
+    gap: 8px;
+  }
+  #header-logo-host img {
+    max-height: 32px;
+    max-width: 140px;
+    object-fit: contain;
+  }
+  .lamour-cta-pill {
+    padding: 6px 10px;
+    font-size: 9.5px;
+    letter-spacing: 0.01em;
+  }
+  .toast-banner {
+    left: 12px;
+    right: 12px;
+    bottom: 14px;
+  }
+}
+
+.lamour-header.is-dark #mobile-menu-drawer {
+  background: rgba(26, 3, 6, 0.98);
+  color: #ffffff;
+}
+
 /* Product Price Mode Buttons */
 .price-mode-btn {
   background: rgba(255, 255, 255, 0.14);
@@ -413,9 +452,17 @@ body {
   50% { transform: translate(30px, -20px) scale(1.12); opacity: 0.72; }
 }
 .aurora-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(72px);
+  pointer-events: none;
   animation: auroraFloat 11s ease-in-out infinite;
 }
 .aurora-orb-delayed {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(72px);
+  pointer-events: none;
   animation: auroraFloat 14s ease-in-out infinite reverse;
 }
 
