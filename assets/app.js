@@ -1196,52 +1196,53 @@
 
   // ==================== 4. TAB KHO DỮ LIỆU ====================
   const folderData = {
-    'san-pham': {
-      title: '01. Kiến thức Sản phẩm công ty',
-      subtitle: 'Thương hiệu ISOV & Dược mỹ phẩm Hàn Quốc',
-      color: '#1A73E8',
-      desc: 'Tổng hợp đầy đủ Catalogue, bảng phân tích hoạt chất (PDRN, Exosome, Astaxanthin, Azulene...), hướng dẫn phối hợp sản phẩm tại Spa và Homecare.',
-      driveUrl: 'https://drive.google.com',
+    'khoa-hoc': {
+      title: '01/ Khóa học Chuyên môn',
+      subtitle: 'Khóa đào tạo Online Da liễu, điều trị & sản phẩm',
+      color: '#065F46',
+      desc: 'Khóa đào tạo Online bài bản về kiến thức Da liễu thẩm mỹ, nguyên lý điều trị các vấn đề da, cách sử dụng liệu trình và phối hợp sản phẩm chuẩn y khoa.',
+      driveUrl: 'https://drive.google.com/drive/folders/1Uk571Jf1W8lKpBS8gN-eNhbPlA7gVsI9?usp=drive_link',
       files: [
-        { name: 'Cẩm nang hoạt chất & Sản phẩm ISOV 2026.pdf', type: 'PDF • 18.4 MB' },
-        { name: 'Slide đào tạo Derma Matrix EXO-PN Skin Booster.pptx', type: 'SLIDE • 42.1 MB' },
-        { name: 'Bảng tra cứu pH & Độ tương thích hoạt chất.xlsx', type: 'SHEET • 1.2 MB' }
+        { name: 'Kiến thức Da liễu & Phân tích cấu trúc da chuẩn y khoa', type: 'KHÓA HỌC' },
+        { name: 'Hướng dẫn điều trị & Phối hợp liệu trình theo từng tình trạng da', type: 'BÀI GIẢNG' },
+        { name: 'Đào tạo ứng dụng sản phẩm chuyên sâu tại Spa & Homecare', type: 'VIDEO' }
       ]
     },
     'lieu-trinh': {
-      title: '02. Kiến thức Liệu trình cho Spa',
-      subtitle: 'Quy trình chuẩn hóa từ cơ bản đến chuyên sâu',
-      color: '#065F46',
-      desc: 'Phác đồ điều trị nám đa tầng cá nhân hóa, trẻ hóa Mesotherapy, phục hồi da nhiễm Corticoid và quy trình chăm sóc chuẩn y khoa từng bước.',
-      driveUrl: 'https://drive.google.com',
+      title: '02/ Liệu trình Spa Lamour',
+      subtitle: 'Các liệu trình đang triển khai & Hướng dẫn sử dụng',
+      color: '#0a6836',
+      desc: 'Tổng hợp toàn bộ các liệu trình Spa Lamour đang triển khai, kèm tài liệu chuyên môn liên quan từng liệu trình và hướng dẫn thực hành chi tiết.',
+      driveUrl: 'https://drive.google.com/drive/folders/1xYlZqQKWw3daR5XS226zwIQZP4fTFxqf?usp=drive_link',
       files: [
-        { name: 'Phác đồ Điều trị Nám đa tầng cá nhân hóa ISOV.pdf', type: 'PDF • 24.0 MB' },
-        { name: 'Quy trình 12 bước Mesotherapy vô khuẩn tại Spa.pdf', type: 'PDF • 9.8 MB' },
-        { name: 'Thư viện hình ảnh Before - After ca lâm sàng.folder', type: 'FOLDER • 120 ảnh' }
+        { name: 'Bộ phác đồ các liệu trình đang triển khai tại Spa Lamour', type: 'PHÁC ĐỒ' },
+        { name: 'Tài liệu định lượng & Quy trình thực hiện từng bước', type: 'TÀI LIỆU' },
+        { name: 'Hướng dẫn sử dụng & Chăm sóc sau liệu trình cho khách hàng', type: 'HƯỚNG DẪN' }
       ]
     },
-    'khoa-hoc': {
-      title: '03. Khóa học Chuyên môn Da liễu',
-      subtitle: 'Nền tảng giải phẫu da & Bệnh lý học thẩm mỹ',
-      color: '#D99B00',
-      desc: 'Hệ thống bài giảng đào tạo nội bộ giúp chủ Spa và kỹ thuật viên nắm vững cấu trúc hàng rào bảo vệ da, phân loại Fitzpatrick và xử lý biến chứng.',
-      driveUrl: 'https://drive.google.com',
+    'san-pham': {
+      title: '03/ Sản phẩm Lamour phân phối',
+      subtitle: 'Tất cả sản phẩm Lamour đang phân phối',
+      color: '#047857',
+      desc: 'Tài liệu chi tiết của tất cả sản phẩm Lamour đang phân phối: thành phần hoạt chất, công dụng, cách dùng và tư liệu truyền thông.',
+      driveUrl: 'https://drive.google.com/drive/folders/1Pu48cJx_5QpydyoGqDmUY1GJQNBlZfXJ?usp=drive_link',
+      showWebTabBtn: true,
       files: [
-        { name: 'Giáo trình Da liễu Thẩm mỹ ứng dụng (Bản dịch chuẩn).pdf', type: 'PDF • 35.6 MB' },
-        { name: 'Bộ câu hỏi trắc nghiệm đánh giá năng lực KTV.docx', type: 'DOC • 3.4 MB' },
-        { name: 'Video phân tích soi da & Chẩn đoán lâm sàng.mp4', type: 'VIDEO • HD' }
+        { name: 'Hồ sơ sản phẩm dược mỹ phẩm ISOV & các dòng phân phối', type: 'CATALOGUE' },
+        { name: 'Bảng phân tích hoạt chất & Công dụng chuyên sâu', type: 'HOẠT CHẤT' },
+        { name: 'Hình ảnh, tư liệu sản phẩm hỗ trợ tư vấn & truyền thông', type: 'MEDIA' }
       ]
     },
     'doanh-thu': {
-      title: '04. Mô hình tạo doanh thu 100 triệu / tháng',
-      subtitle: 'Giải pháp vận hành, Marketing & Chốt sale thực chiến',
-      color: '#EA4335',
-      desc: 'Bộ công cụ đóng gói sẵn giúp chủ Spa thiết kế menu dịch vụ, kịch bản tư vấn tăng tỷ lệ chốt liệu trình và kế hoạch truyền thông thu hút khách hàng.',
-      driveUrl: 'https://drive.google.com',
+      title: '04/ Mô hình tạo doanh thu 100 triệu/tháng',
+      subtitle: 'Máy MesoFiller Pro, 5 loại Mesotox, Marketing & Quản lý Spa',
+      color: '#b45309',
+      desc: 'Hệ thống tài liệu & video giúp Spa xây dựng mô hình doanh thu 100 triệu/tháng với máy MesoFiller Pro: đào tạo máy, 5 loại Mesotox, chiến lược Marketing và quản lý vận hành.',
+      driveUrl: 'https://drive.google.com/drive/folders/1VY-CqvXRO4qi9A0VF2aYn-JF2pMlKxhj?usp=drive_link',
       files: [
-        { name: 'Bản đồ lộ trình đạt mốc 100tr/tháng cho Spa vừa & nhỏ.pdf', type: 'PDF • 14.2 MB' },
-        { name: 'Kịch bản tư vấn & Xử lý từ chối khách hàng nám.docx', type: 'DOC • 2.1 MB' },
-        { name: 'Bộ mẫu bài viết & Media Marketing ISOV có sẵn.folder', type: 'FOLDER • 85 files' }
+        { name: 'Video đào tạo vận hành & ứng dụng máy MesoFiller Pro', type: 'VIDEO' },
+        { name: 'Video đào tạo chuyên sâu 5 loại Mesotox', type: 'VIDEO' },
+        { name: 'Chiến lược Marketing thu hút khách & Chiến lược quản lý Spa', type: 'CHIẾN LƯỢC' }
       ]
     }
   };
@@ -1254,6 +1255,8 @@
     document.getElementById('modalSubtitle').textContent = data.subtitle;
     document.getElementById('modalDesc').textContent = data.desc;
     document.getElementById('modalDriveLink').href = data.driveUrl;
+    const webBtn = document.getElementById('modalWebTabBtn');
+    if (webBtn) webBtn.classList.toggle('hidden', !data.showWebTabBtn);
     document.getElementById('modalFileList').innerHTML = data.files.map((f) => `
       <div class="flex items-center justify-between p-3 rounded-xl bg-slate-50 border border-slate-200 text-xs">
         <span class="font-bold text-slate-800 truncate pr-3">${f.name}</span>
