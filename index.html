@@ -975,9 +975,20 @@
             <input id="search-input" type="text" placeholder="Nhập tên sách, tên tác giả hoặc mã sách để tìm sách"
               class="w-full h-11 sm:h-12 pl-5 pr-11 rounded-full bg-white text-slate-900 placeholder-slate-400 text-xs sm:text-sm font-medium shadow-md focus:outline-none focus:ring-2 focus:ring-amber-300" />
           </div>
-          <select id="category-select" class="h-11 sm:h-12 px-4 rounded-full bg-white text-slate-800 text-xs sm:text-sm font-semibold shadow-md lg:w-52">
-            <option value="ALL">Tất cả thể loại</option>
-          </select>
+          <div id="category-dropdown-wrap" class="relative lg:w-64">
+            <button id="category-dropdown-btn" type="button" onclick="toggleCategoryDropdown()"
+              class="w-full h-11 sm:h-12 px-4 rounded-full bg-white text-slate-800 text-xs sm:text-sm font-semibold shadow-md flex items-center justify-between gap-2 cursor-pointer border-0">
+              <span id="category-dropdown-label" class="truncate">Tất cả thể loại</span>
+              <svg class="w-4 h-4 text-slate-500 shrink-0" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+            </button>
+            <div id="category-dropdown-panel"
+              class="hidden absolute left-0 right-0 sm:right-auto sm:w-80 top-full mt-2 bg-white rounded-2xl shadow-2xl border border-slate-200 p-3 z-50 text-slate-900 space-y-2.5">
+              <input id="category-search-input" type="text" placeholder="Tìm thể loại (vd: y khoa, spa, kinh doanh...)"
+                oninput="renderCategoryOptions(this.value)"
+                class="w-full h-9 px-3.5 rounded-xl bg-slate-100 border border-slate-200 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-[#0a6836]" />
+              <div id="category-options-list" class="max-h-64 overflow-y-auto space-y-1 pr-1"></div>
+            </div>
+          </div>
           <select id="language-select" class="h-11 sm:h-12 px-4 rounded-full bg-white text-slate-800 text-xs sm:text-sm font-semibold shadow-md lg:w-48">
             <option value="ALL">Tất cả sách</option>
           </select>
