@@ -773,17 +773,85 @@
     return html;
   }
 
-  function initBooksSection() {
-    const catSel = document.getElementById('category-select');
-    const langSel = document.getElementById('language-select');
-    if (catSel && catSel.options.length <= 1) {
-      [...new Set(books.flatMap((b) => b.category.split(';').map((s) => s.trim())).filter(Boolean))].forEach((c) => {
-        const o = document.createElement('option');
-        o.value = c;
-        o.textContent = c;
-        catSel.appendChild(o);
+  let categoryStats = [];
+
+  function buildCategoryStats() {
+    const map = new Map();
+    books.forEach((b) => {
+      const parts = String(b.category || '').split(';').map((s) => s.trim()).filter(Boolean);
+      const uniqueForBook = [...new Set(parts)];
+      uniqueForBook.forEach((cat) => {
+        map.set(cat, (map.get(cat) || 0) + 1);
       });
+    });
+    categoryStats = [...map.entries()]
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name, 'vi'));
+  }
+
+  window.renderCategoryOptions = function (filterText = '') {
+    const listEl = document.getElementById('category-options-list');
+    if (!listEl) return;
+    const q = String(filterText || '').trim().toLowerCase();
+    const items = categoryStats.filter((c) => !q || c.name.toLowerCase().includes(q));
+
+    const allActive = bookState.category === 'ALL';
+    let html = '';
+    if (!q) {
+      html += `
+        <button type="button" onclick="selectBookCategory('ALL')"
+          class="w-full px-3 py-2 rounded-xl text-left text-xs font-bold flex items-center justify-between gap-2 transition cursor-pointer border-0 ${allActive ? 'bg-[#0a6836] text-white' : 'bg-transparent text-slate-700 hover:bg-emerald-50 hover:text-[#0a6836]'}">
+          <span>Tất cả thể loại</span>
+          <span class="px-2 py-0.5 rounded-full text-[10px] ${allActive ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-500'}">${books.length}</span>
+        </button>`;
     }
+
+    if (!items.length) {
+      html += `<div class="px-3 py-4 text-center text-xs text-slate-400">Không tìm thấy thể loại phù hợp</div>`;
+    } else {
+      html += items.map((c) => {
+        const active = bookState.category === c.name;
+        const safeName = c.name.replace(/'/g, "\\'");
+        return `
+          <button type="button" onclick="selectBookCategory('${safeName}')"
+            class="w-full px-3 py-2 rounded-xl text-left text-xs font-semibold flex items-center justify-between gap-2 transition cursor-pointer border-0 ${active ? 'bg-[#0a6836] text-white font-bold' : 'bg-transparent text-slate-700 hover:bg-emerald-50 hover:text-[#0a6836]'}">
+            <span class="truncate">${c.name}</span>
+            <span class="px-2 py-0.5 rounded-full text-[10px] shrink-0 ${active ? 'bg-white/20 text-white' : 'bg-slate-100 text-slate-500'}">${c.count}</span>
+          </button>`;
+      }).join('');
+    }
+    listEl.innerHTML = html;
+  };
+
+  window.toggleCategoryDropdown = function () {
+    const panel = document.getElementById('category-dropdown-panel');
+    const searchIn = document.getElementById('category-search-input');
+    if (!panel) return;
+    const isHidden = panel.classList.contains('hidden');
+    panel.classList.toggle('hidden', !isHidden);
+    if (isHidden) {
+      if (searchIn) {
+        searchIn.value = '';
+        setTimeout(() => searchIn.focus(), 50);
+      }
+      window.renderCategoryOptions('');
+    }
+  };
+
+  window.selectBookCategory = function (cat) {
+    bookState.category = cat || 'ALL';
+    bookState.page = 1;
+    const lbl = document.getElementById('category-dropdown-label');
+    if (lbl) lbl.textContent = bookState.category === 'ALL' ? 'Tất cả thể loại' : bookState.category;
+    const panel = document.getElementById('category-dropdown-panel');
+    if (panel) panel.classList.add('hidden');
+    renderBooksGrid();
+  };
+
+  function initBooksSection() {
+    buildCategoryStats();
+    window.renderCategoryOptions('');
+    const langSel = document.getElementById('language-select');
     if (langSel && langSel.options.length <= 1) {
       [...new Set(books.map((b) => b.language).filter(Boolean))].forEach((l) => {
         const o = document.createElement('option');
@@ -1328,16 +1396,23 @@
     initBooksSection();
 
     const sIn = document.getElementById('search-input');
-    const cSel = document.getElementById('category-select');
     const lSel = document.getElementById('language-select');
     const clrBtn = document.getElementById('clear-filter-btn');
     if (sIn) sIn.addEventListener('input', () => { bookState.search = sIn.value; bookState.page = 1; renderBooksGrid(); });
-    if (cSel) cSel.addEventListener('change', () => { bookState.category = cSel.value; bookState.page = 1; renderBooksGrid(); });
     if (lSel) lSel.addEventListener('change', () => { bookState.language = lSel.value; bookState.page = 1; renderBooksGrid(); });
     if (clrBtn) clrBtn.addEventListener('click', () => {
       bookState.search = ''; bookState.category = 'ALL'; bookState.language = 'ALL'; bookState.page = 1;
-      if (sIn) sIn.value = ''; if (cSel) cSel.value = 'ALL'; if (lSel) lSel.value = 'ALL';
+      if (sIn) sIn.value = ''; if (lSel) lSel.value = 'ALL';
+      const lbl = document.getElementById('category-dropdown-label');
+      if (lbl) lbl.textContent = 'Tất cả thể loại';
       renderBooksGrid();
+    });
+    document.addEventListener('click', (e) => {
+      const wrap = document.getElementById('category-dropdown-wrap');
+      const panel = document.getElementById('category-dropdown-panel');
+      if (wrap && panel && !wrap.contains(e.target)) {
+        panel.classList.add('hidden');
+      }
     });
 
     ['borrow-name', 'borrow-phone', 'borrow-spa'].forEach((id) => {
