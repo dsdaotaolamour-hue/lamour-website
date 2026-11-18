@@ -7,6 +7,7 @@ window.LAMOUR_SITE = {
   phoneRaw: '0868858975',
   zaloUrl: 'https://zalo.me/0868858975',
   discountPass: 'Daotao123',
+  totalBookCopies: 723,
   // Thay đường dẫn ảnh logo của bạn tại đây (hoặc chép file vào assets/company/: logo-lamour-đen.png, logo-lamour-trắng.png, logo-isov.png, logo-drive.png)
   companyLogoUrl: '',
   isovLogoUrl: '',

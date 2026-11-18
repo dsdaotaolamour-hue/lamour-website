@@ -815,7 +815,8 @@
     const start = (bookState.page - 1) * PAGE_SIZE;
     const pageItems = filtered.slice(start, start + PAGE_SIZE);
 
-    if (countText) countText.textContent = `Hiển thị ${pageItems.length} / ${filtered.length} đầu sách`;
+    const totalCopies = site.totalBookCopies || books.length;
+    if (countText) countText.textContent = `Hiển thị ${pageItems.length} / ${filtered.length} đầu sách • Tổng kho: ${books.length} đầu sách (${totalCopies} cuốn)`;
     if (!pageItems.length) {
       grid.innerHTML = '';
       if (emptyState) emptyState.classList.remove('hidden');
